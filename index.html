@@ -1,1 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Display</title>  <!-- have to use this, otherwise the logo displays abnormally large -->
+  <style>
+    .logo-container {
+      background-color: #485159;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .logo-container img {
+      margin-top: 5px;
+      padding: 10px;
+      height: 90px; /* Adjust height as needed */
+      width: auto;  /* Maintain aspect ratio */
+    }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="FAMMA">
+  <meta name="author" content="">
+  <link rel="icon" href="./logo/weaverBird.png" type="image/x-icon">
+  <title>FAMMA</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./style/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="./style/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./style/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="./style/css/bulma.min.css">
+  <link rel="stylesheet" href="./style/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./style/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./style/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./style/css/index.css">
+  <link rel="stylesheet" href="./style/css/leaderboard.css">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./style/js/fontawesome.all.min.js"></script>
+  <script src="./style/js/bulma-carousel.min.js"></script>
+  <script src="./style/js/bulma-slider.min.js"></script>
+  <script src="./style/js/index.js"></script>
+  <script src="./style/js/question_card.js"></script>
+
+
+  <!-- Custom styles for this template -->
+  <link href="./style/clean-blog.min.css" rel="stylesheet">
+  <link href="./style/bird.css" rel="stylesheet">
+
+  <style>
+    .hidden {
+      display:  none;
+    }
+
+    .main-content {
+      flex: 1; /* 主内容占 2 份 */
+      min-width: 300px; /* 确保在小屏幕设备上显示正常 */
+      margin-right: 20px;
+    }
+  
+    .leaderboard {
+      flex: 1; /* 领导榜占 1 份 */
+      min-width: 200px; /* 确保在小屏幕设备上显示正常 */
+    }
+
+    /* 单元格悬停变色 */
+    td:hover {
+      background-color: #eeeeee9b; /* 你可以根据需要修改颜色 */
+    }
+    th:hover {
+      background-color: #bb3737d7; /* 你可以根据需要修改颜色 */
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.35em 0.65em;
+        font-size: 0.75em;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+    }
+    .badge-secondary {
+        background-color: #6c757d !important;
+    }
+
+
+
+  </style>
+
+  <script src="script/sort-table.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<!-- Title -->
+<body>
+  <header class="masthead" id="header-color">
+    <div class="logo-container">
+      <img src="./logo/alipay4.png" alt="Alipay Logo">
+      <img src="./logo/ali.png" alt="Ali Logo">
+      <img src="./logo/zju.png" alt="ZJU Logo">
+      <img src="./logo/ttic.jpg" alt="TTIC Logo">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-12 mx-auto">
+          <div class="row site-heading flex-box">
+            <div class="col-lg-2">
+              <img id="logo-img" src="logo/weaverBird.png" alt="logo" />
+            </div>
+            <div class="col-lg-10">
+              <div class="align-middle">
+                <h1 id="bird-title">
+                  FAMMA
+                </h1>
+                <span class="subheading" id="caption">A Benchmark for <u>F</u>in<u>a</u>ncial Domain <u>M</u>ultilingual <u>M</u>ultimodal Question <u>A</u>nswering</span>
+                <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <!-- @PAN TODO: change links -->
+                <a href="https://arxiv.org/abs/xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/papers/xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <p style="font-size:18px">🤗</p>
+                  </span>
+                  <span>HF Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/xx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <!-- <i class="far fa-images"></i> -->
+                      <p style="font-size:18px">🤗</p>
+                      <!-- 🔗 -->
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/famma-bench/famma"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+  <!-- Main Content -->
+  <div class="container" id="main">
+    <div class="row custom-row">
+      <div class="main-content">
+        <div class="list-group">
+<!--          <div class="list-group-item" id="introduction">-->
+<!--            &lt;!&ndash; <div style="display: grid; grid-template-columns: auto auto; align-items: center;"> &ndash;&gt;-->
+<!--            <h4>About FinMMU</h4>-->
+<!--            &lt;!&ndash; <img src="https://badges.toozhao.com/badges/01HFXP6JKNBG5AW3Y5B95DK568/blue.svg" /> &ndash;&gt;-->
+<!--            &lt;!&ndash; </div> &ndash;&gt;-->
+<!--            <p>-->
+<!--              Introduce FinMMU Here-->
+<!--            </p>-->
+<!--            <div id="button-group">-->
+<!--              <div class="button-row">-->
+<!--                <a href="https://arxiv.org/pdf/2305.03111.pdf" target="_blank">-->
+<!--                  <button type="button" class="btn  btn-a">Paper</button>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div class="button-row">-->
+<!--                <a href="https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird" target="_blank">-->
+<!--                  <button type="button" class="btn btn-a">-->
+<!--                    Code-->
+<!--                  </button>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div class="button-row">  -->
+<!--                <a href="https://github.com/bird-bench/mini_dev" target="_blank">-->
+<!--                  <button type="button" class="btn btn-d">Mini-Dev (500)</button> -->
+<!--                </a>-->
+<!--              </div> -->
+<!--              <div class="button-row" id="button-row-b">-->
+<!--                <div class="btn-round">-->
+<!--                  <a href="https://bird-bench.oss-cn-beijing.aliyuncs.com/train.zip" target="_blank">-->
+<!--                    <button type="button" class="btn btn-b">Train Set</button>-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--                <div class="btn-round">-->
+<!--                  <a href="https://bird-bench.oss-cn-beijing.aliyuncs.com/dev.zip" target="_blank">-->
+<!--                    <button type="button" class="btn btn-b">🔥 Dev Set</button>-->
+<!--                  </a>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+          <style>  
+            .scroll-container {  
+              position: relative;  
+              width: 100%;  
+              max-height: 300px;  
+              overflow-y: scroll;  
+            }  
+              
+            /* Hide the scrollbar by default */  
+            .scroll-container::-webkit-scrollbar {  
+                width: 10px;  
+                background: transparent;
+            }  
+              
+            /* Set the scrollbar thumb color */  
+            .scroll-container::-webkit-scrollbar-thumb {  
+                background-color: #FFFFFF;  
+                border-radius: 5px;  
+            }  
+              
+            /* Show the scrollbar when the mouse is hovering over the scroll container */  
+            .scroll-container:hover::-webkit-scrollbar {  
+                width: 10px;  
+            }  
+              
+            .scroll-container:hover::-webkit-scrollbar-thumb:hover {  
+                background-color: #555;  
+            }  
+            
+          </style>
+          <script>  
+            function showMiniDevMessage() {  
+              alert("Coming Soon: Mini-Dev! Dive into 500 top-tier SQL cases covering all keywords in BIRD, including advanced window functions. For the first time, we're also including PostgreSQL and MySQL. Stay ahead and subscribe us for the immediate launch.");  
+            }  
+          </script>  
+          
+          <div class="list-group-item" id="news">
+            <h5 class="title is-5">News</h5>
+            
+            <div class="scroll-container">  
+              <div class="card card-outline-secondary mb-4" style="text-align: left;">                      
+                  <div class="card-body" style="background-color: #F1F6F9;">  
+                      <ul style="padding-left: 0;">
+                          <li style="list-style-type: none;"><span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Apr. 27, 2024:</strong></span> We released our benchmark.</li>
+                          <li style="list-style-type: none;"><span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">May. 27, 2023:</strong></span> Glad to share our paper <a href="https://arxiv.org/abs/2308.05361">WeaverBird: Empowering Financial Decision-Making with Large Language Model, Knowledge Base, and Search Engine</a>, an intelligent dialogue system designed specifically for the finance domain.</li>
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Mar 13, 2024:</strong></span> Please also take a look at our related work: <a href="https://arxiv.org/abs/2403.05307">Tapilot-Crossing</a>, which is the first challenging and more realistic benchmark designed to evaluate Large Language Model (LLM) agents on interactive data analysis tasks. The code includes Python and Private Library. And it covers 6 common agent actions in evaluation.</li>-->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 25, 2023:</strong></span> We have released a cleaner version of <code>dev set</code>. Please download dev set again. We checked all cases of dev set and fixed all errors that we found. After cleaning, the ChatGPT (gpt-3.5-turbo) and GPT4 (gpt-4-32k) EX scores have improved to <strong>42.24</strong> (from 37.22) and <strong>49.15</strong> (from 46.35), respectively. Thanks for all feedbacks!</li>-->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 21, 2023:</strong></span> Our paper has been accepted by <code><strong>NeurIPS 2023</strong></code> as a <code><strong>Spotlight</strong></code>!!! Thanks for all the efforts and suggestions of co-authors, anonymous reviewers, awesome researchers/users in github or emails.</li> -->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 17, 2023:</strong></span> We update newest results of GPT-4, Claude-2 and Palm-2. </li>  -->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 14, 2023:</strong></span> The data link has been updated, fixing the schema names in the CSV files. Additionally, tied results caused by <code>order_by limit 1</code> are now considered. Both SQL queries - with and without accounting for tied results -  -->
+<!--                              are valid at this time.</li>-->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">Jun 12, 2023:</strong></span> We are welcome to any suggestions and reported gold errors in <a href="https://github.com/AlibabaResearch/DAMO-ConvAI/issues/39">help_wanted</a>. Any of your help is appreciated!</li>-->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">Jun 5, 2023:</strong></span> We open-sourced our <a href="https://arxiv.org/abs/2301.07507">Graphix-T5</a>, a graph-aware semi-pretrained text-to-text PLM specifically designed to improve multi-hop reasoning for the complex text-to-SQL task.  -->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">May 30, 2023:</strong></span> If you are interested in ICL, please check out our interesting work <a href="https://arxiv.org/pdf/2305.13016.pdf">deep-thinking🤔.</a> Generate 1000 models for 1000 people smoothly!  -->
+
+                      </ul>  
+                  </div>  
+              </div>  
+            </div>
+          </div>
+
+          <div class="list-group-item" id="statistics">
+
+            <h5 class="title is-5">Dataset Statistics</h5>
+            <p>
+              Our dataset consists of <strong>1,700 </strong> meticulously collected <strong>multimodal</strong> questions. The questions encompass <strong>three heterogeneous image types</strong> - tables, charts and text & math screenshots - and span <strong>seven subfields</strong> in finance, comprehensively covering topics across major asset classes. Additionally, all the questions are categorized by <strong>three difficulty levels</strong> — easy, medium, and hard - and are available in <strong>three languages</strong> — English, Chinese, and French. Furthermore, the questions are divided into <strong>two types</strong>: multiple-choice and open questions.
+            </p>
+
+            <div class="content has-text-centered">
+              <canvas id="subfield_chart"></canvas>
+              <p>Distribution of question subfields across difficulty levels.</p>
+            </div>
+
+            <div class="content has-text-centered">
+              <canvas id="language_chart"></canvas>
+              <p>Distribution of question in different languages across difficulty levels.</p>
+            </div>
+
+            <div class="content has-text-centered">
+              <canvas id="mc_chart"></canvas>
+              <p>Distribution of question types across difficulty levels.</p>
+            </div>
+
+          </div>
+          <div class="list-group-item">
+            <h5 class="title is-5">Submission</h5>
+            <p>Please follow the Submission Guideline (below) and contact <code>bird.bench23@gmail.com</code> for test evaluation. Ususally, we will return your results in 10 days!
+             
+            </p>
+            <style>  
+              .btn-a {  
+                border-radius: 25px; /* Adjust this value to change the roundness of the button */  
+              }  
+              .btn-a:hover {  
+                background-color: #22A699; /* Change the background color when the cursor is over the button */  
+              }  
+            </style>  
+            <div class="button-row">
+              <a href="https://docs.google.com/document/d/1Rs6d_pcs2vfqW4Ymub7Wb1XtBNlrc-WfH3T7U1ktuBo/edit?usp=sharing" target="_blank">
+                <button type="button" class="btn  btn-a">Submission Guidelines</button>
+              </a>
+            </div>
+          </div>
+          
+<!--          <div class="list-group-item">-->
+<!--            <h4>Subscribe to BIRD Update</h4>  -->
+<!--            <p>Bird is a long-term research project aimed at bridging the gap between semantic parsing models and the success of database applications. To receive the latest updates of the dataset, you can leave your email address.-->
+<!--            </p>-->
+<!--            <form onsubmit="return submitForm();">  -->
+<!--                <input type="email" id="email" name="email" placeholder="Email address" required>  -->
+<!--                <button type="submit">Subscribe</button>  -->
+<!--            </form>  -->
+<!--            <p id="message"></p>  -->
+<!--          </div> -->
+          
+          <head>  
+              <meta charset="utf-8">  
+              <title>Email Subscription</title>  
+              <script>  
+                function submitForm() {  
+                  var email = document.getElementById("email").value;  
+                  var url = "https://script.google.com/macros/s/AKfycbynv6Ibnl9gJosprkRmXhbKtllZX8dqrbj_xQkcbZ_NgEDBxwyjz1xyvIvnm_4yPh3ZPA/exec";  
+                  var data = "email=" + encodeURIComponent(email);  
+                    
+                  fetch(url, {  
+                    method: "POST",  
+                    body: data,  
+                    headers: {  
+                      "Content-Type": "application/x-www-form-urlencoded"  
+                    }  
+                  })  
+                  .then(response => response.text())  
+                  .then(text => {  
+                    document.getElementById("message").innerHTML = "<i>Subscribe Successfully! Thanks for your attention!</i>";  
+                  })  
+                  .catch(error => {  
+                    console.error("Error:", error);  
+                  });  
+                    
+                  return false;  
+                }  
+              </script>  
+          </head>   
+          <div class="list-group-item">
+            <h5 class="title is-5"> Citation </h5>
+            <pre id="citation">
+@article{
+  year={2024}
+}</pre>
+          </div>
+          <!-- Contributor -->
+          <div class="list-group-item">
+            <h5 class="title is-5">Core Contributors</h5>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block">Siqiao Xue<sup style="color:#6fbf73;">1</sup>,</span>
+              <span class="author-block">Tingting Chen<sup style="color:#6fbf73;">1</sup>,</span>
+              <span class="author-block">Fan Zhou<sup style="color:#6fbf73;">1</sup>,</span>
+              <span class="author-block">Qingyang Dai<sup style="color:#6fbf73;">1</sup>,</span>
+              <span class="author-block">Zhixuan Chu<sup style="color:#ffac33;">2</sup>,</span>
+              <span class="author-block">Zhiyi Mou<sup style="color:#ffac33;">2</sup>,</span>
+              <span class="author-block">Yujie Wei<sup style="color:#ffac33;">2</sup>,</span>
+              <span class="author-block">Hongyuan Mei<sup style="color:#ed4b82;">3</sup></span>
+            </div>
+            <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup style="color:#6fbf73;">1</sup>Alipay,</span>
+              <span class="author-block"><sup style="color:#ffac33;">2</sup>Zhejiang University,</span>
+              <span class="author-block"><sup style="color:#ed4b82;">3</sup>TTIC</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+<!-- LeaderBoard -->
+      <div class="col-lg-7">
+        <!-- Button Change (English, Chinese, French) -->
+        <td class="align-middle text-center">
+        <button id="toggleButton" class="btn  button-row" onclick="changeButtonText()">
+          <b style='font-size: larger;'>Main Leaderboard &nbsp;</b>  (Click to Switch)
+        </button>
+        </td>
+
+
+        <div class="model-labels-container">
+            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
+            <span class="leaderboard-label" style="background-color: rgba(117, 209, 215, 0.1);">Proprietary</span>
+          </div>
+
+        <!-- Leaderboard (main) -->
+        <div class="card card-outline-secondary" id="main_table">
+          <div class="card-header">Consolidated Scores on Test Set</div>
+          <div class="table-wrapper">
+            <table class="table" id="mn-table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="1"></th>
+                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
+<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
+                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="table-success">
+                  <td scope="row" class="align-middle text-center"><br>
+                  </td>
+                  <td class="align-middle text-center">Human Performance<br>
+                    <span class="affiliation">Data Engineers + DB Students</span>
+                  </td>
+                  <td class="align-middle text-center">N/A</td>
+                  <td class="align-middle text-center"><b>92.96</b></td>
+                  <td class="align-middle text-center">90.00</td>
+                  <td class="align-middle text-center">91.00</td>
+                  <td class="align-middle text-center">85.00</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center"> RECAP + Gemini<br>
+                    <span class="affiliation">Google Cloud</span>
+                  </td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">69.03</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 2, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ByteBrain<br>
+                    <span class="affiliation">ByteDance Infra Lab</span>
+                  </td>
+                  <td class="align-middle text-center">33B</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">68.87</td>
+                </tr>
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ExSL + granite-20b-code<br>
+                    <span class="affiliation">IBM Research AI</span>
+                  </td>
+                  <td class="align-middle text-center">20B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.38</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">67.86</td>
+                </tr>
+
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 21, 2024</span>
+                  </td>
+                  <td class="align-middle text-center" >CHESS<br>
+                    <span class="affiliation">Stanford</span><br><a href="https://arxiv.org/abs/2405.16755" class="paperlink">[Talaei et al.'24]</a>
+                  </td>
+                  <td class="align-middle text-center">30B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.00</td>
+                  <td class="align-middle text-center">66.69</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Leaderboard (English) -->
+        <div class="card card-outline-secondary hidden" id="english_table">
+          <div class="card-header">
+            Scores on English-specific Test Set
+          </div>
+          <div class="table-wrapper">
+            <table class="table" id="en-table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="1"></th>
+                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
+<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
+                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="table-success">
+                  <td scope="row" class="align-middle text-center"><br>
+                  </td>
+                  <td class="align-middle text-center">Human Performance<br>
+                    <span class="affiliation">Data Engineers + DB Students</span>
+                  </td>
+                  <td class="align-middle text-center">N/A</td>
+                  <td class="align-middle text-center"><b>92.96</b></td>
+                  <td class="align-middle text-center">90.00</td>
+                  <td class="align-middle text-center">91.00</td>
+                  <td class="align-middle text-center">85.00</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center"> RECAP + Gemini<br>
+                    <span class="affiliation">Google Cloud</span>
+                  </td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">69.03</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 2, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ByteBrain<br>
+                    <span class="affiliation">ByteDance Infra Lab</span>
+                  </td>
+                  <td class="align-middle text-center">33B</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">68.87</td>
+                </tr>
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ExSL + granite-20b-code<br>
+                    <span class="affiliation">IBM Research AI</span>
+                  </td>
+                  <td class="align-middle text-center">20B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.38</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">67.86</td>
+                </tr>
+
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 21, 2024</span>
+                  </td>
+                  <td class="align-middle text-center" >CHESS<br>
+                    <span class="affiliation">Stanford</span><br><a href="https://arxiv.org/abs/2405.16755" class="paperlink">[Talaei et al.'24]</a>
+                  </td>
+                  <td class="align-middle text-center">30B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.00</td>
+                  <td class="align-middle text-center">66.69</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Leaderboard (Chinese) -->
+        <div class="card card-outline-secondary hidden" id="chinese_table">
+          <div class="card-header">Scores on Chinese-specific Test Set</div>
+          <div class="table-wrapper">
+            <table class="table" id="cn-table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="1"></th>
+                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
+<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
+                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="table-success">
+                  <td scope="row" class="align-middle text-center"><br>
+                  </td>
+                  <td class="align-middle text-center">Human Performance<br>
+                    <span class="affiliation">Data Engineers + DB Students</span>
+                  </td>
+                  <td class="align-middle text-center">N/A</td>
+                  <td class="align-middle text-center"><b>92.96</b></td>
+                  <td class="align-middle text-center">90.00</td>
+                  <td class="align-middle text-center">91.00</td>
+                  <td class="align-middle text-center">85.00</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center"> RECAP + Gemini<br>
+                    <span class="affiliation">Google Cloud</span>
+                  </td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">69.03</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 2, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ByteBrain<br>
+                    <span class="affiliation">ByteDance Infra Lab</span>
+                  </td>
+                  <td class="align-middle text-center">33B</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">68.87</td>
+                </tr>
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ExSL + granite-20b-code<br>
+                    <span class="affiliation">IBM Research AI</span>
+                  </td>
+                  <td class="align-middle text-center">20B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.38</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">67.86</td>
+                </tr>
+
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 21, 2024</span>
+                  </td>
+                  <td class="align-middle text-center" >CHESS<br>
+                    <span class="affiliation">Stanford</span><br><a href="https://arxiv.org/abs/2405.16755" class="paperlink">[Talaei et al.'24]</a>
+                  </td>
+                  <td class="align-middle text-center">30B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.00</td>
+                  <td class="align-middle text-center">66.69</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Leaderboard (French) -->
+        <div class="card card-outline-secondary hidden" id="french_table">
+          <div class="card-header">Scores on French-specific Test Set</div>
+          <div class="table-wrapper">
+            <table class="table" id="fr-table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="1"></th>
+                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
+<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
+                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="table-success">
+                  <td scope="row" class="align-middle text-center"><br>
+                  </td>
+                  <td class="align-middle text-center">Human Performance<br>
+                    <span class="affiliation">Data Engineers + DB Students</span>
+                  </td>
+                  <td class="align-middle text-center">N/A</td>
+                  <td class="align-middle text-center"><b>92.96</b></td>
+                  <td class="align-middle text-center">90.00</td>
+                  <td class="align-middle text-center">91.00</td>
+                  <td class="align-middle text-center">85.00</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center"> RECAP + Gemini<br>
+                    <span class="affiliation">Google Cloud</span>
+                  </td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">66.95</td>
+                  <td class="align-middle text-center">69.03</td>
+                </tr>
+
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Jul 2, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ByteBrain<br>
+                    <span class="affiliation">ByteDance Infra Lab</span>
+                  </td>
+                  <td class="align-middle text-center">33B</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">68.87</td>
+                </tr>
+
+                <tr>
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 14, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">ExSL + granite-20b-code<br>
+                    <span class="affiliation">IBM Research AI</span>
+                  </td>
+                  <td class="align-middle text-center">20B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.38</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">67.86</td>
+                </tr>
+
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">May 21, 2024</span>
+                  </td>
+                  <td class="align-middle text-center" >CHESS<br>
+                    <span class="affiliation">Stanford</span><br><a href="https://arxiv.org/abs/2405.16755" class="paperlink">[Talaei et al.'24]</a>
+                  </td>
+                  <td class="align-middle text-center">30B</td>
+                   <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.45</td>
+                  <td class="align-middle text-center">65.00</td>
+                  <td class="align-middle text-center">66.69</td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+        <script>
+         let tableIndex = 0;
+          const tables = ['main_table', 'english_table', 'chinese_table', 'french_table'];
+          const buttonTexts = [
+              "<b style='font-size: larger;'>Main Leaderboard &nbsp;</b> (Click to Switch)",
+              "<b style='font-size: larger;'>Leaderboard for English Subset&nbsp;</b> (Click to Switch)",
+              "<b style='font-size: larger;'>Leaderboard for Chinese Subset&nbsp;</b> (Click to Switch)",
+              "<b style='font-size: larger;'>Leaderboard for French Subset &nbsp;</b> (Click to Switch)"
+          ];
+
+          function toggleTables() {
+              // Hide all tables
+              tables.forEach(tableId => {
+                  document.getElementById(tableId).classList.add('hidden');
+              });
+
+              // Show the current table
+              document.getElementById(tables[tableIndex]).classList.remove('hidden');
+
+              // Update button text
+              document.getElementById('toggleButton').innerHTML = buttonTexts[tableIndex];
+
+              // Increment index, wrap around to 0 if it exceeds 3
+              tableIndex = (tableIndex + 1) % 4;
+          }
+
+          document.addEventListener('DOMContentLoaded', function() {
+              // Show the main table by default
+              document.getElementById('main_table').classList.remove('hidden');
+
+              // Add click event listener to the button
+              document.getElementById('toggleButton').addEventListener('click', toggleTables);
+          });
+
+          const canvas = document.getElementById('subfield_chart');
+          canvas.style.width = '500px';
+          canvas.style.height = '220px';
+          const ctx = document.getElementById('subfield_chart').getContext('2d');
+          const difficulty_level_chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: ['Easy', 'Medium', 'Hard', 'Overall'],
+              datasets: [{
+                label: 'Alternative Investments',
+                data: [19, 11, 52, 82],
+                backgroundColor: 'rgba(117, 209, 215, 0.6)',
+                borderColor: 'rgba(117, 209, 215, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Corporate Finance',
+                data: [97, 141, 63, 301],
+                backgroundColor: 'rgba(196, 123, 160, 0.6)',
+                borderColor: 'rgba(196, 123, 160, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Derivatives',
+                data: [0, 12, 156, 168],
+                backgroundColor: 'rgba(245, 123, 113, 0.6)',
+                borderColor: 'rgba(245, 123, 113, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Economics',
+                data: [0, 0, 25, 25],
+                backgroundColor: 'rgba(255, 208, 80, 0.6)',
+                borderColor: 'rgba(255, 208, 80, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
+              },
+              {
+                label: 'Equity',
+                data: [69, 56, 125, 250],
+                backgroundColor: 'rgba(110, 194, 134, 0.6)',
+                borderColor: 'rgba(110, 194, 134, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Financial Statement Analysis',
+                data: [0, 1, 69, 70],
+                backgroundColor: 'rgba(255, 153, 78, 0.6)',
+                borderColor: 'rgba(255, 153, 78, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Fixed Income',
+                data: [103, 42, 94, 239],
+                backgroundColor: 'rgba(42, 149, 235, 0.6)',
+                borderColor: 'rgba(42, 149, 235, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(245, 123, 113, 1)'
+              },
+              {
+                label: 'Portfolio Management',
+                data: [166, 116, 224, 506],
+                backgroundColor: 'rgba(143, 169, 209, 0.6)',
+                borderColor: 'rgba(143, 169, 209, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(110, 194, 134, 1)'
+              },
+              ]
+            },
+            options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                min: 0,
+                max: 550,
+                ticks: {
+                  stepSize: 40,
+                  font: {
+                    size: 14
+                  }
+                }
+              },
+              x: {
+                ticks: {
+                  font: {
+                    size: 14
+                  }
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 14
+                  }
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return context.dataset.label + ': ' + context.parsed.y;
+                  }
+                }
+              }
+            },
+              onHover: (event, chartElement) => {
+                event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+              }
+            }
+          });
+
+
+          const canvas_2 = document.getElementById('language_chart');
+          canvas_2.style.width = '500px';
+          canvas_2.style.height = '150px';
+          const ctx_2 = document.getElementById('language_chart').getContext('2d');
+          const language_chart = new Chart(ctx_2, {
+            type: 'bar',
+            data: {
+              labels: ['Easy', 'Medium', 'Hard', 'Overall'],
+              datasets: [{
+                label: 'English',
+                data: [480, 188, 620, 1288],
+                backgroundColor: 'rgba(14, 178, 168, 0.6)',
+                borderColor: 'rgba(14, 178, 168, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Chinese',
+                data: [70, 128, 55, 253],
+                backgroundColor: 'rgba(243, 13, 82, 0.5)',
+                borderColor: 'rgba(243, 13, 82, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'French',
+                data: [9, 71, 20, 100],
+                backgroundColor: 'rgba(15, 112, 14, 0.5)',
+                borderColor: 'rgba(15, 112, 14, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
+              },
+              ]
+            },
+            options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                min: 0,
+                max: 1400,
+                ticks: {
+                  stepSize: 200,
+                  font: {
+                    size: 14
+                  }
+                }
+              },
+              x: {
+                ticks: {
+                  font: {
+                    size: 14
+                  }
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 14
+                  }
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return context.dataset.label + ': ' + context.parsed.y;
+                  }
+                }
+              }
+            },
+              onHover: (event, chartElement) => {
+                event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+              }
+            }
+          });
+
+          const canvas_3 = document.getElementById('mc_chart');
+          canvas_3.style.width = '500px';
+          canvas_3.style.height = '150px';
+          const ctx_3 = document.getElementById('mc_chart').getContext('2d');
+          const mc_chart = new Chart(ctx_3, {
+            type: 'bar',
+            data: {
+              labels: ['Easy', 'Medium', 'Hard', 'Overall'],
+              datasets: [{
+                label: 'Multiple Choice',
+                data: [278, 111, 540, 929],
+                backgroundColor: 'rgba(23, 224, 44, 0.4)',
+                borderColor: 'rgba(23, 224, 44, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              {
+                label: 'Open Question',
+                data: [281, 276, 155, 712],
+                backgroundColor: 'rgba(224, 117, 23, 0.5)',
+                borderColor: 'rgba(224, 117, 23, 1)',
+                borderWidth: 1,
+                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+              },
+              ]
+            },
+            options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                min: 0,
+                max: 1000,
+                ticks: {
+                  stepSize: 200,
+                  font: {
+                    size: 14
+                  }
+                }
+              },
+              x: {
+                ticks: {
+                  font: {
+                    size: 14
+                  }
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 14
+                  }
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(context) {
+                    return context.dataset.label + ': ' + context.parsed.y;
+                  }
+                }
+              }
+            },
+              onHover: (event, chartElement) => {
+                event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+              }
+            }
+          });
+        </script>
+
+      </div>
+
+
+    </div>
+
+    <hr>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="./js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
 
