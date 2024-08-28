@@ -132,25 +132,25 @@
               <!-- PDF Link. -->
               <span class="link-block">
                 <!-- @PAN TODO: change links -->
-                <a href="https://arxiv.org/abs/2311.16502"
+                <!-- <a href="https://arxiv.org/abs/2311.16502"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
                   <span>arXiv</span>
-                </a>
+                </a> -->
               </span>
               <span class="link-block">
-                <a href="https://huggingface.co/papers/2311.16502"
+                <!-- <a href="https://huggingface.co/papers/2311.16502"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <p style="font-size:18px">🤗</p>
                   </span>
                   <span>HF Paper</span>
-                </a>
+                </a> -->
               </span>
               <span class="link-block">
-                <a href="https://huggingface.co/datasets/MMMU/MMMU"
+                <a href="https://huggingface.co/datasets/weaverbirdllm/famma"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <!-- <i class="far fa-images"></i> -->
@@ -161,7 +161,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/MMMU-Benchmark/MMMU"
+                <a href="https://github.com/famma-bench/bench-script"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -271,7 +271,7 @@
                   <div class="card-body" style="background-color: #F1F6F9;">  
                       <ul style="padding-left: 0;">
                           <li style="list-style-type: none;"><span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Apr. 27, 2024:</strong></span> We released our benchmark.</li>
-                          <li style="list-style-type: none;"><span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">May. 27, 2023:</strong></span> Glad to share our paper <a href="https://arxiv.org/abs/2308.05361">WeaverBird: Empowering Financial Decision-Making with Large Language Model, Knowledge Base, and Search Engine</a>, an intelligent dialogue system designed specifically for the finance domain.</li>
+                          <!-- <li style="list-style-type: none;"><span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">May. 27, 2023:</strong></span> Glad to share our paper <a href="https://arxiv.org/abs/2308.05361">WeaverBird: Empowering Financial Decision-Making with Large Language Model, Knowledge Base, and Search Engine</a>, an intelligent dialogue system designed specifically for the finance domain.</li> -->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Mar 13, 2024:</strong></span> Please also take a look at our related work: <a href="https://arxiv.org/abs/2403.05307">Tapilot-Crossing</a>, which is the first challenging and more realistic benchmark designed to evaluate Large Language Model (LLM) agents on interactive data analysis tasks. The code includes Python and Private Library. And it covers 6 common agent actions in evaluation.</li>-->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 25, 2023:</strong></span> We have released a cleaner version of <code>dev set</code>. Please download dev set again. We checked all cases of dev set and fixed all errors that we found. After cleaning, the ChatGPT (gpt-3.5-turbo) and GPT4 (gpt-4-32k) EX scores have improved to <strong>42.24</strong> (from 37.22) and <strong>49.15</strong> (from 46.35), respectively. Thanks for all feedbacks!</li>-->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 21, 2023:</strong></span> Our paper has been accepted by <code><strong>NeurIPS 2023</strong></code> as a <code><strong>Spotlight</strong></code>!!! Thanks for all the efforts and suggestions of co-authors, anonymous reviewers, awesome researchers/users in github or emails.</li> -->
@@ -292,7 +292,7 @@
 
             <h5 class="title is-5">Dataset Statistics</h5>
             <p>
-              Our dataset consists of <strong>1,700 </strong> meticulously collected <strong>multimodal</strong> questions. The questions encompass <strong>three heterogeneous image types</strong> - tables, charts and text & math screenshots - and span <strong>seven subfields</strong> in finance, comprehensively covering topics across major asset classes. Additionally, all the questions are categorized by <strong>three difficulty levels</strong> — easy, medium, and hard - and are available in <strong>three languages</strong> — English, Chinese, and French. Furthermore, the questions are divided into <strong>two types</strong>: multiple-choice and open questions.
+              Our dataset consists of <strong>1,758 </strong> meticulously collected <strong>multimodal</strong> questions. The questions encompass <strong>three heterogeneous image types</strong> - tables, charts and text & math screenshots - and span <strong>eight subfields</strong> in finance, comprehensively covering topics across major asset classes. Additionally, all the questions are categorized by <strong>three difficulty levels</strong> — easy, medium, and hard - and are available in <strong>three languages</strong> — English, Chinese, and French. Furthermore, the questions are divided into <strong>two types</strong>: multiple-choice and open questions.
             </p>
 
             <div class="content has-text-centered">
@@ -456,21 +456,22 @@
 
                 <tr>
                   <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Jul 14, 2024</span>
+                    <span class="badge badge-secondary">Aug 21, 2024</span>
                   </td>
-                  <td class="align-middle text-center"> RECAP + Gemini<br>
-                    <span class="affiliation">Google Cloud</span>
+                  <td class="align-middle text-center"> GPT-4o<br>
+                    <span class="affiliation">Open AI</span>
                   </td>
-                  <td class="align-middle text-center">66.95</td>
-                  <td class="align-middle text-center">66.95</td>
-                  <td class="align-middle text-center">66.95</td>
-                  <td class="align-middle text-center">69.03</td>
+                  <td class="align-middle text-center"></td>
+                  <td class="align-middle text-center">47.02</td>
+                  <td class="align-middle text-center">41.65</td>
+                  <td class="align-middle text-center">45.97</td>
+                  <td class="align-middle text-center">48.58</td>
                 </tr>
 
 
                 <tr>
                   <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Jul 2, 2024</span>
+                    <span class="badge badge-secondary">Aug 27, 2024</span>
                   </td>
                   <td class="align-middle text-center">ByteBrain<br>
                     <span class="affiliation">ByteDance Infra Lab</span>
@@ -844,7 +845,7 @@
               labels: ['Easy', 'Medium', 'Hard', 'Overall'],
               datasets: [{
                 label: 'Alternative Investments',
-                data: [19, 11, 52, 82],
+                data: [19, 11, 57, 87],
                 backgroundColor: 'rgba(117, 209, 215, 0.6)',
                 borderColor: 'rgba(117, 209, 215, 1)',
                 borderWidth: 1,
@@ -852,7 +853,7 @@
               },
               {
                 label: 'Corporate Finance',
-                data: [97, 141, 63, 301],
+                data: [73, 129, 54, 256],
                 backgroundColor: 'rgba(196, 123, 160, 0.6)',
                 borderColor: 'rgba(196, 123, 160, 1)',
                 borderWidth: 1,
@@ -860,7 +861,7 @@
               },
               {
                 label: 'Derivatives',
-                data: [0, 12, 156, 168],
+                data: [38, 24, 192, 254],
                 backgroundColor: 'rgba(245, 123, 113, 0.6)',
                 borderColor: 'rgba(245, 123, 113, 1)',
                 borderWidth: 1,
@@ -868,7 +869,7 @@
               },
               {
                 label: 'Economics',
-                data: [0, 0, 25, 25],
+                data: [1, 1, 31, 33],
                 backgroundColor: 'rgba(255, 208, 80, 0.6)',
                 borderColor: 'rgba(255, 208, 80, 1)',
                 borderWidth: 1,
@@ -876,7 +877,7 @@
               },
               {
                 label: 'Equity',
-                data: [69, 56, 125, 250],
+                data: [79, 56, 121, 256],
                 backgroundColor: 'rgba(110, 194, 134, 0.6)',
                 borderColor: 'rgba(110, 194, 134, 1)',
                 borderWidth: 1,
@@ -884,7 +885,7 @@
               },
               {
                 label: 'Financial Statement Analysis',
-                data: [0, 1, 69, 70],
+                data: [80, 8, 7, 95],
                 backgroundColor: 'rgba(255, 153, 78, 0.6)',
                 borderColor: 'rgba(255, 153, 78, 1)',
                 borderWidth: 1,
@@ -892,7 +893,7 @@
               },
               {
                 label: 'Fixed Income',
-                data: [103, 42, 94, 239],
+                data: [103, 41, 104, 248],
                 backgroundColor: 'rgba(42, 149, 235, 0.6)',
                 borderColor: 'rgba(42, 149, 235, 1)',
                 borderWidth: 1,
@@ -900,7 +901,7 @@
               },
               {
                 label: 'Portfolio Management',
-                data: [166, 116, 224, 506],
+                data: [164, 115, 250, 529],
                 backgroundColor: 'rgba(143, 169, 209, 0.6)',
                 borderColor: 'rgba(143, 169, 209, 1)',
                 borderWidth: 1,
@@ -962,7 +963,7 @@
               labels: ['Easy', 'Medium', 'Hard', 'Overall'],
               datasets: [{
                 label: 'English',
-                data: [480, 188, 620, 1288],
+                data: [478, 186, 721, 1385],
                 backgroundColor: 'rgba(14, 178, 168, 0.6)',
                 borderColor: 'rgba(14, 178, 168, 1)',
                 borderWidth: 1,
@@ -978,7 +979,7 @@
               },
               {
                 label: 'French',
-                data: [9, 71, 20, 100],
+                data: [9, 71, 40, 120],
                 backgroundColor: 'rgba(15, 112, 14, 0.5)',
                 borderColor: 'rgba(15, 112, 14, 1)',
                 borderWidth: 1,
@@ -1039,7 +1040,7 @@
               labels: ['Easy', 'Medium', 'Hard', 'Overall'],
               datasets: [{
                 label: 'Multiple Choice',
-                data: [278, 111, 540, 929],
+                data: [280, 133, 563, 976],
                 backgroundColor: 'rgba(23, 224, 44, 0.4)',
                 borderColor: 'rgba(23, 224, 44, 1)',
                 borderWidth: 1,
@@ -1047,7 +1048,7 @@
               },
               {
                 label: 'Open Question',
-                data: [281, 276, 155, 712],
+                data: [277, 252, 253, 782],
                 backgroundColor: 'rgba(224, 117, 23, 0.5)',
                 borderColor: 'rgba(224, 117, 23, 1)',
                 borderWidth: 1,
