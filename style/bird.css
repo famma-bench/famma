@@ -221,9 +221,14 @@ span.line {
 }
 
 .button-row {
+    color: #fff;
+    background-color: #34314c;
     width: 80%;
     margin: 0 auto;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
 }
 
 .btn-a {
@@ -303,67 +308,148 @@ span.line {
     padding: 0.5rem;
 }
 
-#ex-table,
-#ves-table {
+#mn-table,
+#en-table,
+#cn-table,
+#fr-table {
     display: block;
     position: relative;
     max-width: fit-content;
     overflow-x: auto;
-    /* border: #ddd 2px solid; */
-    border-radius: 4px;
-    margin: 0 auto;
-    /* white-space: nowrap; */
+    border: #ddd 2px solid;
+    border-radius: 5px;
+    margin:  auto;
+    white-space: nowrap;
+
+
+}
+
+/* Adjust these widths as needed */
+#mn-table th:nth-child(2),
+#mn-table td:nth-child(2),
+#en-table th:nth-child(2),
+#en-table td:nth-child(2),
+#cn-table th:nth-child(2),
+#cn-table td:nth-child(2),
+#fr-table th:nth-child(2),
+#fr-table td:nth-child(2) {
+    width: 250px;
 }
 
 
-#ex-table {
+
+/* Adjust these widths as needed */
+#mn-table th:nth-child(4),
+#mn-table td:nth-child(4),
+#en-table th:nth-child(4),
+#en-table td:nth-child(4),
+#cn-table th:nth-child(4),
+#cn-table td:nth-child(4),
+#fr-table th:nth-child(4),
+#fr-table td:nth-child(4) {
+    width: 100px;
+}
+
+#en-table {
     counter-reset: tableCounterEX;
 }
 
-#ex-table>tbody>tr:nth-child(2)>.counter-cell::before {
+#en-table>tbody>tr:nth-child(2)>.counter-cell::before {
     content: "🏆" counter(tableCounterEX);
     counter-increment: tableCounterEX;
 }
 
-#ex-table>tbody>tr:nth-child(3)>.counter-cell::before {
+#en-table>tbody>tr:nth-child(3)>.counter-cell::before {
     content: "🥈" counter(tableCounterEX);
     counter-increment: tableCounterEX;
 }
 
-#ex-table>tbody>tr:nth-child(4)>.counter-cell::before {
+#en-table>tbody>tr:nth-child(4)>.counter-cell::before {
     content: "🥉" counter(tableCounterEX);
     counter-increment: tableCounterEX;
 }
 
-#ex-table>tbody>tr>.counter-cell::before {
+#en-table>tbody>tr>.counter-cell::before {
     content: counter(tableCounterEX);
     counter-increment: tableCounterEX;
 }
 
-#ves-table {
-    counter-reset: tableCounterVES;
+
+#cn-table {
+    counter-reset: tableCounterCN;
 }
 
-#ves-table>tbody>tr:nth-child(2)>.counter-cell::before {
-    content: "🏆" counter(tableCounterVES);
-    counter-increment: tableCounterVES;
+#cn-table>tbody>tr:nth-child(2)>.counter-cell::before {
+    content: "🏆" counter(tableCounterCN);
+    counter-increment: tableCounterCN;
 }
 
-#ves-table>tbody>tr:nth-child(3)>.counter-cell::before {
-    content: "🥈" counter(tableCounterVES);
-    counter-increment: tableCounterVES;
+#cn-table>tbody>tr:nth-child(3)>.counter-cell::before {
+    content: "🥈" counter(tableCounterCN);
+    counter-increment: tableCounterCN;
 }
 
-#ves-table>tbody>tr:nth-child(4)>.counter-cell::before {
-    content: "🥉" counter(tableCounterVES);
-    counter-increment: tableCounterVES;
+#cn-table>tbody>tr:nth-child(4)>.counter-cell::before {
+    content: "🥉" counter(tableCounterCN);
+    counter-increment: tableCounterCN;
 }
 
-#ves-table>tbody>tr>.counter-cell::before {
-    content: counter(tableCounterVES);
-    counter-increment: tableCounterVES;
+#cn-table>tbody>tr>.counter-cell::before {
+    content: counter(tableCounterCN);
+    counter-increment: tableCounterCN;
 }
+
+#fr-table {
+    counter-reset: tableCounterFR;
+}
+
+#fr-table>tbody>tr:nth-child(2)>.counter-cell::before {
+    content: "🏆" counter(tableCounterFR);
+    counter-increment: tableCounterFR;
+}
+
+#fr-table>tbody>tr:nth-child(3)>.counter-cell::before {
+    content: "🥈" counter(tableCounterFR);
+    counter-increment: tableCounterFR;
+}
+
+#fr-table>tbody>tr:nth-child(4)>.counter-cell::before {
+    content: "🥉" counter(tableCounterFR);
+    counter-increment: tableCounterFR;
+}
+
+#fr-table>tbody>tr>.counter-cell::before {
+    content: counter(tableCounterFR);
+    counter-increment: tableCounterFR;
+}
+
+
+#mn-table {
+    counter-reset: tableCounterMN;
+}
+
+#mn-table>tbody>tr:nth-child(2)>.counter-cell::before {
+    content: "🏆" counter(tableCounterMN);
+    counter-increment: tableCounterMN;
+}
+
+#mn-table>tbody>tr:nth-child(3)>.counter-cell::before {
+    content: "🥈" counter(tableCounterMN);
+    counter-increment: tableCounterMN;
+}
+
+#mn-table>tbody>tr:nth-child(4)>.counter-cell::before {
+    content: "🥉" counter(tableCounterMN);
+    counter-increment: tableCounterMN;
+}
+
+#mn-table>tbody>tr>.counter-cell::before {
+    content: counter(tableCounterMN);
+    counter-increment: tableCounterMN;
+}
+
 
 .counter-cell .badge {
     display: block;
 }
+
