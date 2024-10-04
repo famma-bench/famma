@@ -806,306 +806,306 @@
         </div>
 
       </div>
-        <script>
-         let tableIndex = 0;
-          const tables = ['main_table', 'english_table', 'chinese_table', 'french_table'];
-          const buttonTexts = [
-              "<b style='font-size: larger;'>Main Leaderboard &nbsp;</b> (Click to Switch)",
-              "<b style='font-size: larger;'>Leaderboard for English Subset&nbsp;</b> (Click to Switch)",
-              "<b style='font-size: larger;'>Leaderboard for Chinese Subset&nbsp;</b> (Click to Switch)",
-              "<b style='font-size: larger;'>Leaderboard for French Subset &nbsp;</b> (Click to Switch)"
-          ];
+      <script>
+       let tableIndex = 0;
+        const tables = ['main_table', 'english_table', 'chinese_table', 'french_table'];
+        const buttonTexts = [
+            "<b style='font-size: larger;'>Main Leaderboard &nbsp;</b> (Click to Switch)",
+            "<b style='font-size: larger;'>Leaderboard for English Subset&nbsp;</b> (Click to Switch)",
+            "<b style='font-size: larger;'>Leaderboard for Chinese Subset&nbsp;</b> (Click to Switch)",
+            "<b style='font-size: larger;'>Leaderboard for French Subset &nbsp;</b> (Click to Switch)"
+        ];
 
-          function toggleTables() {
-              // Hide all tables
-              tables.forEach(tableId => {
-                  document.getElementById(tableId).classList.add('hidden');
-              });
+        function toggleTables() {
+            // Hide all tables
+            tables.forEach(tableId => {
+                document.getElementById(tableId).classList.add('hidden');
+            });
 
-              // Show the current table
-              document.getElementById(tables[tableIndex]).classList.remove('hidden');
+            // Show the current table
+            document.getElementById(tables[tableIndex]).classList.remove('hidden');
 
-              // Update button text
-              document.getElementById('toggleButton').innerHTML = buttonTexts[tableIndex];
+            // Update button text
+            document.getElementById('toggleButton').innerHTML = buttonTexts[tableIndex];
 
-              // Increment index, wrap around to 0 if it exceeds 3
-              tableIndex = (tableIndex + 1) % 4;
+            // Increment index, wrap around to 0 if it exceeds 3
+            tableIndex = (tableIndex + 1) % 4;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show the main table by default
+            document.getElementById('main_table').classList.remove('hidden');
+
+            // Add click event listener to the button
+            document.getElementById('toggleButton').addEventListener('click', toggleTables);
+        });
+
+        const canvas = document.getElementById('subfield_chart');
+        canvas.style.width = '500px';
+        canvas.style.height = '220px';
+        const ctx = document.getElementById('subfield_chart').getContext('2d');
+        const difficulty_level_chart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Easy', 'Medium', 'Hard', 'Overall'],
+            datasets: [{
+              label: 'Alternative Investments',
+              data: [30, 18, 39, 87],
+              backgroundColor: 'rgba(117, 209, 215, 0.6)',
+              borderColor: 'rgba(117, 209, 215, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            {
+              label: 'Corporate Finance',
+              data: [73, 129, 54, 256],
+              backgroundColor: 'rgba(196, 123, 160, 0.6)',
+              borderColor: 'rgba(196, 123, 160, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            {
+              label: 'Derivatives',
+              data: [46, 29, 179, 254],
+              backgroundColor: 'rgba(245, 123, 113, 0.6)',
+              borderColor: 'rgba(245, 123, 113, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            {
+              label: 'Economics',
+              data: [11, 1, 21, 33],
+              backgroundColor: 'rgba(255, 208, 80, 0.6)',
+              borderColor: 'rgba(255, 208, 80, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
+            },
+            {
+              label: 'Equity',
+              data: [107, 65, 84, 256],
+              backgroundColor: 'rgba(110, 194, 134, 0.6)',
+              borderColor: 'rgba(110, 194, 134, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            {
+              label: 'Financial Statement Analysis',
+              data: [56, 21, 18, 95],
+              backgroundColor: 'rgba(255, 153, 78, 0.6)',
+              borderColor: 'rgba(255, 153, 78, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            {
+              label: 'Fixed Income',
+              data: [94, 56, 98, 248],
+              backgroundColor: 'rgba(42, 149, 235, 0.6)',
+              borderColor: 'rgba(42, 149, 235, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(245, 123, 113, 1)'
+            },
+            {
+              label: 'Portfolio Management',
+              data: [191, 119, 219, 529],
+              backgroundColor: 'rgba(143, 169, 209, 0.6)',
+              borderColor: 'rgba(143, 169, 209, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(110, 194, 134, 1)'
+            },
+            ]
+          },
+          options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              min: 0,
+              max: 550,
+              ticks: {
+                stepSize: 40,
+                font: {
+                  size: 14
+                }
+              }
+            },
+            x: {
+              ticks: {
+                font: {
+                  size: 14
+                }
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 14
+                }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y;
+                }
+              }
+            }
+          },
+            onHover: (event, chartElement) => {
+              event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+            }
           }
+        });
 
-          document.addEventListener('DOMContentLoaded', function() {
-              // Show the main table by default
-              document.getElementById('main_table').classList.remove('hidden');
 
-              // Add click event listener to the button
-              document.getElementById('toggleButton').addEventListener('click', toggleTables);
-          });
-
-          const canvas = document.getElementById('subfield_chart');
-          canvas.style.width = '500px';
-          canvas.style.height = '220px';
-          const ctx = document.getElementById('subfield_chart').getContext('2d');
-          const difficulty_level_chart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-              labels: ['Easy', 'Medium', 'Hard', 'Overall'],
-              datasets: [{
-                label: 'Alternative Investments',
-                data: [19, 11, 57, 87],
-                backgroundColor: 'rgba(117, 209, 215, 0.6)',
-                borderColor: 'rgba(117, 209, 215, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Corporate Finance',
-                data: [73, 129, 54, 256],
-                backgroundColor: 'rgba(196, 123, 160, 0.6)',
-                borderColor: 'rgba(196, 123, 160, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Derivatives',
-                data: [38, 24, 192, 254],
-                backgroundColor: 'rgba(245, 123, 113, 0.6)',
-                borderColor: 'rgba(245, 123, 113, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Economics',
-                data: [1, 1, 31, 33],
-                backgroundColor: 'rgba(255, 208, 80, 0.6)',
-                borderColor: 'rgba(255, 208, 80, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
-              },
-              {
-                label: 'Equity',
-                data: [79, 56, 121, 256],
-                backgroundColor: 'rgba(110, 194, 134, 0.6)',
-                borderColor: 'rgba(110, 194, 134, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Financial Statement Analysis',
-                data: [80, 8, 7, 95],
-                backgroundColor: 'rgba(255, 153, 78, 0.6)',
-                borderColor: 'rgba(255, 153, 78, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Fixed Income',
-                data: [103, 41, 104, 248],
-                backgroundColor: 'rgba(42, 149, 235, 0.6)',
-                borderColor: 'rgba(42, 149, 235, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(245, 123, 113, 1)'
-              },
-              {
-                label: 'Portfolio Management',
-                data: [164, 115, 250, 529],
-                backgroundColor: 'rgba(143, 169, 209, 0.6)',
-                borderColor: 'rgba(143, 169, 209, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(110, 194, 134, 1)'
-              },
-              ]
+        const canvas_2 = document.getElementById('language_chart');
+        canvas_2.style.width = '500px';
+        canvas_2.style.height = '150px';
+        const ctx_2 = document.getElementById('language_chart').getContext('2d');
+        const language_chart = new Chart(ctx_2, {
+          type: 'bar',
+          data: {
+            labels: ['Easy', 'Medium', 'Hard', 'Overall'],
+            datasets: [{
+              label: 'English',
+              data: [520, 234, 631, 1385],
+              backgroundColor: 'rgba(14, 178, 168, 0.6)',
+              borderColor: 'rgba(14, 178, 168, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
             },
-            options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                min: 0,
-                max: 550,
-                ticks: {
-                  stepSize: 40,
-                  font: {
-                    size: 14
-                  }
-                }
-              },
-              x: {
-                ticks: {
-                  font: {
-                    size: 14
-                  }
+            {
+              label: 'Chinese',
+              data: [76, 128, 49, 253],
+              backgroundColor: 'rgba(243, 13, 82, 0.5)',
+              borderColor: 'rgba(243, 13, 82, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            {
+              label: 'French',
+              data: [12, 76, 32, 120],
+              backgroundColor: 'rgba(15, 112, 14, 0.5)',
+              borderColor: 'rgba(15, 112, 14, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
+            },
+            ]
+          },
+          options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              min: 0,
+              max: 1400,
+              ticks: {
+                stepSize: 200,
+                font: {
+                  size: 14
                 }
               }
             },
-            plugins: {
-              legend: {
-                labels: {
-                  font: {
-                    size: 14
-                  }
+            x: {
+              ticks: {
+                font: {
+                  size: 14
                 }
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(context) {
-                    return context.dataset.label + ': ' + context.parsed.y;
-                  }
-                }
-              }
-            },
-              onHover: (event, chartElement) => {
-                event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
               }
             }
-          });
-
-
-          const canvas_2 = document.getElementById('language_chart');
-          canvas_2.style.width = '500px';
-          canvas_2.style.height = '150px';
-          const ctx_2 = document.getElementById('language_chart').getContext('2d');
-          const language_chart = new Chart(ctx_2, {
-            type: 'bar',
-            data: {
-              labels: ['Easy', 'Medium', 'Hard', 'Overall'],
-              datasets: [{
-                label: 'English',
-                data: [478, 186, 721, 1385],
-                backgroundColor: 'rgba(14, 178, 168, 0.6)',
-                borderColor: 'rgba(14, 178, 168, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Chinese',
-                data: [70, 128, 55, 253],
-                backgroundColor: 'rgba(243, 13, 82, 0.5)',
-                borderColor: 'rgba(243, 13, 82, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'French',
-                data: [9, 71, 40, 120],
-                backgroundColor: 'rgba(15, 112, 14, 0.5)',
-                borderColor: 'rgba(15, 112, 14, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
-              },
-              ]
-            },
-            options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                min: 0,
-                max: 1400,
-                ticks: {
-                  stepSize: 200,
-                  font: {
-                    size: 14
-                  }
-                }
-              },
-              x: {
-                ticks: {
-                  font: {
-                    size: 14
-                  }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 14
                 }
               }
             },
-            plugins: {
-              legend: {
-                labels: {
-                  font: {
-                    size: 14
-                  }
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y;
                 }
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(context) {
-                    return context.dataset.label + ': ' + context.parsed.y;
-                  }
-                }
-              }
-            },
-              onHover: (event, chartElement) => {
-                event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
               }
             }
-          });
+          },
+            onHover: (event, chartElement) => {
+              event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+            }
+          }
+        });
 
-          const canvas_3 = document.getElementById('mc_chart');
-          canvas_3.style.width = '500px';
-          canvas_3.style.height = '150px';
-          const ctx_3 = document.getElementById('mc_chart').getContext('2d');
-          const mc_chart = new Chart(ctx_3, {
-            type: 'bar',
-            data: {
-              labels: ['Easy', 'Medium', 'Hard', 'Overall'],
-              datasets: [{
-                label: 'Multiple Choice',
-                data: [280, 133, 563, 976],
-                backgroundColor: 'rgba(23, 224, 44, 0.4)',
-                borderColor: 'rgba(23, 224, 44, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              {
-                label: 'Open Question',
-                data: [277, 252, 253, 782],
-                backgroundColor: 'rgba(224, 117, 23, 0.5)',
-                borderColor: 'rgba(224, 117, 23, 1)',
-                borderWidth: 1,
-                hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-              },
-              ]
+        const canvas_3 = document.getElementById('mc_chart');
+        canvas_3.style.width = '500px';
+        canvas_3.style.height = '150px';
+        const ctx_3 = document.getElementById('mc_chart').getContext('2d');
+        const mc_chart = new Chart(ctx_3, {
+          type: 'bar',
+          data: {
+            labels: ['Easy', 'Medium', 'Hard', 'Overall'],
+            datasets: [{
+              label: 'Multiple Choice',
+              data: [330, 186, 460, 976],
+              backgroundColor: 'rgba(23, 224, 44, 0.4)',
+              borderColor: 'rgba(23, 224, 44, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
             },
-            options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-                min: 0,
-                max: 1000,
-                ticks: {
-                  stepSize: 200,
-                  font: {
-                    size: 14
-                  }
-                }
-              },
-              x: {
-                ticks: {
-                  font: {
-                    size: 14
-                  }
+            {
+              label: 'Open Question',
+              data: [278, 252, 252, 782],
+              backgroundColor: 'rgba(224, 117, 23, 0.5)',
+              borderColor: 'rgba(224, 117, 23, 1)',
+              borderWidth: 1,
+              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
+            },
+            ]
+          },
+          options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              min: 0,
+              max: 1000,
+              ticks: {
+                stepSize: 200,
+                font: {
+                  size: 14
                 }
               }
             },
-            plugins: {
-              legend: {
-                labels: {
-                  font: {
-                    size: 14
-                  }
+            x: {
+              ticks: {
+                font: {
+                  size: 14
                 }
-              },
-              tooltip: {
-                callbacks: {
-                  label: function(context) {
-                    return context.dataset.label + ': ' + context.parsed.y;
-                  }
-                }
-              }
-            },
-              onHover: (event, chartElement) => {
-                event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
               }
             }
-          });
-        </script>
+          },
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 14
+                }
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + context.parsed.y;
+                }
+              }
+            }
+          },
+            onHover: (event, chartElement) => {
+              event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+            }
+          }
+        });
+      </script>
 
-      </div>
+    </div>
 
 
     </div>
