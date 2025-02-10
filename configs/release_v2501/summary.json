@@ -1,0 +1,144 @@
+{
+    "total_count": 106,
+    "total_main_question_count": 7,
+    "unique_main_question_ids": "{'6', '4', '1', '7', '5', '3', '2'}",
+    "language_count": {
+        "english": 36,
+        "chinese": 35,
+        "french": 35
+    },
+    "question_type_count": {
+        "open question": 91,
+        "multiple-choice": 15
+    },
+    "image_type_count": {
+        "table": 67,
+        "screenshot": 39
+    },
+    "image_type_set": "{'table', 'screenshot'}",
+    "subfield_count": {
+        "economics": 15,
+        "derivatives": 39,
+        "portfolio management": 18,
+        "fixed income": 34
+    },
+    "subfield_set": "{'portfolio management', 'derivatives', 'fixed income', 'economics'}",
+    "topic_difficulty_count": {
+        "easy": 34,
+        "medium": 36,
+        "hard": 36
+    },
+    "explanation_count": 106,
+    "multiple_images_count": 9,
+    "token_counts": {
+        "english": {
+            "average": 48.0
+        },
+        "chinese": {
+            "average": 66.91
+        },
+        "french": {
+            "average": 69.06
+        }
+    },
+    "subfield_difficulty_count": {
+        "english": {
+            "economics": {
+                "easy": 2,
+                "medium": 3,
+                "hard": 0
+            },
+            "derivatives": {
+                "easy": 5,
+                "medium": "2",
+                "hard": 6
+            },
+            "portfolio management": {
+                "easy": "0",
+                "medium": 4,
+                "hard": "2"
+            },
+            "fixed income": {
+                "easy": "5",
+                "medium": "3",
+                "hard": "4"
+            }
+        },
+        "chinese": {
+            "economics": {
+                "easy": "2",
+                "medium": "3",
+                "hard": "0"
+            },
+            "derivatives": {
+                "easy": "5",
+                "medium": "2",
+                "hard": "6"
+            },
+            "portfolio management": {
+                "easy": "0",
+                "medium": "4",
+                "hard": "2"
+            },
+            "fixed income": {
+                "easy": "4",
+                "medium": "3",
+                "hard": "4"
+            }
+        },
+        "french": {
+            "economics": {
+                "easy": "2",
+                "medium": "3",
+                "hard": "0"
+            },
+            "derivatives": {
+                "easy": "5",
+                "medium": "2",
+                "hard": "6"
+            },
+            "portfolio management": {
+                "easy": "0",
+                "medium": "4",
+                "hard": "2"
+            },
+            "fixed income": {
+                "easy": "4",
+                "medium": "3",
+                "hard": "4"
+            }
+        }
+    },
+    "total_token_sum": {
+        "average": 61.2
+    },
+    "language_difficulty_count": {
+        "english": {
+            "easy": 12,
+            "medium": "12",
+            "hard": "12"
+        },
+        "chinese": {
+            "easy": 11,
+            "medium": "12",
+            "hard": "12"
+        },
+        "french": {
+            "easy": "11",
+            "medium": "12",
+            "hard": "12"
+        }
+    },
+    "question_type_difficulty_count": {
+        "open question": {
+            "easy": 25,
+            "medium": 30,
+            "hard": "36"
+        },
+        "multiple-choice": {
+            "easy": "9",
+            "medium": "6",
+            "hard": "0"
+        }
+    }
+}

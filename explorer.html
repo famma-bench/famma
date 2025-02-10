@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Display</title>  <!-- have to use this, otherwise the logo displays abnormally large -->
+  <style>
+    .logo-container {
+      background-color: #485159;
+      text-align: left;
+      padding: 10px;
+      justify-content: flex-start;     /* Center the logos horizontally */
+      align-items: center;         /* Center logos vertically */
+      display: flex;              /* Use flexbox to align items in a row */
+    }
+
+    .logo-container img {
+      margin-top: 5px;
+      padding: 10px;
+      height: 90px; /* Adjust height as needed */
+      width: auto;  /* Maintain aspect ratio */
+    }
+
+    .chart-container {
+        padding: 0px; /* Reduce padding */
+    }
+    .box {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin: 0; /* Remove margin */
+    }
+    canvas {
+        display: block;
+        width: 100%; /* Ensure full width */
+    }
+    .columns {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    #bird-title {
+      font-size: 2.5em; /* Increase the font size */
+      color: #2c3e50; /* Ensure the color is set */
+    }
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="FAMMA">
+  <meta name="author" content="">
+  <link rel="icon" href="./logo/famma_logo.jpg" type="image/x-icon">
+  <title>FAMMA</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./style/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="./style/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./style/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="./style/css/bulma.min.css">
+  <link rel="stylesheet" href="./style/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./style/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./style/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./style/css/index.css">
+  <link rel="stylesheet" href="./style/css/leaderboard.css">
+
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./style/js/fontawesome.all.min.js"></script>
+  <script src="./style/js/bulma-carousel.min.js"></script>
+  <script src="./style/js/bulma-slider.min.js"></script>
+  <script src="./style/js/index.js"></script>
+  <script src="./style/js/question_card.js"></script>
+
+
+  <!-- Custom styles for this template -->
+  <link href="./style/clean-blog.min.css" rel="stylesheet">
+  <link href="./style/bird.css" rel="stylesheet">
+
+  <style>
+    .hidden {
+      display:  none;
+    }
+
+    .main-content {
+      flex: 1; /* 主内容占 2 份 */
+      min-width: 300px; /* 确保在小屏幕设备上显示正常 */
+      margin-right: 20px;
+    }
+
+    .leaderboard {
+      flex: 1; /* 领导榜占 1 份 */
+      min-width: 200px; /* 确保在小屏幕设备上显示正常 */
+    }
+
+    /* 单元格悬停变色 */
+    td:hover {
+      background-color: #eeeeee9b; /* 你可以根据需要修改颜色 */
+    }
+    th:hover {
+      background-color: #bb3737d7; /* 你可以根据需要修改颜色 */
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 0.35em 0.65em;
+        font-size: 0.75em;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: 0.25rem;
+    }
+    .badge-secondary {
+        background-color: #6c757d !important;
+    }
+
+    .title-container h1 {
+        color: #2c3e50; /* Darker color for the title */
+    }
+    .title-container p {
+        color: #7f8c8d; /* Lighter color for the subtitle */
+    }
+
+    .back-to-home {
+      color: #ffffff; /* Text color */
+      font-size: 1.2em; /* Font size */
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px; /* Add padding */
+      background-color: #2c3e50; /* Academic-style background color */
+      border-radius: 5px; /* Rounded corners */
+      text-decoration: none; /* Remove underline */
+      transition: background-color 0.3s; /* Smooth transition */
+    }
+
+    .back-to-home:hover {
+      background-color: #1a252f; /* Darker on hover */
+    }
+
+    .back-to-home i {
+      margin-right: 8px; /* Space between icon and text */
+    }
+
+  </style>
+
+  <script src="script/sort-table.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<!-- Title -->
+<body>
+  <header class="masthead" id="header-color">
+    <div class="logo-container">
+      <img src="./logo/alipay4.png" alt="Alipay Logo">
+      <img src="./logo/ali.png" alt="Ali Logo">
+      <img src="./logo/zju.png" alt="ZJU Logo">
+      <img src="./logo/ttic.jpg" alt="TTIC Logo">
+    </div>
+    
+    <div class="container" style="text-align: center; padding: 20px 0;">
+      <div style="text-align: center;">
+        <h1 id="bird-title">FAMMA Explorer</h1>
+      </div>
+      <p style="font-size: 1.2em; font-weight: 300; margin: 0; color: #f8fafa;">Interactive Visualization and Analysis of FAMMA Dataset</p>
+        <a href="index.html" class="back-to-home">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+
+  </header>
+
+  <!-- Main Content -->
+  <div class="container" id="main">
+    <div class="row custom-row">
+      <div class="main-content">
+        <div class="columns">
+            <!-- Left half - Statistics -->
+            <div class="column is-14">
+                <div class="list-group-item" id="statistics">
+                    <h5 class="title is-5">Dataset Statistics</h5>
+                    <!-- Version Selector -->
+                    <div class="field has-text-centered mb-5">
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" style="margin-right: -80px;">Select Version</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <div class="select">
+                                            <select id="versionSelector">
+                                                <option value="release_v2406">Release v2406</option>
+                                                <option value="release_v2501">Release v2501</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overview Stats Cards -->
+                    <div class="columns is-multiline is-centered mb-6" style="margin: 0 2rem;">
+                        <div class="column is-4">
+                            <div class="box has-text-centered" style="background: #fafafa; border: none; border-radius: 0; height: 100%; padding: 1.5rem; box-shadow: none; display: flex; flex-direction: column; justify-content: center; margin: 0;">
+                                <p class="heading" style="color: #495057; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 500;">Total Questions</p>
+                                <p class="title is-3" id="totalCount" style="color: #212529; font-weight: 500; margin: 0; font-family: 'Arial', sans-serif;">-</p>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                            <div class="box has-text-centered" style="background: #fafafa; border: none; border-radius: 0; height: 100%; padding: 1.5rem; box-shadow: none; display: flex; flex-direction: column; justify-content: center; margin: 0;">
+                                <p class="heading" style="color: #495057; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 500;">Languages</p>
+                                <p class="title is-3" id="languageCount" style="color: #212529; font-weight: 500; margin: 0; font-family: 'Arial', sans-serif;">-</p>
+                            </div>
+                        </div>
+                        <div class="column is-4">
+                            <div class="box has-text-centered" style="background: #fafafa; border: none; border-radius: 0; height: 100%; padding: 1.5rem; box-shadow: none; display: flex; flex-direction: column; justify-content: center; margin: 0;">
+                                <p class="heading" style="color: #495057; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; font-weight: 500;">Subfields</p>
+                                <p class="title is-3" id="subfieldCount" style="color: #212529; font-weight: 500; margin: 0; font-family: 'Arial', sans-serif;">-</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chart Containers -->
+                    <div class="columns is-multiline">
+                        <!-- Subfield Distribution -->
+                        <div class="column is-12">
+                            <div class="box" style="height: 350px; margin-bottom: 20px;">
+                                <canvas id="subfield_chart"></canvas>
+                            </div>
+                        </div>
+                        
+                        <!-- Language Distribution -->
+                        <div class="column is-12 chart-container">
+                            <div class="box" style="height: 350px;">
+                                <canvas id="language_chart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Question Type Distribution -->
+                        <div class="column is-12 chart-container">
+                            <div class="box" style="height: 350px;">
+                                <canvas id="question_type_chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+      </div>
+
+<!-- LeaderBoard -->
+      <div class="col-lg-7">
+        <!-- Button Change (English, Chinese, French) -->
+        <td class="align-middle text-center">
+        <button id="toggleButton" class="btn  button-row" onclick="changeButtonText()">
+          <b style='font-size: larger;'>Main Leaderboard &nbsp;</b>  (Click to Switch)
+        </button>
+        </td>
+
+
+        <div class="model-labels-container">
+            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
+            <span class="leaderboard-label" style="background-color: rgba(255, 255, 200, 0.3);">Proprietary</span>
+          </div>
+
+        <!-- Leaderboard (main) -->
+        <div class="card card-outline-secondary" id="main_table">
+          <div class="card-header">Consolidated Scores on Test Set</div>
+          <div class="table-wrapper">
+            <table class="table" id="mn-table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col" rowspan="1"></th>
+                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
+<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
+                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
+                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="table-success">
+                  <td scope="row" class="align-middle text-center"><br>
+                  </td>
+                  <td class="align-middle text-center">Human Performance<br>
+                    <span class="affiliation">Professionals and Graduates</span>
+                  </td>
+                  <td class="align-middle text-center">N/A</td>
+                  <td class="align-middle text-center"><b>56.96</b></td>
+                  <td class="align-middle text-center">67.00</td>
+                  <td class="align-middle text-center">60.24</td>
+                  <td class="align-middle text-center">55.26</td>
+                </tr>
+
+                <tr style="background-color: rgba(255, 255, 200, 0.3);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Aug 24, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">GPT-4o<br>
+                    <span class="affiliation">Open AI, Baseline</span>
+                  </td>
+                  <td class="align-middle text-center"></td>
+                   <td class="align-middle text-center">42.85</td>
+                  <td class="align-middle text-center">47.25</td>
+                   <td class="align-middle text-center">39.85</td>
+                  <td class="align-middle text-center">40.98</td>
+                </tr>
+
+                <tr style="background-color: rgba(255, 255, 200, 0.3);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Aug 21, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">Claude-35-Sonnet<br>
+                    <span class="affiliation">Anthropic (version 20240620), Baseline</span>
+                  </td>
+                  <td class="align-middle text-center"></td>
+                  <td class="align-middle text-center">42.80</td>
+                  <td class="align-middle text-center">47.37</td>
+                  <td class="align-middle text-center">41.10</td>
+                  <td class="align-middle text-center">39.89</td>
+                </tr>
+
+                <tr style="background-color: rgba(249, 242, 248, 1);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Aug 27, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">Qwen2-VL<br>
+                    <span class="affiliation">Alibaba (qwen-vl-max-0809), Baseline</span>
+                  </td>
+                  <!-- <a style="color: blue;" href="https://help.aliyun.com/zh/dashscope/developer-reference/tongyi-qianwen-vl-plus-api#3977a58ec5mtp"  target="_blank"  class="affiliation">API</a> -->
+                  <td class="align-middle text-center">70B</td>
+                  <td class="align-middle text-center">34.50</td>
+                  <td class="align-middle text-center">38.39</td>
+                  <td class="align-middle text-center">27.40</td>
+                  <td class="align-middle text-center">35.67</td>
+                </tr>
+
+                <tr style="background-color: rgba(255, 255, 200, 0.3);">
+                  <td scope="row" class="align-middle text-center counter-cell">
+                    <span class="badge badge-secondary">Aug 27, 2024</span>
+                  </td>
+                  <td class="align-middle text-center">Claude-3-Sonnet<br>
+                    <span class="affiliation">Anthropic (version 20240229), Baseline</span>
+                  </td>
+                  <td class="align-middle text-center"></td>
+                  <td class="align-middle text-center">31.55</td>
+                  <td class="align-middle text-center">31.91</td>
+                  <td class="align-middle text-center">29.00</td>
+                  <td class="align-middle text-center">32.58</td>
+                </tr>
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+      </div>
+     
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const selector = document.getElementById('versionSelector');
+    
+    // Define distinct colors for subfields
+    const subfieldColors = [
+        'rgba(52, 152, 219, 0.6)',   // Light Blue
+        'rgba(155, 89, 182, 0.6)',   // Purple
+        'rgba(241, 196, 15, 0.6)',   // Yellow
+        'rgba(230, 126, 34, 0.6)',   // Orange
+        'rgba(231, 76, 60, 0.6)',    // Red
+        'rgba(46, 204, 113, 0.6)',   // Green
+        'rgba(149, 165, 166, 0.6)',  // Grey
+        'rgba(52, 73, 94, 0.6)'      // Dark Blue
+    ];
+
+    // Define colors for difficulty levels
+    const difficultyColors = {
+        'easy': 'rgba(46, 204, 113, 0.6)',    // Green
+        'medium': 'rgba(241, 196, 15, 0.6)',  // Yellow
+        'hard': 'rgba(231, 76, 60, 0.6)'      // Red
+    };
+
+    // Define abbreviations for subfield names
+    const subfieldAbbreviations = {
+        'portfolio management': 'Port. Mgmt',
+        'equity': 'Equity',
+        'financial statement analysis': 'Fin. Stmt Analysis',
+        'corporate finance': 'Corp. Finance',
+        'alternative investments': 'Alt. Investments',
+        'economics': 'Economics',
+        'derivatives': 'Derivatives',
+        'fixed income': 'Fixed Income'
+    };
+
+    function prepareChartData(countData, useAbbreviations = false) {
+        const counts = Object.fromEntries(
+            Object.entries(countData).map(([key, value]) => [key, parseInt(value, 10)])
+        );
+        const total = Object.values(counts).reduce((sum, value) => sum + value, 0);
+        const entries = Object.entries(counts).map(([key, value]) => ({
+            label: useAbbreviations ? (subfieldAbbreviations[key.toLowerCase()] || key) : key,
+            value: value,
+            percentage: (value / total) * 100
+        }));
+        entries.sort((a, b) => a.label.localeCompare(b.label));
+        
+        return {
+            labels: entries.map(entry => entry.label),
+            datasets: [
+                {
+                    label: 'Subfield',
+                    data: entries.map(entry => entry.value),
+                    backgroundColor: subfieldColors.slice(0, entries.length),
+                    borderColor: subfieldColors.slice(0, entries.length).map(color => color.replace('0.6', '1')),
+                    borderWidth: 1,
+                    yAxisID: 'y'
+                },
+                {
+                    label: 'Percentage',
+                    data: entries.map(entry => entry.percentage),
+                    type: 'line',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    yAxisID: 'y1',
+                    pointRadius: 4,
+                    pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                }
+            ]
+        };
+    }
+
+    function prepareLanguageChartData(jsonData) {
+        const languageDiffData = jsonData.language_difficulty_count;
+        
+        // Calculate total for percentage
+        const total = Object.values(languageDiffData).reduce((sum, diffCounts) => {
+            return sum + Object.values(diffCounts).reduce((a, b) => a + parseInt(b, 10), 0);
+        }, 0);
+
+        // Sort languages alphabetically
+        const labels = Object.keys(languageDiffData).sort();
+
+        return {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Easy',
+                    data: labels.map(lang => parseInt(languageDiffData[lang].easy, 10)),
+                    backgroundColor: difficultyColors.easy,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'Medium',
+                    data: labels.map(lang => parseInt(languageDiffData[lang].medium, 10)),
+                    backgroundColor: difficultyColors.medium,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'Hard',
+                    data: labels.map(lang => parseInt(languageDiffData[lang].hard, 10)),
+                    backgroundColor: difficultyColors.hard,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'Percentage',
+                    data: labels.map(lang => {
+                        const langTotal = Object.values(languageDiffData[lang])
+                            .reduce((sum, val) => sum + parseInt(val, 10), 0);
+                        return (langTotal / total * 100);
+                    }),
+                    type: 'line',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    yAxisID: 'y1',
+                    pointRadius: 4,
+                    pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                }
+            ]
+        };
+    }
+
+    function prepareQuestionTypeChartData(jsonData) {
+        const questionTypeDiffData = jsonData.question_type_difficulty_count;
+        
+        // Calculate total for percentage
+        const total = Object.values(questionTypeDiffData).reduce((sum, typeCounts) => {
+            return sum + Object.values(typeCounts).reduce((a, b) => a + parseInt(b, 10), 0);
+        }, 0);
+
+        // Sort question types alphabetically
+        const labels = Object.keys(questionTypeDiffData).sort();
+
+        return {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Easy',
+                    data: labels.map(type => parseInt(questionTypeDiffData[type].easy, 10)),
+                    backgroundColor: difficultyColors.easy,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'Medium',
+                    data: labels.map(type => parseInt(questionTypeDiffData[type].medium, 10)),
+                    backgroundColor: difficultyColors.medium,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'Hard',
+                    data: labels.map(type => parseInt(questionTypeDiffData[type].hard, 10)),
+                    backgroundColor: difficultyColors.hard,
+                    stack: 'Stack 0',
+                },
+                {
+                    label: 'Percentage',
+                    data: labels.map(type => {
+                        const typeTotal = Object.values(questionTypeDiffData[type])
+                            .reduce((sum, val) => sum + parseInt(val, 10), 0);
+                        return (typeTotal / total * 100);
+                    }),
+                    type: 'line',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    fill: false,
+                    yAxisID: 'y1',
+                    pointRadius: 4,
+                }
+            ]
+        };
+    }
+
+    async function updateCharts(version) {
+        try {
+            const response = await fetch(`configs/${version}/summary.json`);
+            const jsonData = await response.json();
+            console.log('Fetched Data:', jsonData);
+
+            // Create or update subfield chart
+            const subfieldCtx = document.getElementById('subfield_chart').getContext('2d');
+            if (window.subfieldChart) {
+                window.subfieldChart.destroy();
+            }
+            const subfieldData = prepareChartData(jsonData.subfield_count, true);
+            window.subfieldChart = new Chart(subfieldCtx, {
+                type: 'bar',
+                data: subfieldData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Subfield Distribution',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    scales: {
+                        x: { stacked: true },
+                        y: {
+                            stacked: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Number of Questions',
+                                font: { size: 12, weight: 'bold' }
+                            }
+                        },
+                        y1: {
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Percentage (%)',
+                                font: { size: 12, weight: 'bold' }
+                            },
+                            min: 0,
+                            max: 100,
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                callback: value => value + '%'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Create or update language chart
+            const languageCtx = document.getElementById('language_chart').getContext('2d');
+            if (window.languageChart) {
+                window.languageChart.destroy();
+            }
+            const languageData = prepareLanguageChartData(jsonData);
+            window.languageChart = new Chart(languageCtx, {
+                type: 'bar',
+                data: languageData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Language Distribution by Difficulty',
+                            font: { size: 16, weight: 'bold' }
+                        }
+                    },
+                    scales: {
+                        x: { stacked: true,
+                          ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                         },
+                        y: {
+                            stacked: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Number of Questions',
+                                // padding: { top: -4},
+                                font: { size: 12, weight: 'bold' }
+                            }
+                        },
+                        y1: {
+                            position: 'right',
+                            title: {
+                                  display: true,
+                                  text: 'Percentage (%)',
+                                  font: { size: 12, weight: 'bold' },
+                                  // padding: { top: -3 } // Add padding to move the title away from the chart
+                              },
+                            min: 0,
+                            max: 100,
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                callback: value => value + '%'
+                            }
+                        }
+                    }
+                }
+            });
+
+    
+            // Create or update question type chart
+            const questionTypeCtx = document.getElementById('question_type_chart').getContext('2d');
+               if (window.questionTypeChart) {
+                   window.questionTypeChart.destroy();
+               }
+            
+            const questionTypeData = prepareQuestionTypeChartData(jsonData);
+
+            window.questionTypeChart = new Chart(questionTypeCtx, {
+                   type: 'bar',
+                   data: questionTypeData,
+                   options: {
+                       responsive: true,
+                       maintainAspectRatio: false,
+                       plugins: {
+                           title: {
+                               display: true,
+                               text: 'Question Type Distribution by Difficulty',
+                               font: { size: 16, weight: 'bold' }
+                           }
+                       },
+                       scales: {
+                           x: { stacked: true,
+                            ticks: {
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                            },
+                           y: {
+                               stacked: true,
+                               position: 'left',
+                               title: {
+                                   display: true,
+                                   text: 'Number of Questions',
+                                  //  padding: { top: -6},
+                                   font: { size: 12, weight: 'bold' }
+                               }
+                           },
+                           y1: {
+                               position: 'right',
+                               title: {
+                                  display: true,
+                                  text: 'Percentage (%)',
+                                  font: { size: 12, weight: 'bold' },
+                                  // padding: { top: -3 } // Add padding to move the title away from the chart
+                              },
+                               min: 0,
+                               max: 100,
+                               grid: {
+                                   drawOnChartArea: false
+                               },
+                               ticks: {
+                                   callback: value => value + '%'
+                               }
+                           }
+                       }
+                   }
+               });
+
+            // Update statistics cards
+            document.getElementById('totalCount').textContent = jsonData.total_count;
+            document.getElementById('languageCount').textContent = Object.keys(jsonData.language_count).length;
+            document.getElementById('subfieldCount').textContent = Object.keys(jsonData.subfield_count).length;
+
+        } catch (error) {
+            console.error('Error loading data:', error);
+        }
+    }
+
+    // Initial load
+    updateCharts(selector.value);
+    
+    // Update when version changes
+    selector.addEventListener('change', (e) => {
+        updateCharts(e.target.value);
+    });
+});
+</script>
+    </div>
+
+
+    </div>
+
+    <hr>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="./js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
