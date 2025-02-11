@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Display</title>  <!-- have to use this, otherwise the logo displays abnormally large -->
+    <title>FAMMA Explorer</title>  <!-- have to use this, otherwise the logo displays abnormally large -->
     <style>
         .logo-container {
             background-color: #485159;
@@ -36,11 +36,6 @@
         canvas {
             display: block;
             width: 100%; /* Ensure full width */
-        }
-
-        .columns {
-            margin-left: -10px;
-            margin-right: -10px;
         }
 
         #bird-title {
@@ -90,6 +85,18 @@
             border-radius: 5px;
             background-color: #f9f9f9;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .custom-row {
+            display: flex;
+            justify-content: center; /* Center the columns horizontally */
+            gap: 20px; /* Space between columns */
+        }
+
+      
     </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -172,7 +179,7 @@
 
         .title-container h1 {
             color: #2c3e50; /* Darker color for the title */
-        }
+        }   
 
         .title-container p {
             color: #7f8c8d; /* Lighter color for the subtitle */
@@ -197,7 +204,6 @@
         .back-to-home i {
             margin-right: 8px; /* Space between icon and text */
         }
-
     </style>
 
     <script src="script/sort-table.js"></script>
@@ -323,7 +329,7 @@
                       <!-- Version Selector -->
                       <div class="field has-text-centered mb-5" style="margin: 20px;">
                         <div class="field is-horizontal">
-                            <div class="field-body" style="display: flex; justify-content: center; gap: 1rem;">
+                            <div class="field-body" style="display: flex; justify-content: center; gap: 0rem;">
                                 <div class="field">
                                     <div class="control">
                                         <div class="select">
@@ -481,7 +487,8 @@
                             try {
                                 const response = await fetch(url);
                                 if (!response.ok) {
-                                    throw new Error(`HTTP error! status: ${response.status}`);
+                                    console.error(`HTTP error! status: ${response.status}`);
+                                    return;
                                 }
                                 jsonData = await response.json();
                                 updateQuestionIds(); // Update with all questions by default
