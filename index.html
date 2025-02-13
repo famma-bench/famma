@@ -119,18 +119,47 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-10 col-md-12 mx-auto">
+        <div class="col-lg-10 col-md-12 mx-auto" style="margin-top: -20px; margin-bottom: -20px;">
           <div class="row site-heading flex-box">
             <div class="col-lg-2">
               <img id="logo-img" src="logo/famma_logo.png" alt="logo" />
             </div>
             <div class="col-lg-10">
-              <div class="align-middle">
+              <div class="align-middle" style="margin-top: -20px; margin-bottom: -40px;">
                 <h1 id="bird-title">
                   FAMMA
                 </h1>
-                <span class="subheading" id="caption">A Benchmark for <u>F</u>in<u>a</u>ncial Domain <u>M</u>ultilingual <u>M</u>ultimodal Question <u>A</u>nswering</span>
+                <span class="subheading" id="caption" style="color:#f4edd8; font-size: 1.5rem;">A Benchmark for <u>F</u>in<u>a</u>ncial Domain <u>M</u>ultilingual <u>M</u>ultimodal Question <u>A</u>nswering</span>
+                <div style="margin-top: 0px; margin-bottom: -20px;">&nbsp;</div>
                 <div class="column has-text-centered">
+            <div class="is-size-6 publication-authors">
+                <span class="author-block">Siqiao Xue<sup style="color:#c5ddf5;">1</sup>,
+                </span>
+                <span class="author-block">Xiaojing Li<sup style="color:#c5ddf5;">1</sup>,
+                </span>
+                  <span class="author-block">Fan Zhou<sup style="color:#c5ddf5;">1</sup>,
+                  </span>
+                  <span class="author-block">Qingyang Dai<sup style="color:#c5ddf5;">1</sup>,
+                  </span>
+                
+                <span class="author-block">Tingting Chen<sup style="color:#c5ddf5;">1</sup>,
+                </span>
+                <span class="author-block">Zhixuan Chu<sup style="color:#c5ddf5;">2</sup>,
+                </span>
+                <span class="author-block">Zhiyi Mou<sup style="color:#c5ddf5;">2</sup>,
+                </span>
+                 <span class="author-block">Yujie Wei<sup style="color:#c5ddf5;">2</sup>,
+                </span>
+                <span class="author-block">
+                  <a href="https://www.hongyuanmei.com/" style="text-decoration: none; color: #aae0ee !important;">Hongyuan Mei</a><sup style="color:#c5ddf5;">3</sup>
+                </span>
+            </div>
+                  <div class="is-size-6 publication-authors">
+              <span class="author-block"><sup style="color:#c5ddf5;">1</sup>Alipay,</span>
+              <span class="author-block"><sup style="color:#c5ddf5;">2</sup>Zhejiang University,</span>
+              <span class="author-block"><sup style="color:#c5ddf5;">3</sup>TTIC</span>
+            </div>
+            <div style="margin-top: 0px; margin-bottom: -20px;">&nbsp;</div>
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
@@ -143,15 +172,7 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <span class="link-block">
-                <!-- <a href="https://huggingface.co/papers/2311.16502"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <p style="font-size:18px">🤗</p>
-                  </span>
-                  <span>HF Paper</span>
-                </a> -->
-              </span>
+
               <span class="link-block">
                 <a href="https://huggingface.co/datasets/weaverbirdllm/famma"
                    class="external-link button is-normal is-rounded is-dark">
@@ -219,11 +240,6 @@
 <!--                  </button>-->
 <!--                </a>-->
 <!--              </div>-->
-<!--              <div class="button-row">  -->
-<!--                <a href="https://github.com/bird-bench/mini_dev" target="_blank">-->
-<!--                  <button type="button" class="btn btn-d">Mini-Dev (500)</button> -->
-<!--                </a>-->
-<!--              </div> -->
 <!--              <div class="button-row" id="button-row-b">-->
 <!--                <div class="btn-round">-->
 <!--                  <a href="https://bird-bench.oss-cn-beijing.aliyuncs.com/train.zip" target="_blank">-->
@@ -293,7 +309,7 @@
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 25, 2023:</strong></span> We have released a cleaner version of <code>dev set</code>. Please download dev set again. We checked all cases of dev set and fixed all errors that we found. After cleaning, the ChatGPT (gpt-3.5-turbo) and GPT4 (gpt-4-32k) EX scores have improved to <strong>42.24</strong> (from 37.22) and <strong>49.15</strong> (from 46.35), respectively. Thanks for all feedbacks!</li>-->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 21, 2023:</strong></span> Our paper has been accepted by <code><strong>NeurIPS 2023</strong></code> as a <code><strong>Spotlight</strong></code>!!! Thanks for all the efforts and suggestions of co-authors, anonymous reviewers, awesome researchers/users in github or emails.</li> -->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 17, 2023:</strong></span> We update newest results of GPT-4, Claude-2 and Palm-2. </li>  -->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 14, 2023:</strong></span> The data link has been updated, fixing the schema names in the CSV files. Additionally, tied results caused by <code>order_by limit 1</code> are now considered. Both SQL queries - with and without accounting for tied results -  -->
+<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 14, 2023:</strong></span> The data link has been updated, fixing the schema names in the CSV files. Additionally, tied results caused by <code>order_by limit 1</code> are now considered. Both SQL queries - with and without accounting for tied results - 
 <!--                              are valid at this time.</li>-->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">Jun 12, 2023:</strong></span> We are welcome to any suggestions and reported gold errors in <a href="https://github.com/AlibabaResearch/DAMO-ConvAI/issues/39">help_wanted</a>. Any of your help is appreciated!</li>-->
 <!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">Jun 5, 2023:</strong></span> We open-sourced our <a href="https://arxiv.org/abs/2301.07507">Graphix-T5</a>, a graph-aware semi-pretrained text-to-text PLM specifically designed to improve multi-hop reasoning for the complex text-to-SQL task.  -->
@@ -305,29 +321,6 @@
             </div>
           </div>
 
-          <div class="list-group-item" id="statistics">
-
-            <h5 class="title is-5">Dataset Statistics</h5>
-            <p>
-              Our dataset consists of <strong>1,758 </strong> meticulously collected <strong>multimodal</strong> questions. The questions encompass <strong>three heterogeneous image types</strong> - tables, charts and text & math screenshots - and span <strong>eight subfields</strong> in finance, comprehensively covering topics across major asset classes. Additionally, all the questions are categorized by <strong>three difficulty levels</strong> — easy, medium, and hard - and are available in <strong>three languages</strong> — English, Chinese, and French. Furthermore, the questions are divided into <strong>two types</strong>: multiple-choice and open questions.
-            </p>
-
-            <div class="content has-text-centered">
-              <canvas id="subfield_chart"></canvas>
-              <p>Distribution of question subfields across difficulty levels.</p>
-            </div>
-
-            <div class="content has-text-centered">
-              <canvas id="language_chart"></canvas>
-              <p>Distribution of question in different languages across difficulty levels.</p>
-            </div>
-
-            <div class="content has-text-centered">
-              <canvas id="mc_chart"></canvas>
-              <p>Distribution of question types across difficulty levels.</p>
-            </div>
-
-          </div>
           <div class="list-group-item">
             <h5 class="title is-5">Submission</h5>
             <p>Please follow the Submission Guideline (below) and contact <code>famma.bench@gmail.com</code> for test evaluation. Ususally, we will return your results in 10 days!
@@ -347,46 +340,7 @@
               </a>
             </div>
           </div>
-          
-<!--          <div class="list-group-item">-->
-<!--            <h4>Subscribe to BIRD Update</h4>  -->
-<!--            <p>Bird is a long-term research project aimed at bridging the gap between semantic parsing models and the success of database applications. To receive the latest updates of the dataset, you can leave your email address.-->
-<!--            </p>-->
-<!--            <form onsubmit="return submitForm();">  -->
-<!--                <input type="email" id="email" name="email" placeholder="Email address" required>  -->
-<!--                <button type="submit">Subscribe</button>  -->
-<!--            </form>  -->
-<!--            <p id="message"></p>  -->
-<!--          </div> -->
-          
-          <head>  
-              <meta charset="utf-8">  
-              <title>Email Subscription</title>  
-              <script>  
-                function submitForm() {  
-                  var email = document.getElementById("email").value;  
-                  var url = "https://script.google.com/macros/s/AKfycbynv6Ibnl9gJosprkRmXhbKtllZX8dqrbj_xQkcbZ_NgEDBxwyjz1xyvIvnm_4yPh3ZPA/exec";  
-                  var data = "email=" + encodeURIComponent(email);  
-                    
-                  fetch(url, {  
-                    method: "POST",  
-                    body: data,  
-                    headers: {  
-                      "Content-Type": "application/x-www-form-urlencoded"  
-                    }  
-                  })  
-                  .then(response => response.text())  
-                  .then(text => {  
-                    document.getElementById("message").innerHTML = "<i>Subscribe Successfully! Thanks for your attention!</i>";  
-                  })  
-                  .catch(error => {  
-                    console.error("Error:", error);  
-                  });  
-                    
-                  return false;  
-                }  
-              </script>  
-          </head>   
+
           <div class="list-group-item">
             <h5 class="title is-5"> Citation </h5>
             <pre id="citation">
@@ -399,26 +353,7 @@
 }</pre>
           </div>
 
-          <!-- Contributor -->
-          <div class="list-group-item">
-            <h5 class="title is-5">Core Contributors</h5>
-            <div class="is-size-6 publication-authors">
-              <span class="author-block">Siqiao Xue<sup style="color:#6fbf73;">1</sup>,</span>
-              <span class="author-block">Xiaojing Li<sup style="color:#6fbf73;">1</sup>,</span>
-              <span class="author-block">Fan Zhou<sup style="color:#6fbf73;">1</sup>,</span>
-              <span class="author-block">Qingyang Dai<sup style="color:#6fbf73;">1</sup>,</span>
-              <span class="author-block">Tingting Chen<sup style="color:#6fbf73;">1</sup>,</span>
-              <span class="author-block">Zhixuan Chu<sup style="color:#ffac33;">2</sup>,</span>
-              <span class="author-block">Zhiyi Mou<sup style="color:#ffac33;">2</sup>,</span>
-              <span class="author-block">Yujie Wei<sup style="color:#ffac33;">2</sup>,</span>
-              <span class="author-block">Hongyuan Mei<sup style="color:#ed4b82;">3</sup></span>
-            </div>
-            <div class="is-size-6 publication-authors">
-              <span class="author-block"><sup style="color:#6fbf73;">1</sup>Alipay,</span>
-              <span class="author-block"><sup style="color:#ffac33;">2</sup>Zhejiang University,</span>
-              <span class="author-block"><sup style="color:#ed4b82;">3</sup>TTIC</span>
-            </div>
-          </div>
+
 
           <div class="list-group-item">
             <h5 class="title is-5"> Acknowledgement </h5>
