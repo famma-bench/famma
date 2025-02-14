@@ -2,167 +2,197 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAMMA</title>  <!-- have to use this, otherwise the logo displays abnormally large -->
-  <style>
-    .logo-container {
-      background-color: #485159;
-      text-align: left;
-      padding: 10px;
-      justify-content: flex-start;     /* Center the logos horizontally */
-      align-items: center;         /* Center logos vertically */
-      display: flex;              /* Use flexbox to align items in a row */
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAMMA</title>  <!-- have to use this, otherwise the logo displays abnormally large -->
+    <style>
+        .logo-container {
+            background-color: #485159;
+            text-align: left;
+            padding: 10px;
+            justify-content: flex-start; /* Center the logos horizontally */
+            align-items: center; /* Center logos vertically */
+            display: flex; /* Use flexbox to align items in a row */
+        }
+
+        .logo-container img {
+            margin-top: 5px;
+            padding: 10px;
+            height: 90px; /* Adjust height as needed */
+            width: auto; /* Maintain aspect ratio */
+        }
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="FAMMA">
+    <meta name="author" content="">
+    <link rel="icon" href="./logo/famma_logo.jpg" type="image/x-icon">
+    <title>FAMMA</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="./style/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="./style/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./style/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style/css/bulma.min.css">
+    <link rel="stylesheet" href="./style/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./style/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./style/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./style/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <script src="https://kit.fontawesome.com/eaf1856e6f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./style/js/fontawesome.all.min.js"></script>
+    <script src="./style/js/bulma-carousel.min.js"></script>
+    <script src="./style/js/bulma-slider.min.js"></script>
+    <script src="./style/js/index.js"></script>
+
+    <style>
+
+        /* 单元格悬停变色 */
+        td:hover {
+            background-color: #eeeeee9b; /* 你可以根据需要修改颜色 */
+        }
+
+        th:hover {
+            background-color: #bb3737d7; /* 你可以根据需要修改颜色 */
+        }
+
+        .slider {
+            width: 200px;
+            margin: 3rem auto;
+            position: relative;
+        }
+
+        /* This creates the blue active portion */
+    .slider input[type="range"]::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        height: 2px;
+        border: none;
+        background: #007bff;  /* Changed to blue */
     }
 
-    .logo-container img {
-      margin-top: 5px;
-      padding: 10px;
-      height: 90px; /* Adjust height as needed */
-      width: auto;  /* Maintain aspect ratio */
-    }
-  </style>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="FAMMA">
-  <meta name="author" content="">
-  <link rel="icon" href="./logo/famma_logo.jpg" type="image/x-icon">
-  <title>FAMMA</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="./style/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom fonts for this template -->
-  <link href="./style/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="./style/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <link rel="stylesheet" href="./style/css/bulma.min.css">
-  <link rel="stylesheet" href="./style/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./style/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./style/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="./style/css/index.css">
-  <link rel="stylesheet" href="./style/css/leaderboard.css">
-
-  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./style/js/fontawesome.all.min.js"></script>
-  <script src="./style/js/bulma-carousel.min.js"></script>
-  <script src="./style/js/bulma-slider.min.js"></script>
-  <script src="./style/js/index.js"></script>
-  <script src="./style/js/question_card.js"></script>
-
-
-  <!-- Custom styles for this template -->
-  <link href="./style/clean-blog.min.css" rel="stylesheet">
-  <link href="./style/bird.css" rel="stylesheet">
-
-  <style>
-    .hidden {
-      display:  none;
-    }
-
-    .main-content {
-      flex: 1; /* 主内容占 2 份 */
-      min-width: 300px; /* 确保在小屏幕设备上显示正常 */
-      margin-right: 20px;
-    }
-  
-    .leaderboard {
-      flex: 1; /* 领导榜占 1 份 */
-      min-width: 200px; /* 确保在小屏幕设备上显示正常 */
-    }
-
-    /* 单元格悬停变色 */
-    td:hover {
-      background-color: #eeeeee9b; /* 你可以根据需要修改颜色 */
-    }
-    th:hover {
-      background-color: #bb3737d7; /* 你可以根据需要修改颜色 */
-    }
-
-    .badge {
-        display: inline-block;
-        padding: 0.35em 0.65em;
-        font-size: 0.75em;
-        font-weight: 700;
-        line-height: 1;
-        color: #fff;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-        border-radius: 0.25rem;
-    }
-    .badge-secondary {
-        background-color: #6c757d !important;
+    .slider input[type="range"]::-moz-range-track {
+        height: 2px;
+        border: none;
     }
 
 
+        .slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #007bff;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid rgb(255, 255, 255);
+            box-shadow: 0 0 0 1px #007bff;
+            margin-top: -9px;
+        }
 
-  </style>
+        .date-tooltip {
+            position: absolute;
+            top: -45px;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            white-space: nowrap;
+            pointer-events: none;
+        }
 
-  <script src="script/sort-table.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        .date-tooltip:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #333;
+        }
+    </style>
+
+    <script src="script/sort-table.js"></script>
 </head>
 
 <!-- Title -->
 <body>
-  <header class="masthead" id="header-color">
+<header class="masthead" id="header-color">
+    <!-- Custom styles for this template -->
+    <link href="./style/clean-blog.min.css" rel="stylesheet">
+    <link href="./style/bird.css" rel="stylesheet">
     <div class="logo-container">
-      <img src="./logo/alipay4.png" alt="Alipay Logo">
-      <img src="./logo/ali.png" alt="Ali Logo">
-      <img src="./logo/zju.png" alt="ZJU Logo">
-      <img src="./logo/ttic.jpg" alt="TTIC Logo">
+        <img src="./logo/alipay4.png" alt="Alipay Logo">
+        <img src="./logo/ali.png" alt="Ali Logo">
+        <img src="./logo/zju.png" alt="ZJU Logo">
+        <img src="./logo/ttic.jpg" alt="TTIC Logo">
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-10 col-md-12 mx-auto" style="margin-top: -20px; margin-bottom: -20px;">
-          <div class="row site-heading flex-box">
-            <div class="col-lg-2">
-              <img id="logo-img" src="logo/famma_logo.png" alt="logo" />
-            </div>
-            <div class="col-lg-10">
-              <div class="align-middle" style="margin-top: -20px; margin-bottom: -40px;">
-                <h1 id="bird-title">
-                  FAMMA
-                </h1>
-                <span class="subheading" id="caption" style="color:#f4edd8; font-size: 1.5rem;">A Benchmark for <u>F</u>in<u>a</u>ncial Domain <u>M</u>ultilingual <u>M</u>ultimodal Question <u>A</u>nswering</span>
-                <div style="margin-top: 0px; margin-bottom: -20px;">&nbsp;</div>
-                <div class="column has-text-centered">
-            <div class="is-size-6 publication-authors">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 mx-auto" style="margin-top: -20px; margin-bottom: -20px;">
+                <div class="row site-heading flex-box">
+                    <!-- <div class="col-lg-2" style="display: flex; justify-content: flex-end; align-items: center;">
+                        <img id="logo-img" src="logo/famma_logo.png" alt="logo" style="max-width: 100%; height: auto;"/>
+                    </div> -->
+                    <div class="col-lg-12">
+                        <div class="align-middle" style="margin-top: -20px; margin-bottom: -40px;">
+                            <div style="display: flex; align-items: center; justify-content: center; position: relative;">
+                                <img id="logo-img" src="logo/famma_logo.png" alt="logo" style="position: absolute; left: 250px; max-width: 110px; height: auto;"/>
+                                <h1 id="bird-title" style="margin: 0; text-align: center; margin-bottom: 10px;">
+                                    FAMMA
+                                </h1>
+                            </div>
+                            <span class="subheading" id="caption" style="color:#f4edd8; font-size: 1.5rem;">A Benchmark for <u>F</u>in<u>a</u>ncial Domain <u>M</u>ultilingual <u>M</u>ultimodal Question <u>A</u>nswering</span>
+                            <div style="margin-top: 0px; margin-bottom: -20px;">&nbsp;</div>
+                            <div class="column has-text-centered">
+                                <div class="is-size-6 publication-authors">
                 <span class="author-block">Siqiao Xue<sup style="color:#c5ddf5;">1</sup>,
                 </span>
-                <span class="author-block">Xiaojing Li<sup style="color:#c5ddf5;">1</sup>,
+                                    <span class="author-block">Xiaojing Li<sup style="color:#c5ddf5;">1</sup>,
                 </span>
-                  <span class="author-block">Fan Zhou<sup style="color:#c5ddf5;">1</sup>,
+                                    <span class="author-block">Fan Zhou<sup style="color:#c5ddf5;">1</sup>,
                   </span>
-                  <span class="author-block">Qingyang Dai<sup style="color:#c5ddf5;">1</sup>,
+                                    <span class="author-block">Qingyang Dai<sup style="color:#c5ddf5;">1</sup>,
                   </span>
-                
-                <span class="author-block">Tingting Chen<sup style="color:#c5ddf5;">1</sup>,
+
+                                    <span class="author-block">Tingting Chen<sup style="color:#c5ddf5;">1</sup>,
                 </span>
-                <span class="author-block">Zhixuan Chu<sup style="color:#c5ddf5;">2</sup>,
+                                    <span class="author-block">Zhixuan Chu<sup style="color:#c5ddf5;">2</sup>,
                 </span>
-                <span class="author-block">Zhiyi Mou<sup style="color:#c5ddf5;">2</sup>,
+                                    <span class="author-block">Zhiyi Mou<sup style="color:#c5ddf5;">2</sup>,
                 </span>
-                 <span class="author-block">Yujie Wei<sup style="color:#c5ddf5;">2</sup>,
+                                    <span class="author-block">Yujie Wei<sup style="color:#c5ddf5;">2</sup>,
                 </span>
-                <span class="author-block">
-                  <a href="https://www.hongyuanmei.com/" style="text-decoration: none; color: #aae0ee !important;">Hongyuan Mei</a><sup style="color:#c5ddf5;">3</sup>
+                                    <span class="author-block">
+                  <a href="https://www.hongyuanmei.com/" style="text-decoration: none; color: #aae0ee !important;">Hongyuan Mei</a><sup
+                                            style="color:#c5ddf5;">3</sup>
                 </span>
-            </div>
-                  <div class="is-size-6 publication-authors">
-              <span class="author-block"><sup style="color:#c5ddf5;">1</sup>Alipay,</span>
-              <span class="author-block"><sup style="color:#c5ddf5;">2</sup>Zhejiang University,</span>
-              <span class="author-block"><sup style="color:#c5ddf5;">3</sup>TTIC</span>
-            </div>
-            <div style="margin-top: 0px; margin-bottom: -20px;">&nbsp;</div>
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
+                                </div>
+                                <div class="is-size-6 publication-authors">
+                                    <span class="author-block"><sup style="color:#c5ddf5;">1</sup>Alipay,</span>
+                                    <span class="author-block"><sup
+                                            style="color:#c5ddf5;">2</sup>Zhejiang University,</span>
+                                    <span class="author-block"><sup style="color:#c5ddf5;">3</sup>TTIC</span>
+                                </div>
+                                <div style="margin-top: 0px; margin-bottom: -20px;">&nbsp;</div>
+                                <div class="publication-links">
+                                    <!-- PDF Link. -->
+                                    <span class="link-block">
                 <!-- @PAN TODO: change links -->
                 <a href="https://arxiv.org/abs/2410.04526"
                    class="external-link button is-normal is-rounded is-dark">
@@ -173,7 +203,7 @@
                 </a>
               </span>
 
-              <span class="link-block">
+                                    <span class="link-block">
                 <a href="https://huggingface.co/datasets/weaverbirdllm/famma"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -184,7 +214,7 @@
                   <span>Dataset</span>
                 </a>
               </span>
-              <span class="link-block">
+                                    <span class="link-block">
                 <a href="https://github.com/famma-bench/bench-script"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -193,7 +223,7 @@
                   <span>Code</span>
                   </a>
               </span>
-              <span class="link-block">
+                                    <span class="link-block">
                 <a href="explorer.html"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -202,875 +232,128 @@
                   <span>Explorer</span>
                 </a>
               </span>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-          </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
 
-  </header>
+</header>
 
-  <!-- Main Content -->
-  <div class="container" id="main">
-    <div class="row custom-row">
-      <div class="main-content">
-        <div class="list-group">
-<!--          <div class="list-group-item" id="introduction">-->
-<!--            &lt;!&ndash; <div style="display: grid; grid-template-columns: auto auto; align-items: center;"> &ndash;&gt;-->
-<!--            <h4>About FinMMU</h4>-->
-<!--            &lt;!&ndash; <img src="https://badges.toozhao.com/badges/01HFXP6JKNBG5AW3Y5B95DK568/blue.svg" /> &ndash;&gt;-->
-<!--            &lt;!&ndash; </div> &ndash;&gt;-->
-<!--            <p>-->
-<!--              Introduce FinMMU Here-->
-<!--            </p>-->
-<!--            <div id="button-group">-->
-<!--              <div class="button-row">-->
-<!--                <a href="https://arxiv.org/pdf/2305.03111.pdf" target="_blank">-->
-<!--                  <button type="button" class="btn  btn-a">Paper</button>-->
-<!--                </a>-->
-<!--              </div>-->
-<!--              <div class="button-row">-->
-<!--                <a href="https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird" target="_blank">-->
-<!--                  <button type="button" class="btn btn-a">-->
-<!--                    Code-->
-<!--                  </button>-->
-<!--                </a>-->
-<!--              </div>-->
-<!--              <div class="button-row" id="button-row-b">-->
-<!--                <div class="btn-round">-->
-<!--                  <a href="https://bird-bench.oss-cn-beijing.aliyuncs.com/train.zip" target="_blank">-->
-<!--                    <button type="button" class="btn btn-b">Train Set</button>-->
-<!--                  </a>-->
-<!--                </div>-->
-<!--                <div class="btn-round">-->
-<!--                  <a href="https://bird-bench.oss-cn-beijing.aliyuncs.com/dev.zip" target="_blank">-->
-<!--                    <button type="button" class="btn btn-b">🔥 Dev Set</button>-->
-<!--                  </a>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-          <style>  
-            .scroll-container {  
-              position: relative;  
-              width: 100%;  
-              max-height: 300px;  
-              overflow-y: scroll;  
-            }  
-              
-            /* Hide the scrollbar by default */  
-            .scroll-container::-webkit-scrollbar {  
-                width: 10px;  
-                background: transparent;
-            }  
-              
-            /* Set the scrollbar thumb color */  
-            .scroll-container::-webkit-scrollbar-thumb {  
-                background-color: #FFFFFF;  
-                border-radius: 5px;  
-            }  
-              
-            /* Show the scrollbar when the mouse is hovering over the scroll container */  
-            .scroll-container:hover::-webkit-scrollbar {  
-                width: 10px;  
-            }  
-              
-            .scroll-container:hover::-webkit-scrollbar-thumb:hover {  
-                background-color: #555;  
-            }  
-            
-          </style>
-          <script>  
-            function showMiniDevMessage() {  
-              alert("Coming Soon: Mini-Dev! Dive into 500 top-tier SQL cases covering all keywords in BIRD, including advanced window functions. For the first time, we're also including PostgreSQL and MySQL. Stay ahead and subscribe us for the immediate launch.");  
-            }  
-          </script>  
-          
-          <div class="list-group-item" id="news">
-            <img src="https://badges.toozhao.com/badges/01J6BF75TBCWV7330X2072H582/green.svg" />
-            <h5 class="title is-5">News</h5>
-            
-            <div class="scroll-container">  
-              <div class="card card-outline-secondary mb-4" style="text-align: left;">                      
-                  <div class="card-body" style="background-color: #F1F6F9;">  
-                      <ul style="padding-left: 0;">
-                          <li style="list-style-type: none;">
-                              <img src="https://img.alicdn.com/imgextra/i4/O1CN01kUiDtl1HVxN6G56vN_!!6000000000764-2-tps-43-19.png" alt="new" style="vertical-align: middle; height: 20px; margin-right: 5px;">
-                              <span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;">
-                                  <strong style="color: #FFE7CE">Oct. 7, 2024:</strong>
-                              </span> We are excited to announce the release of our benchmark, FAMMA v1.0. Our accompanying paper <a href="https://arxiv.org/abs/2410.04526">FAMMA: A Benchmark for Financial Domain Multilingual Multimodal Question Answering</a> and <a href="https://huggingface.co/datasets/weaverbirdllm/famma">dataset</a> have also been published.
-                          </li>
-                          <li style="list-style-type: none;"><span style="background-color: #22A699; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">May. 27, 2023:</strong></span> Glad to share our paper <a href="https://arxiv.org/abs/2308.05361">WeaverBird: Empowering Financial Decision-Making with Large Language Model, Knowledge Base, and Search Engine</a>, an intelligent dialogue system designed specifically for the finance domain.</li>
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Mar 13, 2024:</strong></span> Please also take a look at our related work: <a href="https://arxiv.org/abs/2403.05307">Tapilot-Crossing</a>, which is the first challenging and more realistic benchmark designed to evaluate Large Language Model (LLM) agents on interactive data analysis tasks. The code includes Python and Private Library. And it covers 6 common agent actions in evaluation.</li>-->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 25, 2023:</strong></span> We have released a cleaner version of <code>dev set</code>. Please download dev set again. We checked all cases of dev set and fixed all errors that we found. After cleaning, the ChatGPT (gpt-3.5-turbo) and GPT4 (gpt-4-32k) EX scores have improved to <strong>42.24</strong> (from 37.22) and <strong>49.15</strong> (from 46.35), respectively. Thanks for all feedbacks!</li>-->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #FFE7CE">Sept 21, 2023:</strong></span> Our paper has been accepted by <code><strong>NeurIPS 2023</strong></code> as a <code><strong>Spotlight</strong></code>!!! Thanks for all the efforts and suggestions of co-authors, anonymous reviewers, awesome researchers/users in github or emails.</li> -->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 17, 2023:</strong></span> We update newest results of GPT-4, Claude-2 and Palm-2. </li>  -->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">July 14, 2023:</strong></span> The data link has been updated, fixing the schema names in the CSV files. Additionally, tied results caused by <code>order_by limit 1</code> are now considered. Both SQL queries - with and without accounting for tied results - 
-<!--                              are valid at this time.</li>-->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">Jun 12, 2023:</strong></span> We are welcome to any suggestions and reported gold errors in <a href="https://github.com/AlibabaResearch/DAMO-ConvAI/issues/39">help_wanted</a>. Any of your help is appreciated!</li>-->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">Jun 5, 2023:</strong></span> We open-sourced our <a href="https://arxiv.org/abs/2301.07507">Graphix-T5</a>, a graph-aware semi-pretrained text-to-text PLM specifically designed to improve multi-hop reasoning for the complex text-to-SQL task.  -->
-<!--                          <li style="list-style-type: none;"><span style="background-color: #4F709C; color: white; padding: 2px 4px; border-radius: 5px;"><strong style="color: #F6F1F1">May 30, 2023:</strong></span> If you are interested in ICL, please check out our interesting work <a href="https://arxiv.org/pdf/2305.13016.pdf">deep-thinking🤔.</a> Generate 1000 models for 1000 people smoothly!  -->
-
-                      </ul>  
-                  </div>  
-              </div>  
+<section class="section">
+    <div class="container" style="margin-top: -60px; margin-bottom: 2vh;">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">🔔 News</h2>
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                    <img src="https://badges.toozhao.com/badges/01J6BF75TBCWV7330X2072H582/green.svg" alt="Badge" style="height: 20px;" />
+                    <span style="color: #666; font-size: 0.9em;">Last updated: February 2024</span>
+                </div>
+                <div class="content has-text-justified">
+                    <p style="margin: 5px 0"><b>🚀 [2025-02-01]: Initial release of <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2501</a> dataset, collected from invited experts! 🌟</b></p>
+                    <p style="margin: 5px 0"><b>🚀 [2025-01-01]: Full release of <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset, now including answers and explanations with enhanced quality! 🌟</b></p>
+                    <p style="margin: 5px 0"><b>🔥 [2024-06-01]: Initial public release of FAMMA benchmark (based on the <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset), along with our paper <a href="https://arxiv.org/abs/2410.04526">FAMMA: A Benchmark for Financial Domain Multilingual Multimodal Question Answering</a>. We welcome all submissions and look forward to your participation! 😆</b></p>
+                </div>
+                <h2 class="title is-3">Introduction</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        <b>FAMMA</b> is a multilingual multimodal financial question-answering benchmark dataset with the following key features:
+                        <ul>
+                            <li>To minimize potential data contamination, new questions are released regularly, with a full benchmark refresh every six months. Currently, the dataset includes two releases, totaling approximately 2,000 questions:
+                                <ul>
+                                    <li><b>release_v2406</b>: it contains 1,935 questions sourced from online materials, with corresponding answers and explanations.</li>
+                                    <li><b>release_v2501</b>: it includes 106 expert-curated questions, provided without answers. This release serves as a <b>live benchmark</b> in its current stage.</li>
+                                </ul>
+                            </li>
+                            <li>The dataset features three diverse image types—tables, charts, and text/math screenshots—and spans eight financial subfields, ensuring broad coverage across major asset classes. Each question is categorized by difficulty level (<b>easy</b>, <b>medium</b>, <b>hard</b>) and is available in three languages (<b>English</b>, <b>Chinese</b>, and <b>French</b>). Additionally, questions are classified into two formats: <b>multiple-choice</b> and <b>open-ended</b>.</li>
+                        </ul>
+                    </p>
+                </div>
             </div>
-          </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
 
-          <div class="list-group-item">
-            <h5 class="title is-5">Submission</h5>
-            <p>Please follow the Submission Guideline (below) and contact <code>famma.bench@gmail.com</code> for test evaluation. Ususally, we will return your results in 10 days!
-             
-            </p>
-            <style>  
-              .btn-a {  
-                border-radius: 25px; /* Adjust this value to change the roundness of the button */  
-              }  
-              .btn-a:hover {  
-                background-color: #22A699; /* Change the background color when the cursor is over the button */  
-              }  
-            </style>  
-            <div class="button-row">
-              <a href="https://docs.google.com/document/d/1hPZhWgt71JgHNKzVRyvlO8aoVcY24PcOXesGApSFFc4/edit?usp=sharing" target="_blank">
-                <button type="button" class="btn  btn-a">Submission Guidelines</button>
-              </a>
-            </div>
-          </div>
+<section class="section">
+    <div class="container">
+        <h2 class="title is-3 has-text-centered">Leaderboard</h2>
 
-          <div class="list-group-item">
-            <h5 class="title is-5"> Citation </h5>
-            <pre id="citation">
+        <!-- Date Slider -->
+        <div class="slider">
+            <input type="range" min="0" max="1" value="1" step="1" class="slider is-fullwidth">
+            <div class="date-tooltip">2025-01</div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+        <h2 class="title is-4 has-text-centered">BibTeX</h2>
+        <pre><code>
 @article{xue2024famma,
-      title={FAMMA: A Benchmark for Financial Domain Multilingual Multimodal Question Answering},
-      author={Siqiao Xue and Tingting Chen and Fan Zhou and Qingyang Dai and Zhixuan Chu and Hongyuan Mei},
-      journal={arXiv preprint arXiv:2410.04526},
-      year={2024},
-      url={https://arxiv.org/abs/2410.04526}
-}</pre>
-          </div>
+        title={FAMMA: A Benchmark for Financial Domain Multilingual Multimodal Question Answering},
+        author={Siqiao Xue, Tingting Chen, Fan Zhou, Qingyang Dai, Zhixuan Chu, and Hongyuan Mei},
+        journal={arXiv preprint arXiv:2410.04526},
+        year={2024},
+        url={https://arxiv.org/abs/2410.04526}}
+    </code></pre>
+    </div>
+</section>
 
 
-
-          <div class="list-group-item">
-            <h5 class="title is-5"> Acknowledgement </h5>
-            The template is inherited from <a href="https://bird-bench.github.io/">BIRD-Bench</a> of DAMO Academy, Alibaba.
-          </div>
-
+<footer class="footer">
+    <div class="columns is-centered">
+        <div class="column is-8">
+            <div class="content">
+                <p>
+                    The site was inspired by the <a
+                        href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noreferrer">Nerfies
+                    project</a> and by <a
+                        href="https://livecodebench.github.io/" target="_blank" rel="noreferrer">LiveCodeBench</a>,
+                    licensed under a <a rel="license"
+                                        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+            </div>
         </div>
-      </div>
+    </div>
+</footer>
 
-<!-- LeaderBoard -->
-      <div class="col-lg-7">
-        <!-- Button Change (English, Chinese, French) -->
-        <td class="align-middle text-center">
-        <button id="toggleButton" class="btn  button-row" onclick="changeButtonText()">
-          <b style='font-size: larger;'>Main Leaderboard &nbsp;</b>  (Click to Switch)
-        </button>
-        </td>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const slider = document.querySelector('.slider input');
+        const tooltip = document.querySelector('.date-tooltip');
+        const dates = ['2024-06', '2025-01'];
+        const sliderWidth = slider.offsetWidth;
 
+        function updateTooltip(value) {
+            tooltip.textContent = dates[value];
+            // Calculate position based on slider value
+            const percent = value / (slider.max - slider.min);
+            const thumbWidth = 20; // Width of the slider thumb
+            const tooltipWidth = tooltip.offsetWidth;
+            const offset = percent * (sliderWidth - thumbWidth);
+            tooltip.style.left = `${offset + thumbWidth/2}px`;
 
-        <div class="model-labels-container">
-            <span class="leaderboard-label" style="background-color: rgba(249, 242, 248, 1);">Open-Source</span>
-            <span class="leaderboard-label" style="background-color: rgba(255, 255, 200, 0.3);">Proprietary</span>
-          </div>
-
-        <!-- Leaderboard (main) -->
-        <div class="card card-outline-secondary" id="main_table">
-          <div class="card-header">Consolidated Scores on Test Set</div>
-          <div class="table-wrapper">
-            <table class="table" id="mn-table">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" rowspan="1"></th>
-                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
-<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
-                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr class="table-success">
-                  <td scope="row" class="align-middle text-center"><br>
-                  </td>
-                  <td class="align-middle text-center">Human Performance<br>
-                    <span class="affiliation">Professionals and Graduates</span>
-                  </td>
-                  <td class="align-middle text-center">N/A</td>
-                  <td class="align-middle text-center"><b>56.96</b></td>
-                  <td class="align-middle text-center">67.00</td>
-                  <td class="align-middle text-center">60.24</td>
-                  <td class="align-middle text-center">55.26</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 24, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">GPT-4o<br>
-                    <span class="affiliation">Open AI, Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                   <td class="align-middle text-center">42.85</td>
-                  <td class="align-middle text-center">47.25</td>
-                   <td class="align-middle text-center">39.85</td>
-                  <td class="align-middle text-center">40.98</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 21, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-35-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240620), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">42.80</td>
-                  <td class="align-middle text-center">47.37</td>
-                  <td class="align-middle text-center">41.10</td>
-                  <td class="align-middle text-center">39.89</td>
-                </tr>
-
-                <tr style="background-color: rgba(249, 242, 248, 1);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Qwen2-VL<br>
-                    <span class="affiliation">Alibaba (qwen-vl-max-0809), Baseline</span>
-                  </td>
-                  <!-- <a style="color: blue;" href="https://help.aliyun.com/zh/dashscope/developer-reference/tongyi-qianwen-vl-plus-api#3977a58ec5mtp"  target="_blank"  class="affiliation">API</a> -->
-                  <td class="align-middle text-center">70B</td>
-                  <td class="align-middle text-center">34.50</td>
-                  <td class="align-middle text-center">38.39</td>
-                  <td class="align-middle text-center">27.40</td>
-                  <td class="align-middle text-center">35.67</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-3-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240229), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">31.55</td>
-                  <td class="align-middle text-center">31.91</td>
-                  <td class="align-middle text-center">29.00</td>
-                  <td class="align-middle text-center">32.58</td>
-                </tr>
-
-
-        
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Leaderboard (English) -->
-        <div class="card card-outline-secondary hidden" id="english_table">
-          <div class="card-header">
-            Scores on English-specific Test Set
-          </div>
-          <div class="table-wrapper">
-            <table class="table" id="en-table">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" rowspan="1"></th>
-                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
-<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
-                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr class="table-success">
-                  <td scope="row" class="align-middle text-center"><br>
-                  </td>
-                  <td class="align-middle text-center">Human Performance<br>
-                    <span class="affiliation">Professionals and Graduates</span>
-                  </td>
-                  <td class="align-middle text-center">N/A</td>
-                  <td class="align-middle text-center"><b>57.13</b></td>
-                  <td class="align-middle text-center">61.93</td>
-                  <td class="align-middle text-center">59.66</td>
-                  <td class="align-middle text-center">52.24</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 24, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">GPT-4o<br>
-                    <span class="affiliation">Open AI, Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">44.90</td>
-                  <td class="align-middle text-center">48.00</td>
-                  <td class="align-middle text-center">43.83</td>
-                  <td class="align-middle text-center">42.71</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 21, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-35-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240620), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">44.20</td>
-                  <td class="align-middle text-center">47.31</td>
-                  <td class="align-middle text-center">46.15</td>
-                  <td class="align-middle text-center">40.89</td>
-                </tr>
-
-                <tr style="background-color: rgba(249, 242, 248, 1);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Qwen2-VL<br>
-                    <span class="affiliation">Alibaba (qwen-vl-max-0809), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center">70B</td>
-                  <td class="align-middle text-center">36.20</td>
-                  <td class="align-middle text-center">38.73</td>
-                  <td class="align-middle text-center">28.21</td>
-                  <td class="align-middle text-center">37.08</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-3-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240229), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">32.70</td>
-                  <td class="align-middle text-center">33.27</td>
-                  <td class="align-middle text-center">31.62</td>
-                  <td class="align-middle text-center">32.65</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Leaderboard (Chinese) -->
-        <div class="card card-outline-secondary hidden" id="chinese_table">
-          <div class="card-header">Scores on Chinese-specific Test Set</div>
-          <div class="table-wrapper">
-            <table class="table" id="cn-table">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" rowspan="1"></th>
-                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
-<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
-                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr class="table-success">
-                  <td scope="row" class="align-middle text-center"><br>
-                  </td>
-                  <td class="align-middle text-center">Human Performance<br>
-                    <span class="affiliation">Professionals and Graduates</span>
-                  </td>
-                  <td class="align-middle text-center">N/A</td>
-                  <td class="align-middle text-center"><b>50.47</b></td>
-                  <td class="align-middle text-center">55.44</td>
-                  <td class="align-middle text-center">49.64</td>
-                  <td class="align-middle text-center">44.95</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 21, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">GPT-4o<br>
-                    <span class="affiliation">Open AI</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">37.70</td>
-                  <td class="align-middle text-center">39.45</td>
-                  <td class="align-middle text-center">37.35</td>
-                  <td class="align-middle text-center">30.65</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 24, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-35-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240620), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                   <td class="align-middle text-center">37.50</td>
-                  <td class="align-middle text-center">47.37</td>
-                   <td class="align-middle text-center">37.50</td>
-                  <td class="align-middle text-center">22.45</td>
-                </tr>
-
-                <tr style="background-color: rgba(249, 242, 248, 1);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Qwen2-VL<br>
-                    <span class="affiliation">Alibaba (qwen-vl-max-0809), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center">70B</td>
-                  <td class="align-middle text-center">29.60</td>
-                  <td class="align-middle text-center">34.21</td>
-                  <td class="align-middle text-center">31.25</td>
-                  <td class="align-middle text-center">18.37</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-3-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240229), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>  
-                  <td class="align-middle text-center">25.32</td>
-                  <td class="align-middle text-center">19.74</td>
-                  <td class="align-middle text-center">28.91</td>
-                  <td class="align-middle text-center">24.49</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Leaderboard (French) -->
-        <div class="card card-outline-secondary hidden" id="french_table">
-          <div class="card-header">Scores on French-specific Test Set</div>
-          <div class="table-wrapper">
-            <table class="table" id="fr-table">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col" rowspan="1"></th>
-                  <th scope="col" colspan="1" class="align-middle text-center">Model</th>
-<!--                  <th scope="col" colspan="1" class="align-middle text-center">Source</th>-->
-                  <th scope="col" rowspan="1" class="align-middle text-center js-sort-number">Size</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Overall</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Easy</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Medium</th>
-                  <th scope="col" colspan="1" class="text-center js-sort-number">Hard</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr class="table-success">
-                  <td scope="row" class="align-middle text-center"><br>
-                  </td>
-                  <td class="align-middle text-center">Human Performance<br>
-                    <span class="affiliation">Professionals and Graduates</span>
-                  </td>
-                  <td class="align-middle text-center">N/A</td>
-                  <td class="align-middle text-center"><b>56.92</b></td>
-                  <td class="align-middle text-center">68.91</td>
-                  <td class="align-middle text-center">57.02</td>
-                  <td class="align-middle text-center">52.19</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 24, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">claude-35-Sonnet<br>
-                    <span class="affiliation">Anthropic (version 20240620), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                   <td class="align-middle text-center">37.50</td>
-                  <td class="align-middle text-center">50.00</td>
-                   <td class="align-middle text-center">31.58</td>
-                  <td class="align-middle text-center">46.88</td>
-                </tr>
-
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 21, 2024</span>
-                  </td>
-                  <td class="align-middle text-center"> GPT-4o<br>
-                    <span class="affiliation">Open AI, Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">32.50</td>
-                  <td class="align-middle text-center">64.75</td>
-                  <td class="align-middle text-center">31.55</td>
-                  <td class="align-middle text-center">22.90</td>
-                </tr>
-
-                <tr style="background-color: rgba(255, 255, 200, 0.3);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Claude-3-Sonnet<br>   
-                    <span class="affiliation">Anthropic (version 20240229), Baseline</span>
-                  </td>
-                  <td class="align-middle text-center"></td>
-                  <td class="align-middle text-center">30.53</td>
-                  <td class="align-middle text-center">50.00</td>
-                  <td class="align-middle text-center">21.05</td>
-                  <td class="align-middle text-center">43.75</td>
-                </tr>
-
-                <tr style="background-color: rgba(249, 242, 248, 1);">
-                  <td scope="row" class="align-middle text-center counter-cell">
-                    <span class="badge badge-secondary">Aug 27, 2024</span>
-                  </td>
-                  <td class="align-middle text-center">Qwen2-VL<br>
-                    <span class="affiliation">Alibaba (qwen-vl-max-0809), Baseline</span>
-                  </td> 
-                  <td class="align-middle text-center">70B</td>
-                  <td class="align-middle text-center">25.79</td>
-                  <td class="align-middle text-center">50.00</td>
-                  <td class="align-middle text-center">18.42</td>
-                  <td class="align-middle text-center">34.38</td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-      </div>
-      <script>
-       let tableIndex = 0;
-        const tables = ['main_table', 'english_table', 'chinese_table', 'french_table'];
-        const buttonTexts = [
-            "<b style='font-size: larger;'>Main Leaderboard &nbsp;</b> (Click to Switch)",
-            "<b style='font-size: larger;'>Leaderboard for English Subset&nbsp;</b> (Click to Switch)",
-            "<b style='font-size: larger;'>Leaderboard for Chinese Subset&nbsp;</b> (Click to Switch)",
-            "<b style='font-size: larger;'>Leaderboard for French Subset &nbsp;</b> (Click to Switch)"
-        ];
-
-        function toggleTables() {
-            // Hide all tables
-            tables.forEach(tableId => {
-                document.getElementById(tableId).classList.add('hidden');
-            });
-
-            // Show the current table
-            document.getElementById(tables[tableIndex]).classList.remove('hidden');
-
-            // Update button text
-            document.getElementById('toggleButton').innerHTML = buttonTexts[tableIndex];
-
-            // Increment index, wrap around to 0 if it exceeds 3
-            tableIndex = (tableIndex + 1) % 4;
+            // Update the gradient - blue portion should be from the thumb to the right when value is 1
+            const percentage = value * 100;
+            // slider.style.background = `linear-gradient(to right, #e0e0e0 ${percentage}%, #007bff ${percentage}%)`;
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show the main table by default
-            document.getElementById('main_table').classList.remove('hidden');
-
-            // Add click event listener to the button
-            document.getElementById('toggleButton').addEventListener('click', toggleTables);
+        slider.addEventListener('input', function() {
+            updateTooltip(this.value);
         });
 
-        const canvas = document.getElementById('subfield_chart');
-        canvas.style.width = '500px';
-        canvas.style.height = '240px';
-        const ctx = document.getElementById('subfield_chart').getContext('2d');
-        const difficulty_level_chart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Easy', 'Medium', 'Hard', 'Overall'],
-            datasets: [{
-              label: 'Alternative Investments',
-              data: [30, 18, 39, 87],
-              backgroundColor: 'rgba(117, 209, 215, 0.6)',
-              borderColor: 'rgba(117, 209, 215, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Corporate Finance',
-              data: [73, 129, 54, 256],
-              backgroundColor: 'rgba(196, 123, 160, 0.6)',
-              borderColor: 'rgba(196, 123, 160, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Derivatives',
-              data: [46, 29, 179, 254],
-              backgroundColor: 'rgba(245, 123, 113, 0.6)',
-              borderColor: 'rgba(245, 123, 113, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Economics',
-              data: [11, 1, 21, 33],
-              backgroundColor: 'rgba(255, 208, 80, 0.6)',
-              borderColor: 'rgba(255, 208, 80, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
-            },
-            {
-              label: 'Equity',
-              data: [107, 65, 84, 256],
-              backgroundColor: 'rgba(110, 194, 134, 0.6)',
-              borderColor: 'rgba(110, 194, 134, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Financial Statement Analysis',
-              data: [56, 21, 18, 95],
-              backgroundColor: 'rgba(255, 153, 78, 0.6)',
-              borderColor: 'rgba(255, 153, 78, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Fixed Income',
-              data: [94, 56, 98, 248],
-              backgroundColor: 'rgba(42, 149, 235, 0.6)',
-              borderColor: 'rgba(42, 149, 235, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(245, 123, 113, 1)'
-            },
-            {
-              label: 'Portfolio Management',
-              data: [191, 119, 219, 529],
-              backgroundColor: 'rgba(143, 169, 209, 0.6)',
-              borderColor: 'rgba(143, 169, 209, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(110, 194, 134, 1)'
-            },
-            ]
-          },
-          options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              min: 0,
-              max: 560,
-              ticks: {
-                stepSize: 40,
-                font: {
-                  size: 14
-                }
-              }
-            },
-            x: {
-              ticks: {
-                font: {
-                  size: 14
-                }
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              labels: {
-                font: {
-                  size: 14
-                }
-              }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return context.dataset.label + ': ' + context.parsed.y;
-                }
-              }
-            }
-          },
-            onHover: (event, chartElement) => {
-              event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
-            }
-          }
-        });
-
-
-        const canvas_2 = document.getElementById('language_chart');
-        canvas_2.style.width = '500px';
-        canvas_2.style.height = '150px';
-        const ctx_2 = document.getElementById('language_chart').getContext('2d');
-        const language_chart = new Chart(ctx_2, {
-          type: 'bar',
-          data: {
-            labels: ['Easy', 'Medium', 'Hard', 'Overall'],
-            datasets: [{
-              label: 'English',
-              data: [520, 234, 631, 1385],
-              backgroundColor: 'rgba(14, 178, 168, 0.6)',
-              borderColor: 'rgba(14, 178, 168, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Chinese',
-              data: [76, 128, 49, 253],
-              backgroundColor: 'rgba(243, 13, 82, 0.5)',
-              borderColor: 'rgba(243, 13, 82, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'French',
-              data: [12, 76, 32, 120],
-              backgroundColor: 'rgba(15, 112, 14, 0.5)',
-              borderColor: 'rgba(15, 112, 14, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(255, 153, 78, 1)'
-            },
-            ]
-          },
-          options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              min: 0,
-              max: 1400,
-              ticks: {
-                stepSize: 200,
-                font: {
-                  size: 14
-                }
-              }
-            },
-            x: {
-              ticks: {
-                font: {
-                  size: 14
-                }
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              labels: {
-                font: {
-                  size: 14
-                }
-              }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return context.dataset.label + ': ' + context.parsed.y;
-                }
-              }
-            }
-          },
-            onHover: (event, chartElement) => {
-              event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
-            }
-          }
-        });
-
-        const canvas_3 = document.getElementById('mc_chart');
-        canvas_3.style.width = '500px';
-        canvas_3.style.height = '150px';
-        const ctx_3 = document.getElementById('mc_chart').getContext('2d');
-        const mc_chart = new Chart(ctx_3, {
-          type: 'bar',
-          data: {
-            labels: ['Easy', 'Medium', 'Hard', 'Overall'],
-            datasets: [{
-              label: 'Multiple Choice',
-              data: [330, 186, 460, 976],
-              backgroundColor: 'rgba(23, 224, 44, 0.4)',
-              borderColor: 'rgba(23, 224, 44, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            {
-              label: 'Open Question',
-              data: [278, 252, 252, 782],
-              backgroundColor: 'rgba(224, 117, 23, 0.5)',
-              borderColor: 'rgba(224, 117, 23, 1)',
-              borderWidth: 1,
-              hoverBackgroundColor: 'rgba(196, 123, 160, 1)'
-            },
-            ]
-          },
-          options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              min: 0,
-              max: 1000,
-              ticks: {
-                stepSize: 200,
-                font: {
-                  size: 14
-                }
-              }
-            },
-            x: {
-              ticks: {
-                font: {
-                  size: 14
-                }
-              }
-            }
-          },
-          plugins: {
-            legend: {
-              labels: {
-                font: {
-                  size: 14
-                }
-              }
-            },
-            tooltip: {
-              callbacks: {
-                label: function(context) {
-                  return context.dataset.label + ': ' + context.parsed.y;
-                }
-              }
-            }
-          },
-            onHover: (event, chartElement) => {
-              event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
-            }
-          }
-        });
-      </script>
-
-    </div>
-
-
-    </div>
-
-    <hr>
-
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="./js/jquery.min.js"></script>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="./js/clean-blog.min.js"></script>
+        // Initialize with default value
+        updateTooltip(slider.value);
+    });
+</script>
 
 </body>
 
