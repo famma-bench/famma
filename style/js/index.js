@@ -12,16 +12,43 @@ $(document).ready(function() {
 
 })
 
+// Add date mapping for the slider
+const dateToRelease = {
+    '0': 'release_v2406',
+    '1': 'release_v2501'
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   loadTableData();
   setupEventListeners();
   initializeSorting();
   window.addEventListener('resize', adjustNameColumnWidth);
+
+  const slider = document.querySelector('.slider input');
+  const tooltip = document.querySelector('.date-tooltip');
+  const dates = ['2024-06', '2025-01'];
+
+  function updateTooltipAndData(value) {
+    tooltip.textContent = dates[value];
+    loadTableData();  // Load new data when slider changes
+  }
+
+  // Add event listener for slider changes
+  slider.addEventListener('input', function() {
+    updateTooltipAndData(this.value);
+  });
+
+  // Initialize with default value
+  updateTooltipAndData(slider.value);
 });
 
 function loadTableData() {
     console.log('Starting to load table data...');
-    fetch('./configs/leaderboard_data.json')
+    const selectedDate = document.querySelector('.slider input').value;
+    console.log('Selected date:', selectedDate);
+    const releaseVersion = dateToRelease[selectedDate];
+
+    fetch(`./configs/${releaseVersion}/leaderboard.json`)
         .then(response => {
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.json();
@@ -270,55 +297,44 @@ function initializeSorting() {
                 header.textContent = header.textContent + ' [+]';
             }
         }
-        // Add sort arrow only to Performance column
-        if (header.textContent.includes('Performance')) {
-            if (!header.textContent.includes('↓')) {
-                header.textContent = header.textContent + ' ↓';
-            }
-        }
     });
 
     // Perform the initial sort on Performance column
-    var performanceHeader = document.querySelector('#mmmu-table th[data-sort="number"]:first-of-type');
-    console.log('performanceHeader:', performanceHeader);
-    try {
-        if (performanceHeader) {
-            sortTable(performanceHeader, true);
-        } else {
-            console.error('Could not find performance header');
-        }
-    } catch (error) {
-        console.error('Error sorting table:', error);
+    const performanceHeader = document.querySelector('#mmmu-table th[data-sort="number"]');
+    if (performanceHeader) {
+        sortTable(performanceHeader, true);  // Force descending order
+    } else {
+        console.error('Could not find performance header');
     }
 }
 
 function adjustNameColumnWidth() {
-  const nameColumn = document.querySelectorAll('#mmmu-table td:first-child, #mmmu-table th:first-child');
-  let maxWidth = 0;
+    const nameColumn = document.querySelectorAll('#mmmu-table td:first-child, #mmmu-table th:first-child');
+    let maxWidth = 0;
 
-  const span = document.createElement('span');
-  span.style.visibility = 'hidden';
-  span.style.position = 'absolute';
-  span.style.whiteSpace = 'nowrap';
-  document.body.appendChild(span);
+    const span = document.createElement('span');
+    span.style.visibility = 'hidden';
+    span.style.position = 'absolute';
+    span.style.whiteSpace = 'nowrap';
+    document.body.appendChild(span);
 
-  nameColumn.forEach(cell => {
-    span.textContent = cell.textContent;
-    const width = span.offsetWidth;
-    if (width > maxWidth) {
-      maxWidth = width;
-    }
-  });
+    nameColumn.forEach(cell => {
+        span.textContent = cell.textContent;
+        const width = span.offsetWidth;
+        if (width > maxWidth) {
+            maxWidth = width;
+        }
+    });
 
-  document.body.removeChild(span);
+    document.body.removeChild(span);
 
-  maxWidth += 20; // Increased padding
+    maxWidth += 60;  // Increased padding from 20 to 60
 
-  nameColumn.forEach(cell => {
-    cell.style.width = `${maxWidth}px`;
-    cell.style.minWidth = `${maxWidth}px`; // Added minWidth
-    cell.style.maxWidth = `${maxWidth}px`;
-  });
+    nameColumn.forEach(cell => {
+        cell.style.width = `${maxWidth}px`;
+        cell.style.minWidth = `${maxWidth}px`;
+        cell.style.maxWidth = `${maxWidth}px`;
+    });
 }
 
 function prepareScoresForStyling(data) {
@@ -385,7 +401,7 @@ style.textContent = `
     #mmmu-table th, #mmmu-table td {
         text-align: center;
         padding: 8px 4px;
-        font-size: 14px;
+        font-size: 14.5px;
         color: #1a1a1a;  // Darker text for better contrast
         font-weight: normal;  // Regular weight for all cells
     }

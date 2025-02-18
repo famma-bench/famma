@@ -1,0 +1,106 @@
+{
+  "leaderboardData": [
+    {
+      "info": {
+        "name": "GPT-4o-20240806",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://platform.openai.com/docs/models#gpt-4o"
+      },
+      "overall_acc": 0.4,
+      "overall_acc_by_difficulty": {
+        "easy": 0.4510086455331412,
+        "hard": 0.31748071979434445,
+        "medium": 0.4608879492600423
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.46017699115044247,
+        "hard": 0.2621951219512195,
+        "medium": 0.4552238805970149
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.44582593250444047,
+        "hard": 0.3392539964476021,
+        "medium": 0.4880952380952381
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.5555555555555556,
+        "hard": 0.2549019607843137,
+        "medium": 0.39080459770114945
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.3795620437956204,
+        "english": 0.41001451378809867,
+        "french": 0.36538461538461536
+      }
+    },
+    {
+      "info": {
+        "name": "Claude-3.5-Sonnet-20240620",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://www.anthropic.com/news/claude-3-5-sonnet"
+      },
+      "overall_acc": 0.438560411311054,
+      "overall_acc_by_difficulty": {
+        "easy": 0.4711815561959654,
+        "hard": 0.39588688946015427,
+        "medium": 0.4608879492600423
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.49557522123893805,
+        "hard": 0.3170731707317073,
+        "medium": 0.44029850746268656
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.458259325044405,
+        "hard": 0.41207815275310833,
+        "medium": 0.49206349206349204
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.7222222222222222,
+        "hard": 0.47058823529411764,
+        "medium": 0.40229885057471265
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.40632603406326034,
+        "english": 0.4455732946298984,
+        "french": 0.46153846153846156
+      }
+    },
+    {
+      "info": {
+        "name": "Gemini-1.5-Pro-002",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions"
+      },
+      "overall_acc": 0.4026707755521315,
+      "overall_acc_by_difficulty": {
+        "easy": 0.4765957446808511,
+        "hard": 0.3208279430789133,
+        "medium": 0.42735042735042733
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.5263157894736842,
+        "hard": 0.3313253012048193,
+        "medium": 0.4122137404580153
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.4649122807017544,
+        "hard": 0.32857142857142857,
+        "medium": 0.46184738955823296
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.5238095238095238,
+        "hard": 0.19148936170212766,
+        "medium": 0.3522727272727273
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.41119221411192214,
+        "english": 0.40869565217391307,
+        "french": 0.3269230769230769
+      }
+    }
+  ]
+}
