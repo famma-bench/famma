@@ -38,16 +38,16 @@
     <!-- Bootstrap core CSS -->
     <link href="./style/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
-    <link href="./style/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./style/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!--    <link href="./style/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <!--    <link rel="stylesheet" href="./style/all.css"-->
+    <!--          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">-->
 
     <link rel="stylesheet" href="./style/css/bulma.min.css">
     <link rel="stylesheet" href="./style/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="./style/css/bulma-slider.min.css">
     <link rel="stylesheet" href="./style/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="./style/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./style/css/index.css">
 
     <script src="https://kit.fontawesome.com/eaf1856e6f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -55,6 +55,9 @@
     <script src="./style/js/bulma-carousel.min.js"></script>
     <script src="./style/js/bulma-slider.min.js"></script>
     <script src="./style/js/index.js"></script>
+
+    <!-- Load your custom CSS last so it can override framework styles -->
+    <!--    <link rel="stylesheet" href="./style/css/index.css">-->
 
     <style>
 
@@ -73,19 +76,27 @@
             position: relative;
         }
 
-        /* This creates the blue active portion */
-    .slider input[type="range"]::-webkit-slider-runnable-track {
-        -webkit-appearance: none;
-        height: 2px;
-        border: none;
-        background: #007bff;  /* Changed to blue */
-    }
+        .slider input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 3px; /* Increased from 2px to 3px */
+            background: #e0e0e0;
+            outline: none;
+        }
 
-    .slider input[type="range"]::-moz-range-track {
-        height: 2px;
-        border: none;
-    }
+        /* Remove any track styling that might create a second line */
+        .slider input[type="range"]::-webkit-slider-runnable-track {
+            -webkit-appearance: none;
+            height: 4px; /* Increased to match */
+            border: none;
+            background: none;
+        }
 
+        .slider input[type="range"]::-moz-range-track {
+            height: 4px; /* Increased to match */
+            border: none;
+            background: none;
+        }
 
         .slider input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -95,9 +106,9 @@
             background: #007bff;
             border-radius: 50%;
             cursor: pointer;
-            border: 3px solid rgb(255, 255, 255);
-            box-shadow: 0 0 0 1px #007bff;
-            margin-top: -9px;
+            border: 3px solid white;
+            box-shadow: 0 0 2px 1px #007bff;
+            margin-top: -15px; /* Adjusted for new line thickness */
         }
 
         .date-tooltip {
@@ -108,7 +119,7 @@
             color: white;
             padding: 8px 12px;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 15px;
             white-space: nowrap;
             pointer-events: none;
         }
@@ -127,7 +138,6 @@
         }
     </style>
 
-    <script src="script/sort-table.js"></script>
 </head>
 
 <!-- Title -->
@@ -152,7 +162,8 @@
                     <div class="col-lg-12">
                         <div class="align-middle" style="margin-top: -20px; margin-bottom: -40px;">
                             <div style="display: flex; align-items: center; justify-content: center; position: relative;">
-                                <img id="logo-img" src="logo/famma_logo.png" alt="logo" style="position: absolute; left: 250px; max-width: 110px; height: auto;"/>
+                                <img id="logo-img" src="logo/famma_logo.png" alt="logo"
+                                     style="position: absolute; left: 250px; max-width: 110px; height: auto;"/>
                                 <h1 id="bird-title" style="margin: 0; text-align: center; margin-bottom: 10px;">
                                     FAMMA
                                 </h1>
@@ -169,10 +180,9 @@
                   </span>
                                     <span class="author-block">Qingyang Dai<sup style="color:#c5ddf5;">1</sup>,
                   </span>
-
-                                    <span class="author-block">Tingting Chen<sup style="color:#c5ddf5;">1</sup>,
-                </span>
                                     <span class="author-block">Zhixuan Chu<sup style="color:#c5ddf5;">2</sup>,
+                </span>
+                                    <span class="author-block">Tingting Chen<sup style="color:#c5ddf5;">1</sup>,
                 </span>
                                     <span class="author-block">Zhiyi Mou<sup style="color:#c5ddf5;">2</sup>,
                 </span>
@@ -233,7 +243,7 @@
                 </a>
               </span>
                                 </div>
-                            
+
                             </div>
                         </div>
                     </div>
@@ -251,27 +261,48 @@
             <div class="column is-four-fifths">
                 <h2 class="title is-3">🔔 News</h2>
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                    <img src="https://badges.toozhao.com/badges/01J6BF75TBCWV7330X2072H582/green.svg" alt="Badge" style="height: 20px;" />
+                    <img src="https://badges.toozhao.com/badges/01J6BF75TBCWV7330X2072H582/green.svg" alt="Badge"
+                         style="height: 20px;"/>
                     <span style="color: #666; font-size: 0.9em;">Last updated: February 2024</span>
                 </div>
                 <div class="content has-text-justified">
-                    <p style="margin: 5px 0"><b>🚀 [2025-02-01]: Initial release of <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2501</a> dataset, collected from invited experts! 🌟</b></p>
-                    <p style="margin: 5px 0"><b>🚀 [2025-01-01]: Full release of <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset, now including answers and explanations with enhanced quality! 🌟</b></p>
-                    <p style="margin: 5px 0"><b>🔥 [2024-06-01]: Initial public release of FAMMA benchmark (based on the <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset), along with our paper <a href="https://arxiv.org/abs/2410.04526">FAMMA: A Benchmark for Financial Domain Multilingual Multimodal Question Answering</a>. We welcome all submissions and look forward to your participation! 😆</b></p>
+                    <p style="margin: 5px 0"><b>🚀 [2025-02-01]: Initial release of <a
+                            href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2501</a> dataset,
+                        collected from invited experts! 🌟</b></p>
+                    <p style="margin: 5px 0"><b>🚀 [2025-01-01]: Full release of <a
+                            href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset, now
+                        including answers and explanations with enhanced quality! 🌟</b></p>
+                    <p style="margin: 5px 0"><b>🔥 [2024-06-01]: Initial public release of FAMMA benchmark (based on the
+                        <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset), along
+                        with our paper <a href="https://arxiv.org/abs/2410.04526">FAMMA: A Benchmark for Financial
+                            Domain Multilingual Multimodal Question Answering</a>. We welcome all submissions and look
+                        forward to your participation! 😆</b></p>
                 </div>
                 <h2 class="title is-3">Introduction</h2>
                 <div class="content has-text-justified">
                     <p>
-                        <b>FAMMA</b> is a multilingual multimodal financial question-answering benchmark dataset with the following key features:
-                        <ul>
-                            <li>To minimize potential data contamination, new questions are released regularly, with a full benchmark refresh every six months. Currently, the dataset includes two releases, totaling approximately 2,000 questions:
-                                <ul>
-                                    <li><b>release_v2406</b>: it contains 1,935 questions sourced from online materials, with corresponding answers and explanations.</li>
-                                    <li><b>release_v2501</b>: it includes 106 expert-curated questions, provided without answers. This release serves as a <b>live benchmark</b> in its current stage.</li>
-                                </ul>
-                            </li>
-                            <li>The dataset features three diverse image types—tables, charts, and text/math screenshots—and spans eight financial subfields, ensuring broad coverage across major asset classes. Each question is categorized by difficulty level (<b>easy</b>, <b>medium</b>, <b>hard</b>) and is available in three languages (<b>English</b>, <b>Chinese</b>, and <b>French</b>). Additionally, questions are classified into two formats: <b>multiple-choice</b> and <b>open-ended</b>.</li>
-                        </ul>
+                        <b>FAMMA</b> is a multilingual multimodal financial question-answering benchmark dataset with
+                        the following key features:
+                    <ul>
+                        <li>To minimize potential data contamination, new questions are released regularly, with a full
+                            benchmark refresh every six months. Currently, the dataset includes two releases, totaling
+                            approximately 2,000 questions:
+                            <ul>
+                                <li><b>release_v2406</b>: it contains 1,935 questions sourced from online materials,
+                                    with corresponding answers and explanations.
+                                </li>
+                                <li><b>release_v2501</b>: it includes 106 expert-curated questions, provided without
+                                    answers. This release serves as a <b>live benchmark</b> in its current stage.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>The dataset features three diverse image types—tables, charts, and text/math screenshots—and
+                            spans eight financial subfields, ensuring broad coverage across major asset classes. Each
+                            question is categorized by difficulty level (<b>easy</b>, <b>medium</b>, <b>hard</b>) and is
+                            available in three languages (<b>English</b>, <b>Chinese</b>, and <b>French</b>).
+                            Additionally, questions are classified into two formats: <b>multiple-choice</b> and <b>open-ended</b>.
+                        </li>
+                    </ul>
                     </p>
                 </div>
             </div>
@@ -280,14 +311,70 @@
     </div>
 </section>
 
-<section class="section">
+<section class="section" style="margin-top: -60px;">
     <div class="container">
-        <h2 class="title is-3 has-text-centered">Leaderboard</h2>
+        <div class="columns is-centered m-6">
+            <div class="column is-full has-text-centered content">
+                <h2 class="title is-3 has-text-centered" style="margin-top: -60px;">Leaderboard</h2>
 
-        <!-- Date Slider -->
-        <div class="slider">
-            <input type="range" min="0" max="1" value="1" step="1" class="slider is-fullwidth">
-            <div class="date-tooltip">2025-01</div>
+                <!-- Date Slider -->
+                <div class="slider">
+                    <input type="range" min="0" max="1" value="1" step="1" class="slider is-fullwidth">
+                    <div class="date-tooltip">2025-01</div>
+                </div>
+
+                <div class="model-labels-container">
+                    <span class="leaderboard-label open_source">Open-Source</span>
+                    <span class="leaderboard-label proprietary">Proprietary</span>
+                </div>
+
+                <div class="leaderboard-container">
+                    <div class="table-wrapper">
+                        <table id="mmmu-table">
+                            <thead>
+                            <tr>
+                                <th colspan="1">Model</th>
+                                <th colspan="1" class="overall-header">Overall [+]</th>
+                                <th colspan="1" class="easy-header">Easy [+]</th>
+                                <th colspan="1" class="medium-header">Medium [+]</th>
+                                <th colspan="1" class="hard-header">Hard [+]</th>
+                            </tr>
+                            <tr>
+                                <th class="sortable" data-sort="string">Name - Version</th>
+                                <!-- Overall section -->
+                                <th class="sortable overall-main" data-sort="number">Performance</th>
+                                <th class="sortable overall-detail hidden" data-sort="number">English</th>
+                                <th class="sortable overall-detail hidden" data-sort="number">Chinese</th>
+                                <th class="sortable overall-detail hidden" data-sort="number">French</th>
+                                <!-- Easy section -->
+                                <th class="sortable easy-main" data-sort="number">Average</th>
+                                <th class="sortable easy-detail hidden" data-sort="number">English</th>
+                                <th class="sortable easy-detail hidden" data-sort="number">Chinese</th>
+                                <th class="sortable easy-detail hidden" data-sort="number">French</th>
+                                <!-- Medium section -->
+                                <th class="sortable medium-main" data-sort="number">Average</th>
+                                <th class="sortable medium-detail hidden" data-sort="number">English</th>
+                                <th class="sortable medium-detail hidden" data-sort="number">Chinese</th>
+                                <th class="sortable medium-detail hidden" data-sort="number">French</th>
+                                <!-- Hard section -->
+                                <th class="sortable hard-main" data-sort="number">Average</th>
+                                <th class="sortable hard-detail hidden" data-sort="number">English</th>
+                                <th class="sortable hard-detail hidden" data-sort="number">Chinese</th>
+                                <th class="sortable hard-detail hidden" data-sort="number">French</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- Table body will be populated dynamically -->
+                            </tbody>
+                        </table>
+                        <p class="test-desc"> Overall results of different models on the FAMMA leaderboard. The
+                            best-performing
+                            model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. *:
+                            results
+                            provided by the authors.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -326,7 +413,7 @@
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const slider = document.querySelector('.slider input');
         const tooltip = document.querySelector('.date-tooltip');
         const dates = ['2024-06', '2025-01'];
@@ -334,19 +421,19 @@
 
         function updateTooltip(value) {
             tooltip.textContent = dates[value];
-            // Calculate position based on slider value
             const percent = value / (slider.max - slider.min);
-            const thumbWidth = 20; // Width of the slider thumb
-            const tooltipWidth = tooltip.offsetWidth;
+            const thumbWidth = 20;
             const offset = percent * (sliderWidth - thumbWidth);
-            tooltip.style.left = `${offset + thumbWidth/2}px`;
+            tooltip.style.left = `${offset + thumbWidth / 2}px`;
 
-            // Update the gradient - blue portion should be from the thumb to the right when value is 1
+            // Create a clean single line with the gradient
             const percentage = value * 100;
-            // slider.style.background = `linear-gradient(to right, #e0e0e0 ${percentage}%, #007bff ${percentage}%)`;
+            slider.style.background = `linear-gradient(to right, #007bff ${percentage}%, #e0e0e0 ${percentage}%)`;
+            slider.style.backgroundSize = '100% 3px';  /* Increased to match new height */
+            slider.style.backgroundRepeat = 'no-repeat';
         }
 
-        slider.addEventListener('input', function() {
+        slider.addEventListener('input', function () {
             updateTooltip(this.value);
         });
 

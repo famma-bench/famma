@@ -1,0 +1,72 @@
+{
+  "leaderboardData": [
+    {
+      "info": {
+        "name": "GPT-o1-20241217",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://platform.openai.com/docs/models#o1"
+      },
+      "overall_acc": 0.5436893203883495,
+      "overall_acc_by_difficulty": {
+        "easy": 0.7352941176470589,
+        "hard": 0.34615384615384615,
+        "medium": 0.5116279069767442
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.7272727272727273,
+        "hard": 0.25,
+        "medium": 0.4666666666666667
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.75,
+        "hard": 0.5,
+        "medium": 0.4666666666666667
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.7272727272727273,
+        "hard": 0.3,
+        "medium": 0.6153846153846154
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.5,
+        "english": 0.5714285714285714,
+        "french": 0.5588235294117647
+      }
+      },
+    {
+      "info": {
+        "name": "GPT-4o-20240806",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://platform.openai.com/docs/models#gpt-4o"
+      },
+      "overall_acc": 0.25471698113207547,
+    "overall_acc_by_difficulty": {
+      "easy": 0.4411764705882353,
+      "hard": 0.1388888888888889,
+      "medium": 0.19444444444444445
+    },
+    "overall_acc_by_difficulty_chinese": {
+      "easy": 0.45454545454545453,
+      "hard": 0.08333333333333333,
+      "medium": 0.08333333333333333
+    },
+    "overall_acc_by_difficulty_english": {
+      "easy": 0.4166666666666667,
+      "hard": 0.16666666666666666,
+      "medium": 0.16666666666666666
+    },
+    "overall_acc_by_difficulty_french": {
+      "easy": 0.45454545454545453,
+      "hard": 0.16666666666666666,
+      "medium": 0.3333333333333333
+    },
+    "overall_acc_by_language": {
+      "chinese": 0.2,
+      "english": 0.25,
+      "french": 0.3142857142857143
+    }
+    }
+  ]
+}
