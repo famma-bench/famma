@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
   loadTableData();
   setupEventListeners();
   initializeSorting();
+  adjustNameColumnWidth();
   window.addEventListener('resize', adjustNameColumnWidth);
 
   const slider = document.querySelector('.slider input');
@@ -102,6 +103,7 @@ function loadTableData() {
             });
 
             initializeSorting();
+            adjustNameColumnWidth();
         })
         .catch(error => {
             console.error('Error loading table data:', error);
@@ -328,7 +330,7 @@ function adjustNameColumnWidth() {
 
     document.body.removeChild(span);
 
-    maxWidth += 60;  // Increased padding from 20 to 60
+    maxWidth += 120;  // Increased padding from 60 to 120
 
     nameColumn.forEach(cell => {
         cell.style.width = `${maxWidth}px`;

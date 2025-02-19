@@ -101,6 +101,176 @@
         "english": 0.22857142857142856,
         "french": 0.35294117647058826
       }
+    },
+    {
+      "info": {
+        "name": "Gemini-1.5-Pro-002",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions"
+      },
+      "overall_acc": 0.27184466019417475,
+    "overall_acc_by_difficulty": {
+      "easy": 0.4117647058823529,
+      "hard": 0.16666666666666666,
+      "medium": 0.23076923076923078
+    },
+    "overall_acc_by_difficulty_chinese": {
+      "easy": 0.36363636363636365,
+      "hard": 0.2,
+      "medium": 0.15384615384615385
+    },
+    "overall_acc_by_difficulty_english": {
+      "easy": 0.4166666666666667,
+      "hard": 0.2,
+      "medium": 0.23076923076923078
+    },
+    "overall_acc_by_difficulty_french": {
+      "easy": 0.45454545454545453,
+      "hard": 0.1,
+      "medium": 0.3076923076923077
+    },
+    "overall_acc_by_language": {
+      "chinese": 0.23529411764705882,
+      "english": 0.2857142857142857,
+        "french": 0.29411764705882354
+      }
+    },
+    {
+      "info": {
+        "name": "Gemini-1.5-Flash-002",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
+      },
+      "overall_acc": 0.16037735849056603,
+    "overall_acc_by_difficulty": {
+      "easy": 0.20588235294117646,
+      "hard": 0.15151515151515152,
+      "medium": 0.1282051282051282
+    },
+    "overall_acc_by_difficulty_chinese": {
+      "easy": 0.18181818181818182,
+      "hard": 0.09090909090909091,
+      "medium": 0.15384615384615385
+    },
+    "overall_acc_by_difficulty_english": {
+      "easy": 0.25,
+      "hard": 0.18181818181818182,
+      "medium": 0.15384615384615385
+    },
+    "overall_acc_by_difficulty_french": {
+      "easy": 0.18181818181818182,
+      "hard": 0.18181818181818182,
+      "medium": 0.07692307692307693
+    },
+    "overall_acc_by_language": {
+      "chinese": 0.14285714285714285,
+      "english": 0.19444444444444445,
+      "french": 0.14285714285714285
+    }
+    },
+    {
+      "info": {
+        "name": "Gemini-2.0-Flash-001",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
+      },
+      "overall_acc": 0.2621359223300971,
+    "overall_acc_by_difficulty": {
+      "easy": 0.35294117647058826,
+      "hard": 0.13333333333333333,
+      "medium": 0.28205128205128205
+    },
+    "overall_acc_by_difficulty_chinese": {
+      "easy": 0.36363636363636365,
+      "hard": 0.2,
+      "medium": 0.3076923076923077
+    },
+    "overall_acc_by_difficulty_english": {
+      "easy": 0.4166666666666667,
+      "hard": 0.1,
+      "medium": 0.3076923076923077
+    },
+    "overall_acc_by_difficulty_french": {
+      "easy": 0.2727272727272727,
+      "hard": 0.1,
+      "medium": 0.23076923076923078
+    },
+    "overall_acc_by_language": {
+      "chinese": 0.29411764705882354,
+      "english": 0.2857142857142857,
+      "french": 0.20588235294117646
+    }
+    },
+    {
+      "info": {
+        "name": "Claude-3.5-Sonnet-20240620",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://www.anthropic.com/news/claude-3-5-sonnet"
+      },
+      "overall_acc": 0.2815533980582524,
+    "overall_acc_by_difficulty": {
+      "easy": 0.5,
+      "hard": 0.23333333333333334,
+      "medium": 0.1282051282051282
+    },
+    "overall_acc_by_difficulty_chinese": {
+      "easy": 0.6363636363636364,
+      "hard": 0.4,
+      "medium": 0.0
+    },
+    "overall_acc_by_difficulty_english": {
+      "easy": 0.5,
+      "hard": 0.2,
+      "medium": 0.15384615384615385
+    },
+    "overall_acc_by_difficulty_french": {
+      "easy": 0.36363636363636365,
+      "hard": 0.1,
+      "medium": 0.23076923076923078
+    },
+    "overall_acc_by_language": {
+      "chinese": 0.3235294117647059,
+      "english": 0.2857142857142857,
+      "french": 0.23529411764705882
+    }
+    },
+    {
+      "info": {
+        "name": "Gemini-2.0-Flash-Exp",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
+      },
+      "overall_acc": 0.1509433962264151,
+    "overall_acc_by_difficulty": {
+      "easy": 0.20588235294117646,
+      "hard": 0.06060606060606061,
+      "medium": 0.1794871794871795
+    },
+    "overall_acc_by_difficulty_chinese": {
+      "easy": 0.18181818181818182,
+      "hard": 0.09090909090909091,
+      "medium": 0.15384615384615385
+    },
+    "overall_acc_by_difficulty_english": {
+      "easy": 0.25,
+      "hard": 0.09090909090909091,
+      "medium": 0.15384615384615385
+    },
+    "overall_acc_by_difficulty_french": {
+      "easy": 0.18181818181818182,
+      "hard": 0.0,
+      "medium": 0.23076923076923078
+    },
+    "overall_acc_by_language": {
+      "chinese": 0.14285714285714285,
+      "english": 0.16666666666666666,
+      "french": 0.14285714285714285
+    }
     }
   ]
 }
