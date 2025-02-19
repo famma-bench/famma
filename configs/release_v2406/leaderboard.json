@@ -101,6 +101,74 @@
         "english": 0.40869565217391307,
         "french": 0.3269230769230769
       }
+    },
+    {
+      "info": {
+        "name": "Gemini-2.0-Flash-Exp",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
+      },
+      "overall_acc": 0.1509433962264151,
+      "overall_acc_by_difficulty": {
+        "easy": 0.20588235294117646,
+        "hard": 0.06060606060606061,
+        "medium": 0.1794871794871795
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.18181818181818182,
+        "hard": 0.09090909090909091,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.25,
+        "hard": 0.09090909090909091,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.18181818181818182,
+        "hard": 0.0,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.14285714285714285,
+        "english": 0.16666666666666666,
+        "french": 0.14285714285714285
+      }
+    },
+    {
+      "info": {
+        "name": "qwen-vl-max-20250125",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://help.aliyun.com/zh/model-studio/getting-started/models?spm=5176.21213303.J_v8LsmxMG6alneH-O7TCPa.5.53722f3dBPDBvk&scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@2840914._.ID_help@@%E6%96%87%E6%A1%A3@@2840914-RL_qwen~DAS~vl~DAS~max-LOC_2024SPAllResult-OR_ser-PAR1_213e361617399774819095133ec362-V_4-RE_new5-P0_1-P1_0#3f1f1c8913fvo"
+      },
+      "overall_acc": 0.36246786632390743,
+      "overall_acc_by_difficulty": {
+        "easy": 0.40634005763688763,
+        "hard": 0.31362467866323906,
+        "medium": 0.3784355179704017
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.4336283185840708,
+        "hard": 0.23780487804878048,
+        "medium": 0.3358208955223881
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.3925399644760213,
+        "hard": 0.3392539964476021,
+        "medium": 0.4166666666666667
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.6666666666666666,
+        "hard": 0.27450980392156865,
+        "medium": 0.3333333333333333
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.3236009732360097,
+        "english": 0.3751814223512337,
+        "french": 0.3525641025641026
+      }
     }
   ]
 }
