@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
   loadTableData();
   setupEventListeners();
   initializeSorting();
-  adjustNameColumnWidth();
   window.addEventListener('resize', adjustNameColumnWidth);
 
   const slider = document.querySelector('.slider input');
@@ -103,7 +102,6 @@ function loadTableData() {
             });
 
             initializeSorting();
-            adjustNameColumnWidth();
         })
         .catch(error => {
             console.error('Error loading table data:', error);
@@ -138,25 +136,18 @@ function toggleSection(header) {
         const secHeader = document.querySelector(`.${sec}-header`);
         const secMainCells = document.querySelectorAll(`.${sec}-main`);
         const secDetailCells = document.querySelectorAll(`.${sec}-detail`);
-        const secDetailHeaders = document.querySelectorAll(`.${sec}-detail-header`);
         
-        // Remove highlight from all sections
-        secDetailCells.forEach(cell => cell.style.backgroundColor = '');
-        secMainCells.forEach(cell => cell.style.backgroundColor = '');
-        secDetailHeaders.forEach(header => header.style.backgroundColor = '');
-        
-        // If this is not the clicked section, or if we're collapsing the clicked section
+        // Remove expanded class and hide detail cells for all sections
         if (sec !== section || isExpanded) {
             if (secHeader.textContent.includes('[-]')) {
                 secHeader.textContent = secHeader.textContent.replace('[-]', '[+]');
             }
             secMainCells.forEach(cell => {
-                cell.classList.remove('hidden');
-                cell.style.width = '80px';
+                cell.classList.remove('hidden', 'expanded');
             });
             secDetailCells.forEach(cell => {
                 cell.classList.add('hidden');
-                cell.style.width = '';
+                cell.classList.remove('expanded');
             });
             secHeader.setAttribute('colspan', '1');
         }
@@ -164,25 +155,17 @@ function toggleSection(header) {
 
     // If we're expanding the clicked section
     if (!isExpanded) {
-        // Expand only the clicked section
         header.textContent = header.textContent.replace('[+]', '[-]');
         const mainCells = document.querySelectorAll(`.${section}-main`);
         const detailCells = document.querySelectorAll(`.${section}-detail`);
-        const detailHeaders = document.querySelectorAll(`.${section}-detail-header`);
-        
-        // Add highlight to expanded section
-        const highlightColor = '#f0fff0';  // Light gray background
-        detailCells.forEach(cell => cell.style.backgroundColor = highlightColor);
-        mainCells.forEach(cell => cell.style.backgroundColor = highlightColor);
-        detailHeaders.forEach(header => header.style.backgroundColor = highlightColor);
         
         mainCells.forEach(cell => {
             cell.classList.remove('hidden');
-            cell.style.width = '60px';  // Reduced width for expanded view
+            cell.classList.add('expanded');
         });
         detailCells.forEach(cell => {
             cell.classList.remove('hidden');
-            cell.style.width = '60px';  // Reduced width for expanded view
+            cell.classList.add('expanded');
         });
         header.setAttribute('colspan', '4');
     }
@@ -453,6 +436,49 @@ style.textContent = `
 
     #mmmu-table a:hover {
         text-decoration: underline;
+    }
+
+    /* Model column width */
+    #mmmu-table td:first-child,
+    #mmmu-table th:first-child {
+        width: 300px !important;
+        max-width: 300px !important;
+        min-width: 300px !important;
+        padding-left: 15px !important;
+    }
+
+    /* Default (collapsed) column widths */
+    #mmmu-table td.overall-main,
+    #mmmu-table td.easy-main,
+    #mmmu-table td.medium-main,
+    #mmmu-table td.hard-main {
+        width: 70px !important;
+        max-width: 70px !important;
+    }
+
+    /* Expanded column widths */
+    #mmmu-table td.expanded {
+        width: 35px !important;
+        max-width: 35px !important;
+        padding: 8px 1px !important;
+        font-size: 13.5px !important;
+    }
+
+    /* Adjust table layout */
+    #mmmu-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    /* Make text in expanded columns more compact */
+    #mmmu-table td.expanded b,
+    #mmmu-table td.expanded u {
+        font-size: 13.5px !important;
     }
 `;
 document.head.appendChild(style);

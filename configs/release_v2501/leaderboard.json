@@ -110,29 +110,29 @@
         "link": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions"
       },
       "overall_acc": 0.27184466019417475,
-    "overall_acc_by_difficulty": {
-      "easy": 0.4117647058823529,
-      "hard": 0.16666666666666666,
-      "medium": 0.23076923076923078
-    },
-    "overall_acc_by_difficulty_chinese": {
-      "easy": 0.36363636363636365,
-      "hard": 0.2,
-      "medium": 0.15384615384615385
-    },
-    "overall_acc_by_difficulty_english": {
-      "easy": 0.4166666666666667,
-      "hard": 0.2,
-      "medium": 0.23076923076923078
-    },
-    "overall_acc_by_difficulty_french": {
-      "easy": 0.45454545454545453,
-      "hard": 0.1,
-      "medium": 0.3076923076923077
-    },
-    "overall_acc_by_language": {
-      "chinese": 0.23529411764705882,
-      "english": 0.2857142857142857,
+      "overall_acc_by_difficulty": {
+        "easy": 0.4117647058823529,
+        "hard": 0.16666666666666666,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.36363636363636365,
+        "hard": 0.2,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.4166666666666667,
+        "hard": 0.2,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.45454545454545453,
+        "hard": 0.1,
+        "medium": 0.3076923076923077
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.23529411764705882,
+        "english": 0.2857142857142857,
         "french": 0.29411764705882354
       }
     },
@@ -144,31 +144,31 @@
         "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
       },
       "overall_acc": 0.16037735849056603,
-    "overall_acc_by_difficulty": {
-      "easy": 0.20588235294117646,
-      "hard": 0.15151515151515152,
-      "medium": 0.1282051282051282
-    },
-    "overall_acc_by_difficulty_chinese": {
-      "easy": 0.18181818181818182,
-      "hard": 0.09090909090909091,
-      "medium": 0.15384615384615385
-    },
-    "overall_acc_by_difficulty_english": {
-      "easy": 0.25,
-      "hard": 0.18181818181818182,
-      "medium": 0.15384615384615385
-    },
-    "overall_acc_by_difficulty_french": {
-      "easy": 0.18181818181818182,
-      "hard": 0.18181818181818182,
-      "medium": 0.07692307692307693
-    },
-    "overall_acc_by_language": {
-      "chinese": 0.14285714285714285,
-      "english": 0.19444444444444445,
-      "french": 0.14285714285714285
-    }
+      "overall_acc_by_difficulty": {
+        "easy": 0.20588235294117646,
+        "hard": 0.15151515151515152,
+        "medium": 0.1282051282051282
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.18181818181818182,
+        "hard": 0.09090909090909091,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.25,
+        "hard": 0.18181818181818182,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.18181818181818182,
+        "hard": 0.18181818181818182,
+        "medium": 0.07692307692307693
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.14285714285714285,
+        "english": 0.19444444444444445,
+        "french": 0.14285714285714285
+      }
     },
     {
       "info": {
@@ -178,65 +178,65 @@
         "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
       },
       "overall_acc": 0.2621359223300971,
-    "overall_acc_by_difficulty": {
-      "easy": 0.35294117647058826,
-      "hard": 0.13333333333333333,
-      "medium": 0.28205128205128205
-    },
-    "overall_acc_by_difficulty_chinese": {
-      "easy": 0.36363636363636365,
-      "hard": 0.2,
-      "medium": 0.3076923076923077
-    },
-    "overall_acc_by_difficulty_english": {
-      "easy": 0.4166666666666667,
-      "hard": 0.1,
-      "medium": 0.3076923076923077
-    },
-    "overall_acc_by_difficulty_french": {
-      "easy": 0.2727272727272727,
-      "hard": 0.1,
-      "medium": 0.23076923076923078
-    },
-    "overall_acc_by_language": {
-      "chinese": 0.29411764705882354,
-      "english": 0.2857142857142857,
-      "french": 0.20588235294117646
-    }
+      "overall_acc_by_difficulty": {
+        "easy": 0.35294117647058826,
+        "hard": 0.13333333333333333,
+        "medium": 0.28205128205128205
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.36363636363636365,
+        "hard": 0.2,
+        "medium": 0.3076923076923077
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.4166666666666667,
+        "hard": 0.1,
+        "medium": 0.3076923076923077
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.2727272727272727,
+        "hard": 0.1,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.29411764705882354,
+        "english": 0.2857142857142857,
+        "french": 0.20588235294117646
+      }
     },
     {
       "info": {
-        "name": "Claude-3.5-Sonnet-20240620",
+        "name": "Claude-3.5-Sonnet-20241022",
         "size": "-",
         "type": "proprietary",
-        "link": "https://www.anthropic.com/news/claude-3-5-sonnet"
+        "link": "https://www.anthropic.com/news/3-5-models-and-computer-use"
       },
       "overall_acc": 0.2815533980582524,
-    "overall_acc_by_difficulty": {
-      "easy": 0.5,
-      "hard": 0.23333333333333334,
-      "medium": 0.1282051282051282
-    },
-    "overall_acc_by_difficulty_chinese": {
-      "easy": 0.6363636363636364,
-      "hard": 0.4,
-      "medium": 0.0
-    },
-    "overall_acc_by_difficulty_english": {
-      "easy": 0.5,
-      "hard": 0.2,
-      "medium": 0.15384615384615385
-    },
-    "overall_acc_by_difficulty_french": {
-      "easy": 0.36363636363636365,
-      "hard": 0.1,
-      "medium": 0.23076923076923078
-    },
-    "overall_acc_by_language": {
-      "chinese": 0.3235294117647059,
-      "english": 0.2857142857142857,
-      "french": 0.23529411764705882
-    }
+      "overall_acc_by_difficulty": {
+        "easy": 0.5,
+        "hard": 0.23333333333333334,
+        "medium": 0.1282051282051282
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.6363636363636364,
+        "hard": 0.4,
+        "medium": 0.0
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.5,
+        "hard": 0.2,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.36363636363636365,
+        "hard": 0.1,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.3235294117647059,
+        "english": 0.2857142857142857,
+        "french": 0.23529411764705882
+      }
     },
     {
       "info": {
@@ -246,31 +246,99 @@
         "link": "https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#gemini-1.5-flash"
       },
       "overall_acc": 0.1509433962264151,
-    "overall_acc_by_difficulty": {
-      "easy": 0.20588235294117646,
-      "hard": 0.06060606060606061,
-      "medium": 0.1794871794871795
+      "overall_acc_by_difficulty": {
+        "easy": 0.20588235294117646,
+        "hard": 0.06060606060606061,
+        "medium": 0.1794871794871795
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.18181818181818182,
+        "hard": 0.09090909090909091,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.25,
+        "hard": 0.09090909090909091,
+        "medium": 0.15384615384615385
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.18181818181818182,
+        "hard": 0.0,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.14285714285714285,
+        "english": 0.16666666666666666,
+        "french": 0.14285714285714285
+      }
     },
-    "overall_acc_by_difficulty_chinese": {
-      "easy": 0.18181818181818182,
-      "hard": 0.09090909090909091,
-      "medium": 0.15384615384615385
+    {
+      "info": {
+        "name": "Qwen2.5-VL-7B-Instruct",
+        "size": "-",
+        "type": "open_source",
+        "link": "https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct"
+      },
+      "overall_acc": 0.0970873786407767,
+      "overall_acc_by_difficulty": {
+        "easy": 0.11764705882352941,
+        "hard": 0.0,
+        "medium": 0.13953488372093023
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.0,
+        "hard": 0.0,
+        "medium": 0.13333333333333333
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.16666666666666666,
+        "hard": 0.0,
+        "medium": 0.06666666666666667
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.18181818181818182,
+        "hard": 0.0,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.058823529411764705,
+        "english": 0.08571428571428572,
+        "french": 0.14705882352941177
+      }
     },
-    "overall_acc_by_difficulty_english": {
-      "easy": 0.25,
-      "hard": 0.09090909090909091,
-      "medium": 0.15384615384615385
-    },
-    "overall_acc_by_difficulty_french": {
-      "easy": 0.18181818181818182,
-      "hard": 0.0,
-      "medium": 0.23076923076923078
-    },
-    "overall_acc_by_language": {
-      "chinese": 0.14285714285714285,
-      "english": 0.16666666666666666,
-      "french": 0.14285714285714285
-    }
+    {
+      "info": {
+        "name": "Qwen2.5-VL-max-20250125",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://help.aliyun.com/zh/model-studio/getting-started/models?spm=5176.21213303.J_v8LsmxMG6alneH-O7TCPa.5.53722f3dBPDBvk&scm=20140722.S_help@@%E6%96%87%E6%A1%A3@@2840914._.ID_help@@%E6%96%87%E6%A1%A3@@2840914-RL_qwen~DAS~vl~DAS~max-LOC_2024SPAllResult-OR_ser-PAR1_213e361617399774819095133ec362-V_4-RE_new5-P0_1-P1_0#3f1f1c8913fvo"
+      },
+      "overall_acc": 0.22330097087378642,
+      "overall_acc_by_difficulty": {
+        "easy": 0.3235294117647059,
+        "hard": 0.19230769230769232,
+        "medium": 0.16279069767441862
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.2727272727272727,
+        "hard": 0.25,
+        "medium": 0.13333333333333333
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.3333333333333333,
+        "hard": 0.25,
+        "medium": 0.13333333333333333
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.36363636363636365,
+        "hard": 0.1,
+        "medium": 0.23076923076923078
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.20588235294117646,
+        "english": 0.22857142857142856,
+        "french": 0.23529411764705882
+      }
     }
   ]
 }
