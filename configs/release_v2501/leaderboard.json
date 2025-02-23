@@ -407,6 +407,40 @@
         "english": 0.4,
         "french": 0.35294117647058826
       }
+    },
+    {
+      "info": {
+        "name": "Gemini-2.0-Flash-Thinking-Exp-0120",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://ai.google.dev/gemini-api/docs/thinking"
+      },
+      "overall_acc": 0.30097087378640774,
+      "overall_acc_by_difficulty": {
+        "easy": 0.29411764705882354,
+        "hard": 0.3076923076923077,
+        "medium": 0.3023255813953488
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.45454545454545453,
+        "hard": 0.25,
+        "medium": 0.26666666666666666
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.25,
+        "hard": 0.375,
+        "medium": 0.26666666666666666
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.18181818181818182,
+        "hard": 0.3,
+        "medium": 0.38461538461538464
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.3235294117647059,
+        "english": 0.2857142857142857,
+        "french": 0.29411764705882354
+      }
     }
   ]
 }
