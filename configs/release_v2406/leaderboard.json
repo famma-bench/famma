@@ -172,7 +172,7 @@
     },
     {
       "info": {
-        "name": "OCR+Deepseek-R1-20250120",
+        "name": "OCR + Deepseek-R1-20250120",
         "size": "-",
         "type": "open_source",
         "link": "https://api-docs.deepseek.com/news/news250120"

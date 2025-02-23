@@ -342,7 +342,7 @@
     },
     {
       "info": {
-        "name": "OCR+Deepseek-R1-20250120",
+        "name": "OCR + Deepseek-R1-20250120",
         "size": "-",
         "type": "open_source",
         "link": "https://api-docs.deepseek.com/news/news250120"
@@ -372,6 +372,40 @@
         "chinese": 0.5,
         "english": 0.4857142857142857,
         "french": 0.4117647058823529
+      }
+    },
+    {
+      "info": {
+        "name": "OCR + o1-mini-20240912",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://platform.openai.com/docs/models#o1"
+      },
+      "overall_acc": 0.3786407766990291,
+      "overall_acc_by_difficulty": {
+        "easy": 0.4411764705882353,
+        "hard": 0.34615384615384615,
+        "medium": 0.3488372093023256
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.45454545454545453,
+        "hard": 0.375,
+        "medium": 0.3333333333333333
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.4166666666666667,
+        "hard": 0.375,
+        "medium": 0.4
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.45454545454545453,
+        "hard": 0.3,
+        "medium": 0.3076923076923077
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.38235294117647056,
+        "english": 0.4,
+        "french": 0.35294117647058826
       }
     }
   ]
