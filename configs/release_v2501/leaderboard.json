@@ -308,6 +308,40 @@
     },
     {
       "info": {
+        "name": "Qwen2.5-VL-72B-Instruct",
+        "size": "-",
+        "type": "open_source",
+        "link": "https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct"
+      },
+      "overall_acc": 0.27184466019417475,
+      "overall_acc_by_difficulty": {
+        "easy": 0.35294117647058826,
+        "hard": 0.15384615384615385,
+        "medium": 0.27906976744186046
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.2727272727272727,
+        "hard": 0.125,
+        "medium": 0.2
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.5,
+        "hard": 0.375,
+        "medium": 0.2
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.2727272727272727,
+        "hard": 0.0,
+        "medium": 0.46153846153846156
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.20588235294117646,
+        "english": 0.34285714285714286,
+        "french": 0.2647058823529412
+      }
+    },
+    {
+      "info": {
         "name": "Qwen-VL-Max-20250125",
         "size": "-",
         "type": "proprietary",
