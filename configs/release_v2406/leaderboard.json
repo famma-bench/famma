@@ -2,6 +2,40 @@
   "leaderboardData": [
     {
       "info": {
+        "name": "GPT-o1-20241217",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://platform.openai.com/docs/models#o1"
+      },
+      "overall_acc": 0.7557840616966581,
+      "overall_acc_by_difficulty": {
+        "easy": 0.829971181556196,
+        "hard": 0.6491002570694088,
+        "medium": 0.8224101479915433
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.7699115044247787,
+        "hard": 0.6646341463414634,
+        "medium": 0.8059701492537313
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.8436944937833037,
+        "hard": 0.6589698046181173,
+        "medium": 0.8293650793650794
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.7777777777777778,
+        "hard": 0.49019607843137253,
+        "medium": 0.8275862068965517
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.7396593673965937,
+        "english": 0.7656023222060958,
+        "french": 0.7115384615384616
+      }
+    },
+    {
+      "info": {
         "name": "GPT-4o-20240806",
         "size": "-",
         "type": "proprietary",
