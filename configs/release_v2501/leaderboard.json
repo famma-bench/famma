@@ -7,32 +7,33 @@
         "type": "proprietary",
         "link": "https://platform.openai.com/docs/models#o1"
       },
-      "overall_acc": 0.8446601941747572,
+      "overall_acc": 0.7557840616966581,
       "overall_acc_by_difficulty": {
-        "easy": 0.9705882352941176,
-        "hard": 0.5384615384615384,
-        "medium": 0.9302325581395349
+        "easy": 0.829971181556196,
+        "hard": 0.6491002570694088,
+        "medium": 0.8224101479915433
       },
       "overall_acc_by_difficulty_chinese": {
-        "easy": 1.0,
-        "hard": 0.375,
-        "medium": 0.9333333333333333
+        "easy": 0.7699115044247787,
+        "hard": 0.6646341463414634,
+        "medium": 0.8059701492537313
       },
       "overall_acc_by_difficulty_english": {
-        "easy": 0.9166666666666666,
-        "hard": 0.625,
-        "medium": 0.9333333333333333
+        "easy": 0.8436944937833037,
+        "hard": 0.6589698046181173,
+        "medium": 0.8293650793650794
       },
       "overall_acc_by_difficulty_french": {
-        "easy": 1.0,
-        "hard": 0.6,
-        "medium": 0.9230769230769231
+        "easy": 0.7777777777777778,
+        "hard": 0.49019607843137253,
+        "medium": 0.8275862068965517
       },
       "overall_acc_by_language": {
-        "chinese": 0.8235294117647058,
-        "english": 0.8571428571428571,
-        "french": 0.8529411764705882
-      },
+        "chinese": 0.7396593673965937,
+        "english": 0.7656023222060958,
+        "french": 0.7115384615384616
+      }
+    },
     {
       "info": {
         "name": "GPT-o1-20241217",
