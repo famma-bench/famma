@@ -2,6 +2,39 @@
   "leaderboardData": [
     {
       "info": {
+        "name": "PoT + GPT-o1-20241217",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://platform.openai.com/docs/models#o1"
+      },
+      "overall_acc": 0.8446601941747572,
+      "overall_acc_by_difficulty": {
+        "easy": 0.9705882352941176,
+        "hard": 0.5384615384615384,
+        "medium": 0.9302325581395349
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 1.0,
+        "hard": 0.375,
+        "medium": 0.9333333333333333
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.9166666666666666,
+        "hard": 0.625,
+        "medium": 0.9333333333333333
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 1.0,
+        "hard": 0.6,
+        "medium": 0.9230769230769231
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.8235294117647058,
+        "english": 0.8571428571428571,
+        "french": 0.8529411764705882
+      },
+    {
+      "info": {
         "name": "GPT-o1-20241217",
         "size": "-",
         "type": "proprietary",
