@@ -271,6 +271,40 @@
         "english": 0.7343976777939042,
         "french": 0.6923076923076923
       }
+    },
+    {
+      "info": {
+        "name": "OCR + Qwen-QwQ-32B",
+        "size": "-",
+        "type": "open_source",
+        "link": "https://huggingface.co/Qwen/QwQ-32B"
+      },
+      "overall_acc": 0.6786632390745502,
+      "overall_acc_by_difficulty": {
+        "easy": 0.7795389048991355,
+        "hard": 0.5308483290488432,
+        "medium": 0.773784355179704
+      },
+      "overall_acc_by_difficulty_chinese": {
+        "easy": 0.7168141592920354,
+        "hard": 0.5304878048780488,
+        "medium": 0.7686567164179104
+      },
+      "overall_acc_by_difficulty_english": {
+        "easy": 0.7904085257548845,
+        "hard": 0.5364120781527532,
+        "medium": 0.7976190476190477
+      },
+      "overall_acc_by_difficulty_french": {
+        "easy": 0.8333333333333334,
+        "hard": 0.47058823529411764,
+        "medium": 0.7126436781609196
+      },
+      "overall_acc_by_language": {
+        "chinese": 0.6593673965936739,
+        "english": 0.6879535558780842,
+        "french": 0.6474358974358975
+      }
     }
   ]
 }
