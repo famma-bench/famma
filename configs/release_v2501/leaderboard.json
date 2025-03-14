@@ -839,6 +839,126 @@
         "total_french_questions": "19",
         "total_questions": 57
       }
+    },
+    {
+      "info": {
+        "name": "Claude-3.5-Sonnet-20241022",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://www.anthropic.com/news/3-5-models-and-computer-use"
+      },
+      "arithmetic": {
+        "overall_acc": 0.06521739130434782,
+        "overall_acc_by_difficulty": {
+          "easy": 0.1,
+          "hard": 0.0,
+          "medium": 0.08333333333333333
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.3333333333333333,
+          "hard": 0.0,
+          "medium": 0.0
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.0
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.25
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.06666666666666667,
+          "english": 0.0,
+          "french": 0.13333333333333333
+        },
+        "overall_acc_by_subfield": {
+          "derivatives": 0.0,
+          "fixed income": 0.1875,
+          "portfolio management": 0.0
+        },
+        "total_chinese_questions": 15,
+        "total_english_questions": 16,
+        "total_french_questions": "15",
+        "total_questions": 46
+      },
+      "consolidated": {
+        "overall_acc": 0.2815533980582524,
+        "overall_acc_by_difficulty": {
+          "easy": 0.5,
+          "hard": 0.23333333333333334,
+          "medium": 0.1282051282051282
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.6363636363636364,
+          "hard": 0.4,
+          "medium": 0.0
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.5,
+          "hard": 0.2,
+          "medium": 0.15384615384615385
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.36363636363636365,
+          "hard": 0.1,
+          "medium": 0.23076923076923078
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.3235294117647059,
+          "english": 0.2857142857142857,
+          "french": 0.23529411764705882
+        },
+        "overall_acc_by_subfield": {
+          "derivatives": 0.4444444444444444,
+          "economics": 0.3333333333333333,
+          "fixed income": 0.23529411764705882,
+          "portfolio management": 0.0
+        },
+        "total_chinese_questions": 34,
+        "total_english_questions": 35,
+        "total_french_questions": "34",
+        "total_questions": 103
+      },
+      "no_arithmetic": {
+        "overall_acc": 0.45614035087719296,
+        "overall_acc_by_difficulty": {
+          "easy": 0.6666666666666666,
+          "hard": 0.3888888888888889,
+          "medium": 0.2
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.75,
+          "hard": 0.6666666666666666,
+          "medium": 0.0
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.75,
+          "hard": 0.3333333333333333,
+          "medium": 0.4
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.5,
+          "hard": 0.16666666666666666,
+          "medium": 0.2
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.5263157894736842,
+          "english": 0.5263157894736842,
+          "french": 0.3157894736842105
+        },
+        "overall_acc_by_subfield": {
+          "derivatives": 0.6666666666666666,
+          "economics": 0.3333333333333333,
+          "fixed income": 0.2777777777777778
+        },
+        "total_chinese_questions": "19",
+        "total_english_questions": 19,
+        "total_french_questions": "19",
+        "total_questions": 57
+      }
     }
   ]
 }
