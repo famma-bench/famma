@@ -136,6 +136,61 @@
             border-right: 6px solid transparent;
             border-top: 6px solid #333;
         }
+
+        /* Table tabs styling */
+        .table-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .table-tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-bottom: none;
+            border-radius: 8px 8px 0 0;
+            color: #495057;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .table-tab:hover {
+            background-color: #e9ecef;
+            color: #0085a1;
+        }
+
+        .table-tab.active {
+            background-color: #fff;
+            color: #0085a1;
+            border-bottom: 2px solid #0085a1;
+            margin-bottom: -2px;
+            font-weight: 600;
+        }
+
+        .table-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .table-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 
 </head>
@@ -291,14 +346,14 @@
                                 <li><b>release_v2406</b>: it contains 1,935 questions sourced from online materials,
                                     with corresponding answers and explanations.
                                 </li>
-                                <li><b>release_v2501</b>: it includes 106 expert-curated questions, provided without
+                                <li><b>release_v2501</b>: it includes 103 expert-curated questions, provided without
                                     answers. This release serves as a <b>live benchmark</b> in its current stage.
                                 </li>
                             </ul>
                         </li>
                         <li>The dataset features three diverse image types—tables, charts, and text/math screenshots—and
                             spans eight financial subfields, ensuring broad coverage across major asset classes. Each
-                            question is categorized by difficulty level (<b>easy</b>, <b>medium</b>, <b>hard</b>) and is
+                            question is categorized by difficulty level (<b>Undergard (easy)</b>, <b>Grad-Easy (medium)</b>, <b> Grad-Hard (hard)</b>) and is
                             available in three languages (<b>English</b>, <b>Chinese</b>, and <b>French</b>).
                             Additionally, questions are classified into two formats: <b>multiple-choice</b> and <b>open-ended</b>.
                         </li>
@@ -323,57 +378,156 @@
                     <div class="date-tooltip">2025-01</div>
                 </div>
 
-                <div class="model-labels-container">
+                <div class="model-labels-container" style="margin-top: -20px; margin-bottom: 1vh;">
                     <span class="leaderboard-label open_source">Open-Source</span>
                     <span class="leaderboard-label proprietary">Proprietary</span>
                 </div>
 
-                <div class="leaderboard-container">
-                    <div class="table-wrapper">
-                        <table id="mmmu-table">
-                            <thead>
-                            <tr>
-                                <th colspan="1">Model</th>
-                                <th colspan="1" class="overall-header">Overall [+]</th>
-                                <th colspan="1" class="easy-header">Easy [+]</th>
-                                <th colspan="1" class="medium-header">Medium [+]</th>
-                                <th colspan="1" class="hard-header">Hard [+]</th>
-                            </tr>
-                            <tr>
-                                <th class="sortable" data-sort="string">Name - Version</th>
-                                <!-- Overall section -->
-                                <th class="sortable overall-main" data-sort="number">Performance</th>
-                                <th class="sortable overall-detail hidden" data-sort="number">English</th>
-                                <th class="sortable overall-detail hidden" data-sort="number">Chinese</th>
-                                <th class="sortable overall-detail hidden" data-sort="number">French</th>
-                                <!-- Easy section -->
-                                <th class="sortable easy-main" data-sort="number">Average</th>
-                                <th class="sortable easy-detail hidden" data-sort="number">English</th>
-                                <th class="sortable easy-detail hidden" data-sort="number">Chinese</th>
-                                <th class="sortable easy-detail hidden" data-sort="number">French</th>
-                                <!-- Medium section -->
-                                <th class="sortable medium-main" data-sort="number">Average</th>
-                                <th class="sortable medium-detail hidden" data-sort="number">English</th>
-                                <th class="sortable medium-detail hidden" data-sort="number">Chinese</th>
-                                <th class="sortable medium-detail hidden" data-sort="number">French</th>
-                                <!-- Hard section -->
-                                <th class="sortable hard-main" data-sort="number">Average</th>
-                                <th class="sortable hard-detail hidden" data-sort="number">English</th>
-                                <th class="sortable hard-detail hidden" data-sort="number">Chinese</th>
-                                <th class="sortable hard-detail hidden" data-sort="number">French</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <!-- Table body will be populated dynamically -->
-                            </tbody>
-                        </table>
-                        <p class="test-desc"> Overall results of different models on the FAMMA leaderboard. The
-                            best-performing
-                            model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. *:
-                            results
-                            provided by the authors.</p>
+                <!-- Add table tabs -->
+                <div class="table-tabs" style="margin-top: 30px; margin-bottom: 1vh;">
+                    <div class="table-tab active" data-table="consolidated">Consolidated</div>
+                    <div class="table-tab" data-table="arithmetic">Arithmetic</div>
+                    <div class="table-tab" data-table="no_arithmetic">Non-Arithmetic</div>
+                </div>
+
+                <!-- Consolidated table (default view) -->
+                <div class="table-content active" id="consolidated-table">
+                    <div class="leaderboard-container">
+                        <div class="table-wrapper">
+                            <table id="consolidated-mmmu-table" class="mmmu-table">
+                                <thead>
+                                <tr>
+                                    <th colspan="1">Model</th>
+                                    <th colspan="1" class="overall-header">Overall [+]</th>
+                                    <th colspan="1" class="easy-header">Undergrad [+]</th>
+                                    <th colspan="1" class="medium-header">Grad-Easy [+]</th>
+                                    <th colspan="1" class="hard-header">Grad-Hard [+]</th>
+                                </tr>
+                                <tr>
+                                    <th class="sortable" data-sort="string">Name - Version</th>
+                                    <!-- Overall section -->
+                                    <th class="sortable overall-main" data-sort="number">Performance</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">French</th>
+                                    <!-- Easy section (now Undergrad) -->
+                                    <th class="sortable easy-main" data-sort="number">Average</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">French</th>
+                                    <!-- Medium section (now Grad-Easy) -->
+                                    <th class="sortable medium-main" data-sort="number">Average</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">French</th>
+                                    <!-- Hard section (now Grad-Hard) -->
+                                    <th class="sortable hard-main" data-sort="number">Average</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">French</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Table body will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Arithmetic table -->
+                <div class="table-content" id="arithmetic-table">
+                    <div class="leaderboard-container">
+                        <div class="table-wrapper">
+                            <table id="arithmetic-mmmu-table" class="mmmu-table">
+                                <thead>
+                                <tr>
+                                    <th colspan="1">Model</th>
+                                    <th colspan="1" class="overall-header">Overall [+]</th>
+                                    <th colspan="1" class="easy-header">Undergrad [+]</th>
+                                    <th colspan="1" class="medium-header">Grad-Easy [+]</th>
+                                    <th colspan="1" class="hard-header">Grad-Hard [+]</th>
+                                </tr>
+                                <tr>
+                                    <th class="sortable" data-sort="string">Name - Version</th>
+                                    <!-- Overall section -->
+                                    <th class="sortable overall-main" data-sort="number">Performance</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">French</th>
+                                    <!-- Easy section (now Undergrad) -->
+                                    <th class="sortable easy-main" data-sort="number">Average</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">French</th>
+                                    <!-- Medium section (now Grad-Easy) -->
+                                    <th class="sortable medium-main" data-sort="number">Average</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">French</th>
+                                    <!-- Hard section (now Grad-Hard) -->
+                                    <th class="sortable hard-main" data-sort="number">Average</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">French</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Table body will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Arithmetic table -->
+                <div class="table-content" id="no_arithmetic-table">
+                    <div class="leaderboard-container">
+                        <div class="table-wrapper">
+                            <table id="no_arithmetic-mmmu-table" class="mmmu-table">
+                                <thead>
+                                <tr>
+                                    <th colspan="1">Model</th>
+                                    <th colspan="1" class="overall-header">Overall [+]</th>
+                                    <th colspan="1" class="easy-header">Undergrad [+]</th>
+                                    <th colspan="1" class="medium-header">Grad-Easy [+]</th>
+                                    <th colspan="1" class="hard-header">Grad-Hard [+]</th>
+                                </tr>
+                                <tr>
+                                    <th class="sortable" data-sort="string">Name - Version</th>
+                                    <!-- Overall section -->
+                                    <th class="sortable overall-main" data-sort="number">Performance</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable overall-detail hidden" data-sort="number">French</th>
+                                    <!-- Easy section (now Undergrad) -->
+                                    <th class="sortable easy-main" data-sort="number">Average</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable easy-detail hidden" data-sort="number">French</th>
+                                    <!-- Medium section (now Grad-Easy) -->
+                                    <th class="sortable medium-main" data-sort="number">Average</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable medium-detail hidden" data-sort="number">French</th>
+                                    <!-- Hard section (now Grad-Hard) -->
+                                    <th class="sortable hard-main" data-sort="number">Average</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">English</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">Chinese</th>
+                                    <th class="sortable hard-detail hidden" data-sort="number">French</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Table body will be populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="test-desc"> Overall results of different models on the FAMMA leaderboard. The best-performing
+                    model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. *:
+                    results provided by the authors.</p>
             </div>
         </div>
     </div>

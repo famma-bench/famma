@@ -105,11 +105,10 @@
         }
 
         /* Section titles */
-        .title.is-5 {
+        .title.is-5, .title.is-4 {
             color: #212529;
             font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 600;
-            font-size: 1.5rem;
         }
 
         /* Stats cards */
@@ -180,6 +179,45 @@
 
         #filterQuestionsButton:hover {
             background-color: #00657b !important;
+        }
+
+        /* Table tabs styling */
+        .table-tabs {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #dee2e6;
+            font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .table-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 0.25rem 0.25rem 0 0;
+            margin-right: 0.25rem;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .table-tab.active {
+            color: #0085a1;
+            background-color: #fff;
+            border-color: #dee2e6;
+            border-bottom-color: #fff;
+            margin-bottom: -1px;
+        }
+
+        .table-tab:hover:not(.active) {
+            background-color: rgba(0,0,0,0.05);
+        }
+
+        .table-content {
+            display: none;
+        }
+
+        .table-content.active {
+            display: block;
         }
     </style>
 

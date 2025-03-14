@@ -54,71 +54,111 @@ function loadTableData() {
             return response.json();
         })
         .then(data => {
-            const tbody = document.querySelector('#mmmu-table tbody');
-            tbody.innerHTML = '';
+            // Load data for each table type
+            loadTableForType('consolidated', data);
+            loadTableForType('arithmetic', data);
+            loadTableForType('no_arithmetic', data);
+            
+            // Setup tab switching after data is loaded
+            setupTabSwitching();
 
-            // Prepare scores for styling
-            const scores = prepareScoresForStyling(data.leaderboardData);
-
-            data.leaderboardData.forEach((model, index) => {
-                const tr = document.createElement('tr');
-                tr.classList.add(model.info.type);
-
-                // Create name cell with link if available
-                const nameCell = model.info.link && model.info.link.trim() !== '' ?
-                    `<a href="${model.info.link}" target="_blank">${model.info.name}</a>` :
-                    model.info.name;
-
-                // Helper function to format percentage with styling
-                const formatPercentage = (value, category) => {
-                    if (!value) return '-';
-                    const formatted = (value * 100).toFixed(2) + '%';
-                    const rank = scores[category]?.[index];
-                    return applyStyle(formatted, rank);
-                };
-
-                // Build row HTML with all columns and styling
-                tr.innerHTML = `
-                    <td>${nameCell}</td>
-                    <td class="overall-main">${formatPercentage(model.overall_acc, 'overall')}</td>
-                    <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.english, 'overall_english')}</td>
-                    <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.chinese, 'overall_chinese')}</td>
-                    <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.french, 'overall_french')}</td>
-                    <td class="easy-main">${formatPercentage(model.overall_acc_by_difficulty?.easy, 'easy')}</td>
-                    <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.easy, 'easy_english')}</td>
-                    <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.easy, 'easy_chinese')}</td>
-                    <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.easy, 'easy_french')}</td>
-                    <td class="medium-main">${formatPercentage(model.overall_acc_by_difficulty?.medium, 'medium')}</td>
-                    <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.medium, 'medium_english')}</td>
-                    <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.medium, 'medium_chinese')}</td>
-                    <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.medium, 'medium_french')}</td>
-                    <td class="hard-main">${formatPercentage(model.overall_acc_by_difficulty?.hard, 'hard')}</td>
-                    <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.hard, 'hard_english')}</td>
-                    <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.hard, 'hard_chinese')}</td>
-                    <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.hard, 'hard_french')}</td>
-                `;
-                
-                tbody.appendChild(tr);
+            // Sort all tables by Overall Performance in descending order by default
+            document.querySelectorAll('.mmmu-table').forEach(table => {
+                const performanceHeader = table.querySelector('th.overall-main');
+                if (performanceHeader) {
+                    sortTable(performanceHeader, true); // true forces descending order
+                }
             });
-
-            initializeSorting();
         })
         .catch(error => {
             console.error('Error loading table data:', error);
-            const tbody = document.querySelector('#mmmu-table tbody');
-            tbody.innerHTML = `<tr><td colspan="17">Error loading data: ${error.message}</td></tr>`;
+            document.querySelectorAll('.mmmu-table tbody').forEach(tbody => {
+                tbody.innerHTML = `<tr><td colspan="17">Error loading data: ${error.message}</td></tr>`;
+            });
         });
+}
+
+function loadTableForType(tableType, data) {
+    const tbody = document.querySelector(`#${tableType}-mmmu-table tbody`);
+    tbody.innerHTML = '';
+
+    // Get model data for this table type
+    const modelData = data.leaderboardData.map(model => ({
+        info: model.info,
+        ...model[tableType]  // Spread the data directly instead of nesting it
+    })).filter(model => model.overall_acc !== undefined); // Filter out models that don't have data for this type
+
+    // Prepare scores for styling
+    const scores = prepareScoresForStyling(modelData);
+
+    modelData.forEach((model, index) => {
+        const tr = document.createElement('tr');
+        tr.classList.add(model.info.type);
+
+        // Create name cell with link if available
+        const nameCell = model.info.link && model.info.link.trim() !== '' ?
+            `<a href="${model.info.link}" target="_blank"><strong>${model.info.name}</strong></a>` :
+            `<strong>${model.info.name}</strong>`;
+
+        // Helper function to format percentage with styling
+        const formatPercentage = (value, category) => {
+            if (!value && value !== 0) return '-';
+            const formatted = (value * 100).toFixed(2) + '%';
+            const rank = scores[category]?.[index];
+            return applyStyle(formatted, rank);
+        };
+
+        // Build row HTML with all columns and styling
+        tr.innerHTML = `
+            <td>${nameCell}</td>
+            <td class="overall-main">${formatPercentage(model.overall_acc, 'overall')}</td>
+            <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.english, 'overall_english')}</td>
+            <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.chinese, 'overall_chinese')}</td>
+            <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.french, 'overall_french')}</td>
+            <td class="easy-main">${formatPercentage(model.overall_acc_by_difficulty?.easy, 'easy')}</td>
+            <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.easy, 'easy_english')}</td>
+            <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.easy, 'easy_chinese')}</td>
+            <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.easy, 'easy_french')}</td>
+            <td class="medium-main">${formatPercentage(model.overall_acc_by_difficulty?.medium, 'medium')}</td>
+            <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.medium, 'medium_english')}</td>
+            <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.medium, 'medium_chinese')}</td>
+            <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.medium, 'medium_french')}</td>
+            <td class="hard-main">${formatPercentage(model.overall_acc_by_difficulty?.hard, 'hard')}</td>
+            <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.hard, 'hard_english')}</td>
+            <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.hard, 'hard_chinese')}</td>
+            <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.hard, 'hard_french')}</td>
+        `;
+        
+        tbody.appendChild(tr);
+    });
+}
+
+function setupTabSwitching() {
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.table-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and content
+            document.querySelectorAll('.table-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.table-content').forEach(c => c.classList.remove('active'));
+            
+            // Add active class to clicked tab and corresponding content
+            const tableType = tab.getAttribute('data-table');
+            tab.classList.add('active');
+            document.getElementById(`${tableType}-table`).classList.add('active');
+        });
+    });
 }
 
 function setupEventListeners() {
     // Setup sorting
-    const sortableHeaders = document.querySelectorAll('#mmmu-table th.sortable');
+    const sortableHeaders = document.querySelectorAll('.mmmu-table th.sortable');
     sortableHeaders.forEach(header => {
         header.addEventListener('click', () => sortTable(header));
     });
 
     // Setup expanding/collapsing
-    const sectionHeaders = document.querySelectorAll('#mmmu-table th[class$="-header"]');
+    const sectionHeaders = document.querySelectorAll('.mmmu-table th[class$="-header"]');
     sectionHeaders.forEach(header => {
         header.addEventListener('click', () => toggleSection(header));
     });
@@ -127,15 +167,16 @@ function setupEventListeners() {
 function toggleSection(header) {
     const section = header.className.replace('-header', '');
     const isExpanded = header.textContent.includes('[-]');
+    const table = header.closest('table');
 
     // Get all section headers
     const sections = ['overall', 'easy', 'medium', 'hard'];
     
     // First collapse all sections
     sections.forEach(sec => {
-        const secHeader = document.querySelector(`.${sec}-header`);
-        const secMainCells = document.querySelectorAll(`.${sec}-main`);
-        const secDetailCells = document.querySelectorAll(`.${sec}-detail`);
+        const secHeader = table.querySelector(`.${sec}-header`);
+        const secMainCells = table.querySelectorAll(`.${sec}-main`);
+        const secDetailCells = table.querySelectorAll(`.${sec}-detail`);
         
         // Remove expanded class and hide detail cells for all sections
         if (sec !== section || isExpanded) {
@@ -156,169 +197,103 @@ function toggleSection(header) {
     // If we're expanding the clicked section
     if (!isExpanded) {
         header.textContent = header.textContent.replace('[+]', '[-]');
-        const mainCells = document.querySelectorAll(`.${section}-main`);
-        const detailCells = document.querySelectorAll(`.${section}-detail`);
+        const mainCells = table.querySelectorAll(`.${section}-main`);
+        const detailCells = table.querySelectorAll(`.${section}-detail`);
         
         mainCells.forEach(cell => {
-            cell.classList.remove('hidden');
             cell.classList.add('expanded');
         });
         detailCells.forEach(cell => {
             cell.classList.remove('hidden');
             cell.classList.add('expanded');
         });
+        
+        // Set colspan for the header
         header.setAttribute('colspan', '4');
     }
 }
 
-function resetTable() {
-  document.querySelectorAll('.pro-details, .val-details, .test-details').forEach(function(cell) {
-    cell.classList.add('hidden');
-  });
-
-  document.querySelectorAll('.pro-overall, .val-overall, .test-overall').forEach(function(cell) {
-    cell.classList.remove('hidden');
-  });
-
-  document.querySelector('.pro-details-cell').setAttribute('colspan', '1');
-  document.querySelector('.val-details-cell').setAttribute('colspan', '1');
-  document.querySelector('.test-details-cell').setAttribute('colspan', '1');
-
-  var valOverallHeader = document.querySelector('#mmmu-table thead tr:last-child th.val-overall');
-  sortTable(valOverallHeader, true);
-
-  setTimeout(adjustNameColumnWidth, 0);
-}
-
-function sortTable(header, forceDescending = false, maintainOrder = false) {
-    var table = document.getElementById('mmmu-table');
-    if (!table) {
-        console.error('Table with id "mmmu-table" not found');
-        return;
-    }
-
-    var tbody = table.querySelector('tbody');
-    if (!tbody) {
-        console.error('Table body not found');
-        return;
-    }
-
-    var rows = Array.from(tbody.querySelectorAll('tr'));
-    if (!rows || rows.length === 0) {
-        console.error('No rows found in table');
-        return;
-    }
-
-    var headers = Array.from(header.parentNode.children);
-    var columnIndex = headers.indexOf(header);
-    var sortType = header.dataset.sort;
-
-    var isDescending = forceDescending || (!header.classList.contains('asc') && !header.classList.contains('desc')) || header.classList.contains('asc');
-
-    if (!maintainOrder) {
-        rows.sort(function(a, b) {
-            var aValue = getCellValue(a, columnIndex);
-            var bValue = getCellValue(b, columnIndex);
-
-            if (aValue === '-' && bValue !== '-') return isDescending ? 1 : -1;
-            if (bValue === '-' && aValue !== '-') return isDescending ? -1 : 1;
-
-            if (sortType === 'number') {
-                // Remove % sign and convert to number
-                aValue = parseFloat(aValue.replace('%', '')) || 0;
-                bValue = parseFloat(bValue.replace('%', '')) || 0;
-                return isDescending ? bValue - aValue : aValue - bValue;
-            } else {
-                return isDescending ? bValue.localeCompare(aValue) : aValue.localeCompare(bValue);
-            }
-        });
-    }
-
-    // Update sort direction indicators
-    headers.forEach(function(th) {
-        th.classList.remove('asc', 'desc');
+function sortTable(header, forceDescending = false) {
+    const table = header.closest('table');
+    const tbody = table.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+    const sortType = header.getAttribute('data-sort');
+    
+    // First, clean up all headers in this table
+    table.querySelectorAll('th').forEach(th => {
+        // Remove sorted classes
+        th.classList.remove('sorted-asc', 'sorted-desc');
+        
+        // Remove any existing sort indicators
+        const originalText = th.textContent.replace(/ ↓$/, '');
+        th.textContent = originalText;
     });
-    header.classList.add(isDescending ? 'desc' : 'asc');
 
-    // Reorder rows
-    rows.forEach(function(row) {
-        tbody.appendChild(row);
-    });
-}
+    // Add sorted class to current header
+    header.classList.add('sorted-desc');
+    
+    // Add sort indicator to header text
+    const cleanText = header.textContent.replace(/ ↓$/, '');
+    header.textContent = cleanText + ' ↓';
 
-function getCellValue(row, index) {
-    var cells = Array.from(row.children);
-    var cell = cells[index];
+    // Sort the rows (always descending)
+    rows.sort((a, b) => {
+        const aValue = a.children[columnIndex].textContent.trim();
+        const bValue = b.children[columnIndex].textContent.trim();
 
-    if (!cell) {
-        console.error('Cell not found at index:', index);
-        return '';
-    }
-
-    if (cell.classList.contains('hidden')) {
-        if (cell.classList.contains('pro-details') || cell.classList.contains('pro-overall')) {
-            cell = cells.find(c => (c.classList.contains('pro-overall') || c.classList.contains('pro-details')) && !c.classList.contains('hidden'));
-        } else if (cell.classList.contains('val-details') || cell.classList.contains('val-overall')) {
-            cell = cells.find(c => (c.classList.contains('val-overall') || c.classList.contains('val-details')) && !c.classList.contains('hidden'));
-        } else if (cell.classList.contains('test-details') || cell.classList.contains('test-overall')) {
-            cell = cells.find(c => (c.classList.contains('test-overall') || c.classList.contains('test-details')) && !c.classList.contains('hidden'));
+        if (sortType === 'string') {
+            return bValue.localeCompare(aValue);
+        } else if (sortType === 'number') {
+            const aNum = parseFloat(aValue.replace('%', ''));
+            const bNum = parseFloat(bValue.replace('%', ''));
+            if (isNaN(aNum)) return 1;
+            if (isNaN(bNum)) return -1;
+            return bNum - aNum;
         }
-    }
+        return 0;
+    });
 
-    return cell ? cell.textContent.trim() : '';
+    // Reorder the rows in the table
+    rows.forEach(row => tbody.appendChild(row));
 }
 
 function initializeSorting() {
-    console.log('Attempting to sort table...');
-    
     // Add expansion indicators [+] to section headers
-    const headers = document.querySelectorAll('#mmmu-table th');
-    headers.forEach(header => {
-        if (header.classList.contains('overall-header') || 
-            header.classList.contains('easy-header') || 
-            header.classList.contains('medium-header') || 
-            header.classList.contains('hard-header')) {
-            if (!header.textContent.includes('[+]')) {
-                header.textContent = header.textContent + ' [+]';
-            }
+    document.querySelectorAll('.mmmu-table th[class$="-header"]').forEach(header => {
+        if (!header.textContent.includes('[+]') && !header.textContent.includes('[-]')) {
+            header.textContent = header.textContent + ' [+]';
         }
     });
 
-    // Perform the initial sort on Performance column
-    const performanceHeader = document.querySelector('#mmmu-table th[data-sort="number"]');
-    if (performanceHeader) {
-        sortTable(performanceHeader, true);  // Force descending order
-    } else {
-        console.error('Could not find performance header');
-    }
+    // Add sorting indicators to sortable headers
+    document.querySelectorAll('.mmmu-table th.sortable').forEach(header => {
+        if (header.textContent.includes('Performance')) {
+            header.textContent = 'Performance ↓';
+            header.classList.add('sorted-desc');
+        }
+    });
+
+    // Perform the initial sort on Performance column for each table
+    document.querySelectorAll('.mmmu-table').forEach(table => {
+        const performanceHeader = table.querySelector('th[data-sort="number"]');
+        if (performanceHeader) {
+            sortTable(performanceHeader);  // Sort descending by default
+        }
+    });
 }
 
 function adjustNameColumnWidth() {
-    const nameColumn = document.querySelectorAll('#mmmu-table td:first-child, #mmmu-table th:first-child');
-    let maxWidth = 0;
-
-    const span = document.createElement('span');
-    span.style.visibility = 'hidden';
-    span.style.position = 'absolute';
-    span.style.whiteSpace = 'nowrap';
-    document.body.appendChild(span);
-
-    nameColumn.forEach(cell => {
-        span.textContent = cell.textContent;
-        const width = span.offsetWidth;
-        if (width > maxWidth) {
-            maxWidth = width;
+    const tables = document.querySelectorAll('.mmmu-table');
+    tables.forEach(table => {
+        const nameColumn = table.querySelector('td:first-child');
+        if (nameColumn) {
+            const maxWidth = Math.min(300, Math.max(200, window.innerWidth * 0.25));
+            table.querySelectorAll('td:first-child, th:first-child').forEach(cell => {
+                cell.style.width = `${maxWidth}px`;
+                cell.style.maxWidth = `${maxWidth}px`;
+            });
         }
-    });
-
-    document.body.removeChild(span);
-
-    maxWidth += 120;  // Increased padding from 60 to 120
-
-    nameColumn.forEach(cell => {
-        cell.style.width = `${maxWidth}px`;
-        cell.style.minWidth = `${maxWidth}px`;
-        cell.style.maxWidth = `${maxWidth}px`;
     });
 }
 
@@ -375,50 +350,61 @@ function applyStyle(value, rank) {
 // Add CSS styles
 const style = document.createElement('style');
 style.textContent = `
-    #mmmu-table th[class$="-header"] {
+    .mmmu-table th[class$="-header"] {
         cursor: pointer;
         text-align: center;
         white-space: nowrap;
         border-left: none !important;
         font-size: 15px;
+        font-weight: bold;  /* Make headers bold */
     }
 
-    #mmmu-table th, #mmmu-table td {
+    .mmmu-table th {
+        text-align: center;
+        padding: 8px 4px;
+        font-size: 15px;
+        color: #1a1a1a;  /* Darker text for better contrast */
+        font-weight: bold;  /* Make all headers bold */
+    }
+    
+    .mmmu-table td {
         text-align: center;
         padding: 8px 4px;
         font-size: 14.5px;
-        color: #1a1a1a;  // Darker text for better contrast
-        font-weight: normal;  // Regular weight for all cells
+        color: #1a1a1a;  /* Darker text for better contrast */
+        font-weight: normal;  /* Regular weight for all cells */
     }
 
-    #mmmu-table td:first-child {
+    .mmmu-table td:first-child {
         text-align: left;
-        color: #0066cc;  // Blue color for model names
+        color: #0066cc;  /* Blue color for model names */
+        font-size: 16px;  /* Larger font size for model names */
+        font-weight: bold;  /* Make model names bold */
     }
 
-    #mmmu-table td[class$="-main"],
-    #mmmu-table td[class$="-detail"] {
+    .mmmu-table td[class$="-main"],
+    .mmmu-table td[class$="-detail"] {
         border-left: none !important;
     }
 
     /* Style for the best score (bold) */
-    #mmmu-table td b {
-        color: #000;  // Darker color for bold (best) scores
+    .mmmu-table td b {
+        color: #000;  /* Darker color for bold (best) scores */
         font-size: 14px;
-        font-weight: 700;  // Keep bold only for the best scores
+        font-weight: 700;  /* Keep bold only for the best scores */
     }
 
     /* Style for the second-best score (underlined) */
-    #mmmu-table td u {
+    .mmmu-table td u {
         color: #000000;
         font-size: 14px;
-        font-weight: normal;  // Regular weight for second-best
+        font-weight: normal;  /* Regular weight for second-best */
         text-decoration-thickness: 1.5px;
         text-underline-offset: 2px;
     }
 
     /* Make sure the table doesn't overflow */
-    #mmmu-table {
+    .mmmu-table {
         table-layout: fixed;
         width: 100%;
     }
@@ -429,18 +415,20 @@ style.textContent = `
     }
 
     /* Links in the table */
-    #mmmu-table a {
+    .mmmu-table a {
         color: #0066cc;
         text-decoration: none;
+        font-size: 16px;  /* Larger font size for model name links */
+        font-weight: bold;  /* Make model name links bold */
     }
 
-    #mmmu-table a:hover {
+    .mmmu-table a:hover {
         text-decoration: underline;
     }
 
     /* Model column width */
-    #mmmu-table td:first-child,
-    #mmmu-table th:first-child {
+    .mmmu-table td:first-child,
+    .mmmu-table th:first-child {
         width: 300px !important;
         max-width: 300px !important;
         min-width: 300px !important;
@@ -448,16 +436,16 @@ style.textContent = `
     }
 
     /* Default (collapsed) column widths */
-    #mmmu-table td.overall-main,
-    #mmmu-table td.easy-main,
-    #mmmu-table td.medium-main,
-    #mmmu-table td.hard-main {
+    .mmmu-table td.overall-main,
+    .mmmu-table td.easy-main,
+    .mmmu-table td.medium-main,
+    .mmmu-table td.hard-main {
         width: 70px !important;
         max-width: 70px !important;
     }
 
     /* Expanded column widths */
-    #mmmu-table td.expanded {
+    .mmmu-table td.expanded {
         width: 35px !important;
         max-width: 35px !important;
         padding: 8px 1px !important;
@@ -465,7 +453,7 @@ style.textContent = `
     }
 
     /* Adjust table layout */
-    #mmmu-table {
+    .mmmu-table {
         table-layout: fixed;
         width: 100%;
     }
@@ -476,9 +464,15 @@ style.textContent = `
     }
 
     /* Make text in expanded columns more compact */
-    #mmmu-table td.expanded b,
-    #mmmu-table td.expanded u {
+    .mmmu-table td.expanded b,
+    .mmmu-table td.expanded u {
         font-size: 13.5px !important;
+    }
+
+    /* Remove the old sorting indicators */
+    .mmmu-table th.sorted-asc::after,
+    .mmmu-table th.sorted-desc::after {
+        content: "";
     }
 `;
 document.head.appendChild(style);
