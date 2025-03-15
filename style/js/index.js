@@ -54,42 +54,45 @@ function loadTableData() {
             return response.json();
         })
         .then(data => {
-            // Load data for each table type
-            loadTableForType('consolidated', data);
-            loadTableForType('arithmetic', data);
-            loadTableForType('no_arithmetic', data);
+            // Load data for the combined table
+            loadCombinedTable(data);
             
-            // Setup tab switching after data is loaded
-            setupTabSwitching();
-
-            // Sort all tables by Overall Performance in descending order by default
-            document.querySelectorAll('.mmmu-table').forEach(table => {
-                const performanceHeader = table.querySelector('th.overall-main');
-                if (performanceHeader) {
-                    sortTable(performanceHeader, true); // true forces descending order
-                }
-            });
+            // Sort by consolidated performance by default
+            const consolidatedHeader = document.querySelector('th.consolidated-main');
+            if (consolidatedHeader) {
+                sortTable(consolidatedHeader, true); // true forces descending order
+            }
         })
         .catch(error => {
             console.error('Error loading table data:', error);
-            document.querySelectorAll('.mmmu-table tbody').forEach(tbody => {
-                tbody.innerHTML = `<tr><td colspan="17">Error loading data: ${error.message}</td></tr>`;
-            });
+            document.querySelector('#combined-mmmu-table tbody').innerHTML = 
+                `<tr><td colspan="13">Error loading data: ${error.message}</td></tr>`;
         });
 }
 
-function loadTableForType(tableType, data) {
-    const tbody = document.querySelector(`#${tableType}-mmmu-table tbody`);
+function loadCombinedTable(data) {
+    const tbody = document.querySelector('#combined-mmmu-table tbody');
     tbody.innerHTML = '';
 
-    // Get model data for this table type
+    // Get all models
     const modelData = data.leaderboardData.map(model => ({
         info: model.info,
-        ...model[tableType]  // Spread the data directly instead of nesting it
-    })).filter(model => model.overall_acc !== undefined); // Filter out models that don't have data for this type
+        arithmetic: model.arithmetic || {},
+        no_arithmetic: model.no_arithmetic || {},
+        consolidated: model.consolidated || {}
+    }));
 
-    // Prepare scores for styling
-    const scores = prepareScoresForStyling(modelData);
+    // Sort models by consolidated overall accuracy (descending)
+    modelData.sort((a, b) => 
+        (b.consolidated.overall_acc || 0) - (a.consolidated.overall_acc || 0)
+    );
+
+    // Find best and second best scores for styling
+    const scores = {
+        arithmetic: findBestScores(modelData, 'arithmetic'),
+        no_arithmetic: findBestScores(modelData, 'no_arithmetic'),
+        consolidated: findBestScores(modelData, 'consolidated')
+    };
 
     modelData.forEach((model, index) => {
         const tr = document.createElement('tr');
@@ -101,53 +104,111 @@ function loadTableForType(tableType, data) {
             `<strong>${model.info.name}</strong>`;
 
         // Helper function to format percentage with styling
-        const formatPercentage = (value, category) => {
+        const formatPercentage = (value, category, rank) => {
             if (!value && value !== 0) return '-';
             const formatted = (value * 100).toFixed(2) + '%';
-            const rank = scores[category]?.[index];
             return applyStyle(formatted, rank);
         };
 
         // Build row HTML with all columns and styling
         tr.innerHTML = `
             <td>${nameCell}</td>
-            <td class="overall-main">${formatPercentage(model.overall_acc, 'overall')}</td>
-            <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.english, 'overall_english')}</td>
-            <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.chinese, 'overall_chinese')}</td>
-            <td class="hidden overall-detail">${formatPercentage(model.overall_acc_by_language?.french, 'overall_french')}</td>
-            <td class="easy-main">${formatPercentage(model.overall_acc_by_difficulty?.easy, 'easy')}</td>
-            <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.easy, 'easy_english')}</td>
-            <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.easy, 'easy_chinese')}</td>
-            <td class="hidden easy-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.easy, 'easy_french')}</td>
-            <td class="medium-main">${formatPercentage(model.overall_acc_by_difficulty?.medium, 'medium')}</td>
-            <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.medium, 'medium_english')}</td>
-            <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.medium, 'medium_chinese')}</td>
-            <td class="hidden medium-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.medium, 'medium_french')}</td>
-            <td class="hard-main">${formatPercentage(model.overall_acc_by_difficulty?.hard, 'hard')}</td>
-            <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_english?.hard, 'hard_english')}</td>
-            <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_chinese?.hard, 'hard_chinese')}</td>
-            <td class="hidden hard-detail">${formatPercentage(model.overall_acc_by_difficulty_french?.hard, 'hard_french')}</td>
+            
+            <!-- Arithmetic section -->
+            <td class="arithmetic-main">${formatPercentage(model.arithmetic.overall_acc, 'arithmetic_overall', scores.arithmetic.overall[index])}</td>
+            <td class="hidden arithmetic-detail">${formatPercentage(model.arithmetic.overall_acc_by_difficulty?.easy, 'arithmetic_easy', scores.arithmetic.easy[index])}</td>
+            <td class="hidden arithmetic-detail">${formatPercentage(model.arithmetic.overall_acc_by_difficulty?.medium, 'arithmetic_medium', scores.arithmetic.medium[index])}</td>
+            <td class="hidden arithmetic-detail">${formatPercentage(model.arithmetic.overall_acc_by_difficulty?.hard, 'arithmetic_hard', scores.arithmetic.hard[index])}</td>
+            
+            <!-- Non-Arithmetic section -->
+            <td class="no-arithmetic-main">${formatPercentage(model.no_arithmetic.overall_acc, 'no_arithmetic_overall', scores.no_arithmetic.overall[index])}</td>
+            <td class="hidden no-arithmetic-detail">${formatPercentage(model.no_arithmetic.overall_acc_by_difficulty?.easy, 'no_arithmetic_easy', scores.no_arithmetic.easy[index])}</td>
+            <td class="hidden no-arithmetic-detail">${formatPercentage(model.no_arithmetic.overall_acc_by_difficulty?.medium, 'no_arithmetic_medium', scores.no_arithmetic.medium[index])}</td>
+            <td class="hidden no-arithmetic-detail">${formatPercentage(model.no_arithmetic.overall_acc_by_difficulty?.hard, 'no_arithmetic_hard', scores.no_arithmetic.hard[index])}</td>
+            
+            <!-- Consolidated section -->
+            <td class="consolidated-main">${formatPercentage(model.consolidated.overall_acc, 'consolidated_overall', scores.consolidated.overall[index])}</td>
+            <td class="hidden consolidated-detail">${formatPercentage(model.consolidated.overall_acc_by_difficulty?.easy, 'consolidated_easy', scores.consolidated.easy[index])}</td>
+            <td class="hidden consolidated-detail">${formatPercentage(model.consolidated.overall_acc_by_difficulty?.medium, 'consolidated_medium', scores.consolidated.medium[index])}</td>
+            <td class="hidden consolidated-detail">${formatPercentage(model.consolidated.overall_acc_by_difficulty?.hard, 'consolidated_hard', scores.consolidated.hard[index])}</td>
         `;
         
         tbody.appendChild(tr);
     });
+
+    // Setup expand/collapse functionality
+    setupExpandCollapse();
 }
 
-function setupTabSwitching() {
-    // Tab switching functionality
-    const tabs = document.querySelectorAll('.table-tab');
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            // Remove active class from all tabs and content
-            document.querySelectorAll('.table-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.table-content').forEach(c => c.classList.remove('active'));
-            
-            // Add active class to clicked tab and corresponding content
-            const tableType = tab.getAttribute('data-table');
-            tab.classList.add('active');
-            document.getElementById(`${tableType}-table`).classList.add('active');
+function findBestScores(modelData, tableType) {
+    const scores = {
+        overall: Array(modelData.length).fill(0),
+        easy: Array(modelData.length).fill(0),
+        medium: Array(modelData.length).fill(0),
+        hard: Array(modelData.length).fill(0)
+    };
+    
+    // Sort models by each metric and assign ranks
+    ['overall', 'easy', 'medium', 'hard'].forEach(category => {
+        const sortedIndices = [...Array(modelData.length).keys()].sort((a, b) => {
+            const valueA = category === 'overall' 
+                ? (modelData[a][tableType].overall_acc || 0)
+                : (modelData[a][tableType].overall_acc_by_difficulty?.[category] || 0);
+            const valueB = category === 'overall'
+                ? (modelData[b][tableType].overall_acc || 0)
+                : (modelData[b][tableType].overall_acc_by_difficulty?.[category] || 0);
+            return valueB - valueA;
+        });
+        
+        // Assign ranks (1 for best, 2 for second best)
+        sortedIndices.forEach((originalIndex, sortedPosition) => {
+            if (sortedPosition === 0) scores[category][originalIndex] = 1;
+            else if (sortedPosition === 1) scores[category][originalIndex] = 2;
         });
     });
+    
+    return scores;
+}
+
+function setupExpandCollapse() {
+    // Setup expand/collapse for each section
+    ['arithmetic', 'no-arithmetic', 'consolidated'].forEach(section => {
+        const header = document.querySelector(`.${section}-header`);
+        if (header) {
+            header.addEventListener('click', function() {
+                const mainCells = document.querySelectorAll(`.${section}-main`);
+                const detailCells = document.querySelectorAll(`.${section}-detail`);
+                
+                if (detailCells[0].classList.contains('hidden')) {
+                    // Expand
+                    detailCells.forEach(cell => {
+                        cell.classList.remove('hidden');
+                        cell.classList.add('expanded');
+                    });
+                    mainCells.forEach(cell => {
+                        cell.classList.add('expanded');
+                    });
+                    this.textContent = this.textContent.replace('[+]', '[-]');
+                } else {
+                    // Collapse
+                    detailCells.forEach(cell => {
+                        cell.classList.add('hidden');
+                        cell.classList.remove('expanded');
+                    });
+                    mainCells.forEach(cell => {
+                        cell.classList.remove('expanded');
+                    });
+                    this.textContent = this.textContent.replace('[-]', '[+]');
+                }
+            });
+        }
+    });
+}
+
+function applyStyle(value, rank) {
+    if (rank === 1) return `<b>${value}</b>`;
+    if (rank === 2) return `<u>${value}</u>`;
+    return value;
 }
 
 function setupEventListeners() {
@@ -295,56 +356,6 @@ function adjustNameColumnWidth() {
             });
         }
     });
-}
-
-function prepareScoresForStyling(data) {
-    const scores = {};
-    const categories = [
-        'overall', 'overall_english', 'overall_chinese', 'overall_french',
-        'easy', 'easy_english', 'easy_chinese', 'easy_french',
-        'medium', 'medium_english', 'medium_chinese', 'medium_french',
-        'hard', 'hard_english', 'hard_chinese', 'hard_french'
-    ];
-
-    categories.forEach(category => {
-        const values = data.map(model => {
-            if (category === 'overall') return model.overall_acc;
-            if (category.startsWith('overall_')) {
-                const lang = category.split('_')[1];
-                return model.overall_acc_by_language?.[lang];
-            }
-            const [diff, lang] = category.split('_');
-            if (!lang) return model.overall_acc_by_difficulty?.[diff];
-            return model[`overall_acc_by_difficulty_${lang}`]?.[diff];
-        }).filter(v => v != null);
-
-        if (values.length > 0) {
-            const sortedValues = [...new Set(values)].sort((a, b) => b - a);
-            scores[category] = data.map(model => {
-                let value;
-                if (category === 'overall') value = model.overall_acc;
-                else if (category.startsWith('overall_')) {
-                    const lang = category.split('_')[1];
-                    value = model.overall_acc_by_language?.[lang];
-                } else {
-                    const [diff, lang] = category.split('_');
-                    if (!lang) value = model.overall_acc_by_difficulty?.[diff];
-                    else value = model[`overall_acc_by_difficulty_${lang}`]?.[diff];
-                }
-                if (value == null) return -1;
-                return sortedValues.indexOf(value);
-            });
-        }
-    });
-
-    return scores;
-}
-
-function applyStyle(value, rank) {
-    if (value === '-') return '-';
-    if (rank === 0) return `<b>${value}</b>`;
-    if (rank === 1) return `<u>${value}</u>`;
-    return value;
 }
 
 // Add CSS styles
