@@ -2,7 +2,7 @@
   "leaderboardData": [
     {
       "info": {
-        "name": "GPT-o1-20241217",
+        "name": "GPT-o1",
         "size": "-",
         "type": "proprietary",
         "link": "https://platform.openai.com/docs/models#o1"
@@ -136,7 +136,7 @@
     },
     {
       "info": {
-        "name": "PoT + GPT-o1-20241217",
+        "name": "PoT + GPT-o1",
         "size": "-",
         "type": "proprietary",
         "link": "https://platform.openai.com/docs/models#o1"
@@ -270,7 +270,7 @@
     },
     {
       "info": {
-        "name": "GPT-4o-20240806",
+        "name": "GPT-4o",
         "size": "-",
         "type": "proprietary",
         "link": "https://platform.openai.com/docs/models#gpt-4o"
@@ -404,7 +404,7 @@
     },
     {
       "info": {
-        "name": "OCR + Deepseek-R1-20250120",
+        "name": "* Deepseek-R1",
         "size": "-",
         "type": "open_source",
         "link": "https://api-docs.deepseek.com/news/news250120"
@@ -538,7 +538,7 @@
     },
     {
       "info": {
-        "name": "Claude-3.5-Sonnet-20241022",
+        "name": "Claude-3.5-Sonnet",
         "size": "-",
         "type": "proprietary",
         "link": "https://www.anthropic.com/news/3-5-models-and-computer-use"
@@ -672,7 +672,7 @@
     },
     {
       "info": {
-        "name": "OCR + Qwen-QwQ-32B",
+        "name": "* Qwen-QwQ-32B",
         "size": "-",
         "type": "open_source",
         "link": "https://huggingface.co/Qwen/QwQ-32B"

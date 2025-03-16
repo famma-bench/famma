@@ -324,13 +324,13 @@
                 </div>
                 <div class="content has-text-justified">
                     <p style="margin: 5px 0"><b>🚀 [2025-02-01]: Initial release of <a
-                            href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2501</a> dataset,
+                            href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-LivePro</a> dataset,
                         collected from invited experts! 🌟</b></p>
                     <p style="margin: 5px 0"><b>🚀 [2025-01-01]: Full release of <a
-                            href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset, now
+                            href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-Base</a> dataset, now
                         including answers and explanations with enhanced quality! 🌟</b></p>
                     <p style="margin: 5px 0"><b>🔥 [2024-06-01]: Initial public release of FAMMA benchmark (based on the
-                        <a href="https://huggingface.co/datasets/weaverbirdllm/famma">release_v2406</a> dataset), along
+                        <a href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-Base</a> dataset), along
                         with our paper <a href="https://arxiv.org/abs/2410.04526">FAMMA: A Benchmark for Financial
                             Domain Multilingual Multimodal Question Answering</a>. We welcome all submissions and look
                         forward to your participation! 😆</b></p>
@@ -345,10 +345,10 @@
                             benchmark refreshed every six months. Currently, the dataset includes two releases, totaling
                             approximately 2,000 questions:
                             <ul>
-                                <li><b>release_v2406</b>: it contains 1,935 questions sourced from online materials,
+                                <li><b>FAMMA-Base</b>: it contains 1,935 questions sourced from online materials,
                                     with corresponding answers and explanations.
                                 </li>
-                                <li><b>release_v2501</b>: it includes 103 expert-curated questions, provided without
+                                <li><b>FAMMA-LivePro</b>: it includes 103 expert-curated questions, provided without
                                     answers. This release serves as a <b>live benchmark</b> in its current stage.
                                 </li>
                             </ul>
@@ -374,59 +374,103 @@
             <div class="column is-full has-text-centered content">
                 <h2 class="title is-3 has-text-centered" style="margin-top: -60px;">Leaderboard</h2>
 
-                <!-- Date Slider -->
-                <div class="slider">
-                    <input type="range" min="0" max="1" value="1" step="1" class="slider is-fullwidth">
-                    <div class="date-tooltip">2025-01</div>
-          </div>
-
-                <div class="model-labels-container" style="margin-top: -20px; margin-bottom: 1vh;">
+                <div class="model-labels-container" style="margin-top: 20px; margin-bottom: 1vh;">
                     <span class="leaderboard-label open_source">Open-Source</span>
                     <span class="leaderboard-label proprietary">Proprietary</span>
-      </div>
+                </div>
+                
+                <!-- FIRST TABLE: LivePro (was previously second) -->
+                <h3 class="title is-4 has-text-centered">FAMMA-LivePro</h3>
 
-                <!-- Replace the existing table structure with this -->
+                <h6 class="title is-6 has-text-centered">Released on 2025-01</h6>
+                
                 <div class="leaderboard-container">
-          <div class="table-wrapper">
-                        <table id="combined-mmmu-table" class="mmmu-table">
+                    <div class="table-wrapper">
+                        <table id="live-table" class="mmmu-table">
                             <thead>
                                 <tr>
-                                    <th rowspan="2" style="width: 300px;">Model</th>
-                                    <th id="arithmetic-header" class="section-header" onclick="toggleTableSection('arithmetic')" style="cursor:pointer;" colspan="1">Arithmetic [+]</th>
-                                    <th id="no-arithmetic-header" class="section-header" onclick="toggleTableSection('no-arithmetic')" style="cursor:pointer;" colspan="1">Non-Arithmetic [+]</th>
-                                    <th id="overall-header" class="section-header" onclick="toggleTableSection('overall')" style="cursor:pointer;" colspan="1">Overall [+]</th>
-                </tr>
+                                    <th rowspan="2" style="width: 200px;">Model</th>
+                                    <th id="arithmetic-header-live" class="section-header" onclick="toggleTableSection('arithmetic', 'live')" style="cursor:pointer;" colspan="4">Arithmetic</th>
+                                    <th id="no-arithmetic-header-live" class="section-header" onclick="toggleTableSection('no-arithmetic', 'live')" style="cursor:pointer;" colspan="4">Non-Arithmetic</th>
+                                    <th id="overall-header-live" class="section-header" onclick="toggleTableSection('overall', 'live')" style="cursor:pointer;" colspan="1">Overall</th>
+                                </tr>
                                 <tr>
-                                    <!-- Arithmetic section -->
-                                    <th id="arithmetic-main" class="sortable" data-sort="number">Performance</th>
-                                    <th id="arithmetic-detail-1" class="detail-cell hidden" data-sort="number">Undergrad</th>
-                                    <th id="arithmetic-detail-2" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
-                                    <th id="arithmetic-detail-3" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
+                                    <!-- Headers remain the same -->
+                                    <th id="arithmetic-main-live" class="sortable" data-sort="number">Pass@1</th>
+                                    <th id="arithmetic-detail-1-live" class="detail-cell" data-sort="number">Undergrad</th>
+                                    <th id="arithmetic-detail-2-live" class="detail-cell" data-sort="number">Grad-Easy</th>
+                                    <th id="arithmetic-detail-3-live" class="detail-cell" data-sort="number">Grad-Hard</th>
                                     
-                                    <!-- Non-Arithmetic section -->
-                                    <th id="no-arithmetic-main" class="sortable" data-sort="number">Performance</th>
-                                    <th id="no-arithmetic-detail-1" class="detail-cell hidden" data-sort="number">Undergrad</th>
-                                    <th id="no-arithmetic-detail-2" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
-                                    <th id="no-arithmetic-detail-3" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
+                                    <th id="no-arithmetic-main-live" class="sortable" data-sort="number">Pass@1</th>
+                                    <th id="no-arithmetic-detail-1-live" class="detail-cell" data-sort="number">Undergrad</th>
+                                    <th id="no-arithmetic-detail-2-live" class="detail-cell" data-sort="number">Grad-Easy</th>
+                                    <th id="no-arithmetic-detail-3-live" class="detail-cell" data-sort="number">Grad-Hard</th>
                                     
-                                    <!-- Overall section -->
-                                    <th id="overall-main" class="sortable" data-sort="number">Performance</th>
-                                    <th id="overall-detail-1" class="detail-cell hidden" data-sort="number">Undergrad</th>
-                                    <th id="overall-detail-2" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
-                                    <th id="overall-detail-3" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
-                </tr>
-              </thead>
-              <tbody>
-                                <!-- Table body will be populated dynamically -->
-              </tbody>
-            </table>
-          </div>
-        </div>
+                                    <th id="overall-main-live" class="sortable sorted-desc" data-sort="number">Pass@1</th>
+                                    <th id="overall-detail-1-live" class="detail-cell hidden" data-sort="number">Undergrad</th>
+                                    <th id="overall-detail-2-live" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
+                                    <th id="overall-detail-3-live" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Live table body will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
-                <p class="test-desc"> Overall results of different models on the FAMMA leaderboard. The best-performing
-                    model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. *:
-                    results provided by the authors.</p>
-          </div>
+                <p class="test-desc">Overall results of different models on the FAMMA-LivePro leaderboard. The best-performing
+                    model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>.<br>*: use OCR to extract the image content and pass to the model.
+                <br>GPT o1 version: 2024-12-17, o1-mini version: 2024-09-12, 4o version: 2024-08-06
+                <br>Deepseek-R1 version: 2025-01-20, Qwen-QwQ-32B version: 2025-03-05
+            <br>Claude 3.5 Sonnet version: 2024-10-22</p>
+                
+                <!-- SECOND TABLE: Base (was previously first) -->
+                <h3 class="title is-4 has-text-centered" style="margin-top: 40px;">FAMMA-Base</h3>
+                
+                <h6 class="title is-6 has-text-centered">Released on 2024-06</h6>
+
+                <div class="leaderboard-container">
+                    <div class="table-wrapper">
+                        <table id="base-table" class="mmmu-table">
+                            <thead>
+                                <tr>
+                                    <th rowspan="2" style="width: 200px;">Model</th>
+                                    <th id="arithmetic-header-base" class="section-header" onclick="toggleTableSection('arithmetic', 'base')" style="cursor:pointer;" colspan="4">Arithmetic</th>
+                                    <th id="no-arithmetic-header-base" class="section-header" onclick="toggleTableSection('no-arithmetic', 'base')" style="cursor:pointer;" colspan="4">Non-Arithmetic</th>
+                                    <th id="overall-header-base" class="section-header" onclick="toggleTableSection('overall', 'base')" style="cursor:pointer;" colspan="1">Overall</th>
+                                </tr>
+                                <tr>
+                                    <!-- Headers remain the same -->
+                                    <th id="arithmetic-main-base" class="sortable" data-sort="number">Pass@1</th>
+                                    <th id="arithmetic-detail-1-base" class="detail-cell" data-sort="number">Undergrad</th>
+                                    <th id="arithmetic-detail-2-base" class="detail-cell" data-sort="number">Grad-Easy</th>
+                                    <th id="arithmetic-detail-3-base" class="detail-cell" data-sort="number">Grad-Hard</th>
+                                    
+                                    <th id="no-arithmetic-main-base" class="sortable" data-sort="number">Pass@1</th>
+                                    <th id="no-arithmetic-detail-1-base" class="detail-cell" data-sort="number">Undergrad</th>
+                                    <th id="no-arithmetic-detail-2-base" class="detail-cell" data-sort="number">Grad-Easy</th>
+                                    <th id="no-arithmetic-detail-3-base" class="detail-cell" data-sort="number">Grad-Hard</th>
+                                    
+                                    <th id="overall-main-base" class="sortable sorted-desc" data-sort="number">Pass@1</th>
+                                    <th id="overall-detail-1-base" class="detail-cell hidden" data-sort="number">Undergrad</th>
+                                    <th id="overall-detail-2-base" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
+                                    <th id="overall-detail-3-base" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Base table body will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <p class="test-desc">Overall results of different models on the FAMMA leaderboard. The best-performing
+                    model in each category is <b>in-bold</b>, and the second best is <u>underlined</u>. <br>*: use OCR to extract the image content and pass to the model.
+                    <br>GPT o1 version: 2024-12-17, o1-mini version: 2024-09-12, 4o version: 2024-08-06
+                    <br>Deepseek-R1 version: 2025-01-20, Qwen-QwQ-32B version: 2025-03-05
+                <br>Claude 3.5 Sonnet version: 2024-10-22</p>
+            </div>
         </div>
     </div>
 </section>
@@ -495,84 +539,192 @@
       </script>
 
 <script>
-    function toggleTableSection(section) {
-        console.log("Toggling section:", section);
-        
-        // Get header elements
-        const header = document.getElementById(`${section}-header`);
-        const isExpanding = header.textContent.includes('[+]');
-        
-        // Collapse all sections first
-        ['arithmetic', 'no-arithmetic', 'overall'].forEach(sec => {
-            const secHeader = document.getElementById(`${sec}-header`);
-            if (secHeader) {
-                secHeader.textContent = secHeader.textContent.replace('[-]', '[+]');
-                secHeader.setAttribute('colspan', '1');
-            }
-            
-            // Hide detail headers
-            for (let i = 1; i <= 3; i++) {
-                const detailHeader = document.getElementById(`${sec}-detail-${i}`);
-                if (detailHeader) detailHeader.classList.add('hidden');
-            }
-            
-            // Hide detail cells in rows
-            const rows = document.querySelectorAll('#combined-mmmu-table tbody tr');
-            rows.forEach(row => {
-                const cells = row.cells;
-                if (sec === 'arithmetic') {
-                    // Cells 2-4 are arithmetic details
-                    for (let i = 2; i <= 4; i++) {
-                        if (cells[i]) cells[i].classList.add('hidden');
-                    }
-                } else if (sec === 'no-arithmetic') {
-                    // Cells 6-8 are non-arithmetic details
-                    for (let i = 6; i <= 8; i++) {
-                        if (cells[i]) cells[i].classList.add('hidden');
-                    }
-                } else if (sec === 'overall') {
-                    // Cells 10-12 are overall details
-                    for (let i = 10; i <= 12; i++) {
-                        if (cells[i]) cells[i].classList.add('hidden');
-                    }
-                }
-            });
-        });
-        
-        // Now expand the clicked section if needed
-        if (isExpanding) {
-            header.textContent = header.textContent.replace('[+]', '[-]');
-            header.setAttribute('colspan', '4');
-            
-            // Show detail headers
-            for (let i = 1; i <= 3; i++) {
-                const detailHeader = document.getElementById(`${section}-detail-${i}`);
-                if (detailHeader) detailHeader.classList.remove('hidden');
-            }
-            
-            // Show detail cells in rows
-            const rows = document.querySelectorAll('#combined-mmmu-table tbody tr');
-            rows.forEach(row => {
-                const cells = row.cells;
-                if (section === 'arithmetic') {
-                    // Cells 2-4 are arithmetic details
-                    for (let i = 2; i <= 4; i++) {
-                        if (cells[i]) cells[i].classList.remove('hidden');
-                    }
-                } else if (section === 'no-arithmetic') {
-                    // Cells 6-8 are non-arithmetic details
-                    for (let i = 6; i <= 8; i++) {
-                        if (cells[i]) cells[i].classList.remove('hidden');
-                    }
-                } else if (section === 'overall') {
-                    // Cells 10-12 are overall details
-                    for (let i = 10; i <= 12; i++) {
-                        if (cells[i]) cells[i].classList.remove('hidden');
-                    }
-                }
-            });
-        }
+  function toggleTableSection(section) {
+    console.log("Toggling section:", section);
+    
+    const header = document.getElementById(`${section}-header`);
+    if (!header) return;
+    
+    const isExpanded = header.getAttribute('colspan') === '4';
+    
+    // Toggle this section
+    if (isExpanded) {
+      // Collapse
+      header.setAttribute('colspan', '1');
+      header.textContent = header.textContent.replace('[-]', '[+]');
+      
+      // Hide detail headers
+      for (let i = 1; i <= 3; i++) {
+        const detailEl = document.getElementById(`${section}-detail-${i}`);
+        if (detailEl) detailEl.classList.add('hidden');
+      }
+    } else {
+      // Expand
+      header.setAttribute('colspan', '4');
+      header.textContent = header.textContent.replace('[+]', '[-]');
+      
+      // Show detail headers
+      for (let i = 1; i <= 3; i++) {
+        const detailEl = document.getElementById(`${section}-detail-${i}`);
+        if (detailEl) detailEl.classList.remove('hidden');
+      }
     }
+    
+    // Call updateTableColumnVisibility after toggling
+    if (typeof updateTableColumnVisibility === 'function') {
+      updateTableColumnVisibility();
+    }
+  }
+</script>
+
+<!-- Add this script at the end of index.html, right before </body> -->
+<script>
+  // Simple function to initialize the table with expanded columns
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing table');
+    
+    // Wait a bit for everything to load
+    setTimeout(function() {
+      // Set the column headers to be expanded
+      const arithHeader = document.getElementById('arithmetic-header');
+      const noArithHeader = document.getElementById('no-arithmetic-header');
+      
+      if (arithHeader) arithHeader.setAttribute('colspan', '4');
+      if (noArithHeader) noArithHeader.setAttribute('colspan', '4');
+      
+      // Update the text
+      if (arithHeader) arithHeader.textContent = arithHeader.textContent.replace('[+]', '[-]');
+      if (noArithHeader) noArithHeader.textContent = noArithHeader.textContent.replace('[+]', '[-]');
+      
+      // Show the detail headers
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`arithmetic-detail-${i}`)?.classList.remove('hidden');
+        document.getElementById(`no-arithmetic-detail-${i}`)?.classList.remove('hidden');
+      }
+      
+      // Make sure the model name column is the right width
+      document.querySelectorAll('#combined-mmmu-table td:first-child, #combined-mmmu-table th:first-child').forEach(cell => {
+        cell.style.width = '200px';
+        cell.style.maxWidth = '200px';
+      });
+      
+      console.log('Table initialized');
+    }, 1000);
+  });
+</script>
+
+<script>
+  // Debug script - add this at the end of index.html
+  document.addEventListener('DOMContentLoaded', function() {
+    // Wait a bit for the table to load
+    setTimeout(function() {
+      console.log("Running debug checks on table...");
+      
+      // Check if table body has rows
+      const tableBody = document.querySelector('#combined-mmmu-table tbody');
+      if (tableBody) {
+        console.log(`Table body found with ${tableBody.children.length} rows`);
+        
+        // Check first row data
+        if (tableBody.children.length > 0) {
+          const firstRow = tableBody.children[0];
+          console.log(`First row has ${firstRow.cells.length} cells`);
+          
+          // Log cell contents
+          Array.from(firstRow.cells).forEach((cell, i) => {
+            console.log(`Cell ${i}: ${cell.textContent.trim()} (class: ${cell.className})`);
+          });
+        }
+      } else {
+        console.error("Table body not found!");
+      }
+      
+      // Check header states
+      const headers = {
+        arithmetic: document.getElementById('arithmetic-header'),
+        noArithmetic: document.getElementById('no-arithmetic-header'),
+        overall: document.getElementById('overall-header')
+      };
+      
+      console.log("Header states:", {
+        arithmetic: headers.arithmetic ? 
+          `colspan=${headers.arithmetic.getAttribute('colspan')}, text=${headers.arithmetic.textContent}` : 'not found',
+        noArithmetic: headers.noArithmetic ? 
+          `colspan=${headers.noArithmetic.getAttribute('colspan')}, text=${headers.noArithmetic.textContent}` : 'not found',
+        overall: headers.overall ? 
+          `colspan=${headers.overall.getAttribute('colspan')}, text=${headers.overall.textContent}` : 'not found'
+      });
+    }, 2000);
+  });
+</script>
+
+<script>
+  // Add this as the very last script in index.html, right before </body>
+  (function() {
+    console.clear(); // Clear previous console logs
+    console.log("Running final table cleanup script...");
+    
+    // Function to directly fix the non-arithmetic section which seems to be broken
+    function fixTable() {
+      // Get all rows in the table
+      const rows = document.querySelectorAll('#combined-mmmu-table tbody tr');
+      if (rows.length === 0) {
+        console.log("No rows found in table, will try again in 1 second");
+        setTimeout(fixTable, 1000);
+        return;
+      }
+      
+      console.log(`Found ${rows.length} rows, fixing data display`);
+      
+      // For each row, make sure all cells are visible
+      rows.forEach((row, index) => {
+        if (row.cells.length < 13) {
+          console.error(`Row ${index} has only ${row.cells.length} cells`);
+          return;
+        }
+        
+        // Make arithmetic and non-arithmetic detail cells visible
+        for (let i = 2; i <= 4; i++) {
+          row.cells[i]?.classList.remove('hidden');
+        }
+        for (let i = 6; i <= 8; i++) {
+          row.cells[i]?.classList.remove('hidden');
+        }
+        
+        // The above cells should be visible
+        // For each visible cell, check if it has content
+        for (let i = 0; i < row.cells.length; i++) {
+          if (i >= 2 && i <= 4 || i >= 6 && i <= 8) {
+            const content = row.cells[i].textContent.trim();
+            if (content === '' || content === '-') {
+              console.warn(`Row ${index} cell ${i} is empty, inserting placeholder`);
+              row.cells[i].innerHTML = '<span style="color:#888">0.00%</span>';
+            }
+          }
+        }
+      });
+      
+      // Make sure the section headers are correct
+      document.getElementById('arithmetic-header').setAttribute('colspan', '4');
+      document.getElementById('arithmetic-header').textContent = 'Arithmetic';
+      
+      document.getElementById('no-arithmetic-header').setAttribute('colspan', '4');
+      document.getElementById('no-arithmetic-header').textContent = 'Non-Arithmetic';
+      
+      // Show all detail headers
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById(`arithmetic-detail-${i}`)?.classList.remove('hidden');
+        document.getElementById(`no-arithmetic-detail-${i}`)?.classList.remove('hidden');
+      }
+      
+      console.log("Table fixed!");
+    }
+    
+    // Run immediately and also after a delay to catch late-loaded data
+    fixTable();
+    setTimeout(fixTable, 1500);
+    setTimeout(fixTable, 3000);
+  })();
 </script>
 
 </body>
