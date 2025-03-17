@@ -327,10 +327,10 @@
                             href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-LivePro</a> dataset,
                         collected from invited experts! 🌟</b></p>
                     <p style="margin: 5px 0"><b>🚀 [2025-01-01]: Full release of <a
-                            href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-Base</a> dataset, now
+                            href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-Basic</a> dataset, now
                         including answers and explanations with enhanced quality! 🌟</b></p>
                     <p style="margin: 5px 0"><b>🔥 [2024-06-01]: Initial public release of FAMMA benchmark (based on the
-                        <a href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-Base</a> dataset), along
+                        <a href="https://huggingface.co/datasets/weaverbirdllm/famma">FAMMA-Basic</a> dataset), along
                         with our paper <a href="https://arxiv.org/abs/2410.04526">FAMMA: A Benchmark for Financial
                             Domain Multilingual Multimodal Question Answering</a>. We welcome all submissions and look
                         forward to your participation! 😆</b></p>
@@ -345,7 +345,7 @@
                             benchmark refreshed every six months. Currently, the dataset includes two releases, totaling
                             approximately 2,000 questions:
                             <ul>
-                                <li><b>FAMMA-Base</b>: it contains 1,935 questions sourced from online materials,
+                                <li><b>FAMMA-Basics</b>: it contains 1,935 questions sourced from online materials,
                                     with corresponding answers and explanations.
                                 </li>
                                 <li><b>FAMMA-LivePro</b>: it includes 103 expert-curated questions, provided without
@@ -390,26 +390,26 @@
                             <thead>
                                 <tr>
                                     <th rowspan="2" style="width: 200px;">Model</th>
-                                    <th id="arithmetic-header-live" class="section-header" onclick="toggleTableSection('arithmetic', 'live')" style="cursor:pointer;" colspan="4">Arithmetic</th>
-                                    <th id="no-arithmetic-header-live" class="section-header" onclick="toggleTableSection('no-arithmetic', 'live')" style="cursor:pointer;" colspan="4">Non-Arithmetic</th>
-                                    <th id="overall-header-live" class="section-header" onclick="toggleTableSection('overall', 'live')" style="cursor:pointer;" colspan="1">Overall</th>
+                                    <th id="arithmetic-header-live" class="section-header" onclick="toggleTableSection('arithmetic', 'live')" style="cursor:pointer;" colspan="4">Arithmetic (Pass@1)</th>
+                                    <th id="no-arithmetic-header-live" class="section-header" onclick="toggleTableSection('no-arithmetic', 'live')" style="cursor:pointer;" colspan="4">Non-Arithmetic (Pass@1)</th>
+                                    <th id="overall-header-live" class="section-header" onclick="toggleTableSection('overall', 'live')" style="cursor:pointer; width: 150px;" colspan="1">Overall (Pass@1)</th>
                                 </tr>
                                 <tr>
                                     <!-- Headers remain the same -->
-                                    <th id="arithmetic-main-live" class="sortable" data-sort="number">Pass@1</th>
-                                    <th id="arithmetic-detail-1-live" class="detail-cell" data-sort="number">Undergrad</th>
-                                    <th id="arithmetic-detail-2-live" class="detail-cell" data-sort="number">Grad-Easy</th>
-                                    <th id="arithmetic-detail-3-live" class="detail-cell" data-sort="number">Grad-Hard</th>
+                                    <th id="arithmetic-main-live" class="sortable" data-sort="number">Overall</th>
+                                    <th id="arithmetic-detail-1-live" class="detail-cell" data-sort="number">Easy</th>
+                                    <th id="arithmetic-detail-2-live" class="detail-cell" data-sort="number">Medium</th>
+                                    <th id="arithmetic-detail-3-live" class="detail-cell" data-sort="number">Hard</th>
                                     
-                                    <th id="no-arithmetic-main-live" class="sortable" data-sort="number">Pass@1</th>
-                                    <th id="no-arithmetic-detail-1-live" class="detail-cell" data-sort="number">Undergrad</th>
-                                    <th id="no-arithmetic-detail-2-live" class="detail-cell" data-sort="number">Grad-Easy</th>
-                                    <th id="no-arithmetic-detail-3-live" class="detail-cell" data-sort="number">Grad-Hard</th>
+                                    <th id="no-arithmetic-main-live" class="sortable" data-sort="number">Overall</th>
+                                    <th id="no-arithmetic-detail-1-live" class="detail-cell" data-sort="number">Easy</th>
+                                    <th id="no-arithmetic-detail-2-live" class="detail-cell" data-sort="number">Medium</th>
+                                    <th id="no-arithmetic-detail-3-live" class="detail-cell" data-sort="number">Hard</th>
                                     
-                                    <th id="overall-main-live" class="sortable sorted-desc" data-sort="number">Pass@1</th>
-                                    <th id="overall-detail-1-live" class="detail-cell hidden" data-sort="number">Undergrad</th>
-                                    <th id="overall-detail-2-live" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
-                                    <th id="overall-detail-3-live" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
+                                    <th id="overall-main-live" class="sortable sorted-desc" data-sort="number" style="width: 150px;">Overall</th>
+                                    <th id="overall-detail-1-live" class="detail-cell hidden" data-sort="number">Easy</th>
+                                    <th id="overall-detail-2-live" class="detail-cell hidden" data-sort="number">Medium</th>
+                                    <th id="overall-detail-3-live" class="detail-cell hidden" data-sort="number">Hard</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -427,7 +427,7 @@
             <br>Gemini 2.0 Flash Thinking verson: exp-0120</p>
                 
                 <!-- SECOND TABLE: Base (was previously first) -->
-                <h3 class="title is-4 has-text-centered" style="margin-top: 40px;">FAMMA-Base</h3>
+                <h3 class="title is-4 has-text-centered" style="margin-top: 40px;">FAMMA-Basics</h3>
                 
                 <h6 class="title is-6 has-text-centered">Released on 2024-06</h6>
 
@@ -437,26 +437,26 @@
                             <thead>
                                 <tr>
                                     <th rowspan="2" style="width: 200px;">Model</th>
-                                    <th id="arithmetic-header-base" class="section-header" onclick="toggleTableSection('arithmetic', 'base')" style="cursor:pointer;" colspan="4">Arithmetic</th>
-                                    <th id="no-arithmetic-header-base" class="section-header" onclick="toggleTableSection('no-arithmetic', 'base')" style="cursor:pointer;" colspan="4">Non-Arithmetic</th>
-                                    <th id="overall-header-base" class="section-header" onclick="toggleTableSection('overall', 'base')" style="cursor:pointer;" colspan="1">Overall</th>
+                                    <th id="arithmetic-header-base" class="section-header" onclick="toggleTableSection('arithmetic', 'base')" style="cursor:pointer;" colspan="4">Arithmetic (Pass@1)</th>
+                                    <th id="no-arithmetic-header-base" class="section-header" onclick="toggleTableSection('no-arithmetic', 'base')" style="cursor:pointer;" colspan="4">Non-Arithmetic (Pass@1)</th>
+                                    <th id="overall-header-base" class="section-header" onclick="toggleTableSection('overall', 'base')" style="cursor:pointer; width: 150px;" colspan="1">Overall (Pass@1)</th>
                                 </tr>
                                 <tr>
                                     <!-- Headers remain the same -->
-                                    <th id="arithmetic-main-base" class="sortable" data-sort="number">Pass@1</th>
-                                    <th id="arithmetic-detail-1-base" class="detail-cell" data-sort="number">Undergrad</th>
-                                    <th id="arithmetic-detail-2-base" class="detail-cell" data-sort="number">Grad-Easy</th>
-                                    <th id="arithmetic-detail-3-base" class="detail-cell" data-sort="number">Grad-Hard</th>
+                                    <th id="arithmetic-main-base" class="sortable" data-sort="number">Overall</th>
+                                    <th id="arithmetic-detail-1-base" class="detail-cell" data-sort="number">Easy</th>
+                                    <th id="arithmetic-detail-2-base" class="detail-cell" data-sort="number">Medium</th>
+                                    <th id="arithmetic-detail-3-base" class="detail-cell" data-sort="number">Hard</th>
                                     
-                                    <th id="no-arithmetic-main-base" class="sortable" data-sort="number">Pass@1</th>
-                                    <th id="no-arithmetic-detail-1-base" class="detail-cell" data-sort="number">Undergrad</th>
-                                    <th id="no-arithmetic-detail-2-base" class="detail-cell" data-sort="number">Grad-Easy</th>
-                                    <th id="no-arithmetic-detail-3-base" class="detail-cell" data-sort="number">Grad-Hard</th>
+                                    <th id="no-arithmetic-main-base" class="sortable" data-sort="number">Overall</th>
+                                    <th id="no-arithmetic-detail-1-base" class="detail-cell" data-sort="number">Easy</th>
+                                    <th id="no-arithmetic-detail-2-base" class="detail-cell" data-sort="number">Medium</th>
+                                    <th id="no-arithmetic-detail-3-base" class="detail-cell" data-sort="number">Hard</th>
                                     
-                                    <th id="overall-main-base" class="sortable sorted-desc" data-sort="number">Pass@1</th>
-                                    <th id="overall-detail-1-base" class="detail-cell hidden" data-sort="number">Undergrad</th>
-                                    <th id="overall-detail-2-base" class="detail-cell hidden" data-sort="number">Grad-Easy</th>
-                                    <th id="overall-detail-3-base" class="detail-cell hidden" data-sort="number">Grad-Hard</th>
+                                    <th id="overall-main-base" class="sortable sorted-desc" data-sort="number" style="width: 150px;">Overall</th>
+                                    <th id="overall-detail-1-base" class="detail-cell hidden" data-sort="number">Easy</th>
+                                    <th id="overall-detail-2-base" class="detail-cell hidden" data-sort="number">Medium</th>
+                                    <th id="overall-detail-3-base" class="detail-cell hidden" data-sort="number">Hard</th>
                                 </tr>
                             </thead>
                             <tbody>
