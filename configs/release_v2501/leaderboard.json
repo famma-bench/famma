@@ -45,10 +45,10 @@
         "total_questions": 48
       },
       "consolidated": {
-        "overall_acc": 0.49514563106796117,
+        "overall_acc": 0.5145631067961165,
         "overall_acc_by_difficulty": {
           "easy": 0.7058823529411765,
-          "hard": 0.19230769230769232,
+          "hard": 0.2692307692307692,
           "medium": 0.5116279069767442
         },
         "overall_acc_by_difficulty_chinese": {
@@ -58,21 +58,21 @@
         },
         "overall_acc_by_difficulty_english": {
           "easy": 0.6666666666666666,
-          "hard": 0.375,
+          "hard": 0.5,
           "medium": 0.4666666666666667
         },
         "overall_acc_by_difficulty_french": {
           "easy": 0.7272727272727273,
-          "hard": 0.2,
+          "hard": 0.3,
           "medium": 0.6153846153846154
         },
         "overall_acc_by_language": {
           "chinese": 0.4411764705882353,
-          "english": 0.5142857142857142,
-          "french": 0.5294117647058824
+          "english": 0.5428571428571428,
+          "french": 0.5588235294117647
         },
         "overall_acc_by_subfield": {
-          "derivatives": 0.4166666666666667,
+          "derivatives": 0.4722222222222222,
           "economics": 1.0,
           "fixed income": 0.6176470588235294,
           "portfolio management": 0.0
@@ -83,10 +83,10 @@
         "total_questions": 103
       },
       "no_arithmetic": {
-        "overall_acc": 0.6909090909090909,
+        "overall_acc": 0.7272727272727273,
         "overall_acc_by_difficulty": {
           "easy": 0.9545454545454546,
-          "hard": 0.2777777777777778,
+          "hard": 0.3888888888888889,
           "medium": 0.8
         },
         "overall_acc_by_difficulty_chinese": {
@@ -96,21 +96,21 @@
         },
         "overall_acc_by_difficulty_english": {
           "easy": 0.875,
-          "hard": 0.5,
+          "hard": 0.6666666666666666,
           "medium": 0.8
         },
         "overall_acc_by_difficulty_french": {
           "easy": 1.0,
-          "hard": 0.3333333333333333,
+          "hard": 0.5,
           "medium": 0.8
         },
         "overall_acc_by_language": {
           "chinese": 0.631578947368421,
-          "english": 0.7368421052631579,
-          "french": 0.7058823529411765
+          "english": 0.7894736842105263,
+          "french": 0.7647058823529411
         },
         "overall_acc_by_subfield": {
-          "derivatives": 0.5454545454545454,
+          "derivatives": 0.6363636363636364,
           "economics": 1.0,
           "fixed income": 0.6111111111111112
         },
@@ -165,10 +165,10 @@
         "total_questions": 48
       },
       "consolidated": {
-        "overall_acc": 0.7669902912621359,
+        "overall_acc": 0.7864077669902912,
         "overall_acc_by_difficulty": {
           "easy": 0.9117647058823529,
-          "hard": 0.38461538461538464,
+          "hard": 0.46153846153846156,
           "medium": 0.8837209302325582
         },
         "overall_acc_by_difficulty_chinese": {
@@ -178,21 +178,21 @@
         },
         "overall_acc_by_difficulty_english": {
           "easy": 0.8333333333333334,
-          "hard": 0.5,
+          "hard": 0.625,
           "medium": 0.8666666666666667
         },
         "overall_acc_by_difficulty_french": {
           "easy": 0.9090909090909091,
-          "hard": 0.5,
+          "hard": 0.6,
           "medium": 0.9230769230769231
         },
         "overall_acc_by_language": {
           "chinese": 0.7352941176470589,
-          "english": 0.7714285714285715,
-          "french": 0.7941176470588235
+          "english": 0.8,
+          "french": 0.8235294117647058
         },
         "overall_acc_by_subfield": {
-          "derivatives": 0.6111111111111112,
+          "derivatives": 0.6666666666666666,
           "economics": 1.0,
           "fixed income": 0.7647058823529411,
           "portfolio management": 0.8888888888888888
@@ -203,10 +203,10 @@
         "total_questions": 103
       },
       "no_arithmetic": {
-        "overall_acc": 0.6909090909090909,
+        "overall_acc": 0.7272727272727273,
         "overall_acc_by_difficulty": {
           "easy": 0.9545454545454546,
-          "hard": 0.2777777777777778,
+          "hard": 0.3888888888888889,
           "medium": 0.8
         },
         "overall_acc_by_difficulty_chinese": {
@@ -216,21 +216,21 @@
         },
         "overall_acc_by_difficulty_english": {
           "easy": 0.875,
-          "hard": 0.5,
+          "hard": 0.6666666666666666,
           "medium": 0.8
         },
         "overall_acc_by_difficulty_french": {
           "easy": 1.0,
-          "hard": 0.3333333333333333,
+          "hard": 0.5,
           "medium": 0.8
         },
         "overall_acc_by_language": {
           "chinese": 0.631578947368421,
-          "english": 0.7368421052631579,
-          "french": 0.7058823529411765
+          "english": 0.7894736842105263,
+          "french": 0.7647058823529411
         },
         "overall_acc_by_subfield": {
-          "derivatives": 0.5454545454545454,
+          "derivatives": 0.6363636363636364,
           "economics": 1.0,
           "fixed income": 0.6111111111111112
         },
