@@ -1319,6 +1319,126 @@
         "total_french_questions": "19",
         "total_questions": 57
       }
+    },
+    {
+      "info": {
+        "name": "Gemini-1.5-Pro",
+        "size": "-",
+        "type": "proprietary",
+        "link": "https://cloud.google.com/vertex-ai/generative-ai/docs/learn/model-versions"
+      },
+      "arithmetic": {
+        "overall_acc": 0.08695652173913043,
+        "overall_acc_by_difficulty": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.16666666666666666
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.125
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.125
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.0,
+          "hard": 0.0,
+          "medium": 0.25
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.06666666666666667,
+          "english": 0.0625,
+          "french": 0.13333333333333333
+        },
+        "overall_acc_by_subfield": {
+          "derivatives": 0.0,
+          "fixed income": 0.25,
+          "portfolio management": 0.0
+        },
+        "total_chinese_questions": 15,
+        "total_english_questions": 16,
+        "total_french_questions": "15",
+        "total_questions": 46
+      },
+      "consolidated": {
+        "overall_acc": 0.27184466019417475,
+        "overall_acc_by_difficulty": {
+          "easy": 0.4117647058823529,
+          "hard": 0.16666666666666666,
+          "medium": 0.23076923076923078
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.36363636363636365,
+          "hard": 0.2,
+          "medium": 0.15384615384615385
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.4166666666666667,
+          "hard": 0.2,
+          "medium": 0.23076923076923078
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.45454545454545453,
+          "hard": 0.1,
+          "medium": 0.3076923076923077
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.23529411764705882,
+          "english": 0.2857142857142857,
+          "french": 0.29411764705882354
+        },
+        "overall_acc_by_subfield": {
+          "derivatives": 0.3888888888888889,
+          "economics": 0.26666666666666666,
+          "fixed income": 0.29411764705882354,
+          "portfolio management": 0.0
+        },
+        "total_chinese_questions": 34,
+        "total_english_questions": 35,
+        "total_french_questions": "34",
+        "total_questions": 103
+      },
+      "no_arithmetic": {
+        "overall_acc": 0.42105263157894735,
+        "overall_acc_by_difficulty": {
+          "easy": 0.5833333333333334,
+          "hard": 0.2777777777777778,
+          "medium": 0.3333333333333333
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.5,
+          "hard": 0.3333333333333333,
+          "medium": 0.2
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.625,
+          "hard": 0.3333333333333333,
+          "medium": 0.4
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.625,
+          "hard": 0.16666666666666666,
+          "medium": 0.4
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.3684210526315789,
+          "english": 0.47368421052631576,
+          "french": 0.42105263157894735
+        },
+        "overall_acc_by_subfield": {
+          "derivatives": 0.5833333333333334,
+          "economics": 0.26666666666666666,
+          "fixed income": 0.3333333333333333
+        },
+        "total_chinese_questions": "19",
+        "total_english_questions": 19,
+        "total_french_questions": "19",
+        "total_questions": 57
+      }
     }
   ]
 }
