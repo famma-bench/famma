@@ -1205,6 +1205,140 @@
         "total_french_questions": 58,
         "total_questions": 870
       }
+    },
+    {
+      "info": {
+        "name": "Qwen2.5-VL-7B-Instruct",
+        "size": "-",
+        "type": "open_source",
+        "link": "https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct"
+      },
+      "arithmetic": {
+        "overall_acc": 0.16930232558139535,
+        "overall_acc_by_difficulty": {
+          "easy": 0.18340611353711792,
+          "hard": 0.17065868263473055,
+          "medium": 0.14487632508833923
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.1346153846153846,
+          "hard": 0.1511627906976744,
+          "medium": 0.06593406593406594
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.19083969465648856,
+          "hard": 0.1762114537444934,
+          "medium": 0.1640625
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.15384615384615385,
+          "hard": 0.19047619047619047,
+          "medium": 0.21875
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.11353711790393013,
+          "english": 0.18181818181818182,
+          "french": 0.20408163265306123
+        },
+        "overall_acc_by_subfield": {
+          "alternative investments": 0.3181818181818182,
+          "corporate finance": 0.10526315789473684,
+          "derivatives": 0.12650602409638553,
+          "economics": 0.2857142857142857,
+          "equity": 0.20175438596491227,
+          "financial statement analysis": 0.10112359550561797,
+          "fixed income": 0.23780487804878048,
+          "portfolio management": 0.1919191919191919
+        },
+        "total_chinese_questions": 229,
+        "total_english_questions": 748,
+        "total_french_questions": 98,
+        "total_questions": 1075
+      },
+      "consolidated": {
+        "overall_acc": 0.23958868894601543,
+        "overall_acc_by_difficulty": {
+          "easy": 0.2478386167146974,
+          "hard": 0.2455012853470437,
+          "medium": 0.21775898520084566
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.23008849557522124,
+          "hard": 0.1951219512195122,
+          "medium": 0.11940298507462686
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.2539964476021314,
+          "hard": 0.2699822380106572,
+          "medium": 0.2777777777777778
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.16666666666666666,
+          "hard": 0.13725490196078433,
+          "medium": 0.19540229885057472
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.18004866180048662,
+          "english": 0.2648766328011611,
+          "french": 0.17307692307692307
+        },
+        "overall_acc_by_subfield": {
+          "alternative investments": 0.34782608695652173,
+          "corporate finance": 0.11524163568773234,
+          "derivatives": 0.19594594594594594,
+          "economics": 0.18181818181818182,
+          "equity": 0.3237410071942446,
+          "financial statement analysis": 0.1,
+          "fixed income": 0.2840909090909091,
+          "portfolio management": 0.2691029900332226
+        },
+        "total_chinese_questions": 411,
+        "total_english_questions": 1378,
+        "total_french_questions": 156,
+        "total_questions": 1945
+      },
+      "no_arithmetic": {
+        "overall_acc": 0.3264367816091954,
+        "overall_acc_by_difficulty": {
+          "easy": 0.3728813559322034,
+          "hard": 0.30180180180180183,
+          "medium": 0.3263157894736842
+        },
+        "overall_acc_by_difficulty_chinese": {
+          "easy": 0.3114754098360656,
+          "hard": 0.24358974358974358,
+          "medium": 0.23255813953488372
+        },
+        "overall_acc_by_difficulty_english": {
+          "easy": 0.4,
+          "hard": 0.3333333333333333,
+          "medium": 0.3951612903225806
+        },
+        "overall_acc_by_difficulty_french": {
+          "easy": 0.2,
+          "hard": 0.1,
+          "medium": 0.13043478260869565
+        },
+        "overall_acc_by_language": {
+          "chinese": 0.26373626373626374,
+          "english": 0.3634920634920635,
+          "french": 0.1206896551724138
+        },
+        "overall_acc_by_subfield": {
+          "alternative investments": 0.35714285714285715,
+          "corporate finance": 0.15,
+          "derivatives": 0.2846153846153846,
+          "economics": 0.13333333333333333,
+          "equity": 0.40853658536585363,
+          "financial statement analysis": 0.09090909090909091,
+          "fixed income": 0.36,
+          "portfolio management": 0.3442622950819672
+        },
+        "total_chinese_questions": 182,
+        "total_english_questions": 630,
+        "total_french_questions": 58,
+        "total_questions": 870
+      }
     }
   ]
 }
